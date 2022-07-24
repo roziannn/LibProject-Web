@@ -1,0 +1,57 @@
+h1 {
+    font-size: 46px;
+    font-weight: 700;
+    color: #2b3b4d;
+}
+
+h2, h4, h6 {
+    font-weight: 700;
+    color: #2b3b4d;
+}
+
+p {
+    font-size: 16px;
+}
+
+.front-text-group h5, h3 {
+    font-weight: 700;
+    color:#26b175;
+}
+
+
+.header-title{
+    margin-top: 70px;
+}
+
+.pt-50, .pb-50{
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.footer-nd{
+    margin-top: 150px;
+    margin-bottom: 10px;
+}
+
+.footer-nd .item-footer ul li {
+    padding-bottom: 10px;
+    list-style: none;
+}
+
+.footer-nd .item-footer ul {
+    margin-left: -32px;
+}
+
+.footer-nd .item-footer {
+    margin-bottom: 30px;
+}
+
+.footer-nd .item-footer ul li a {
+    text-decoration: none;
+    color: #34364a;
+}
+
+.footer-nd .item-footer ul li a:hover {
+    color: #0E66E7;
+}
+

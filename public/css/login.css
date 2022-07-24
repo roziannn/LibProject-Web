@@ -1,0 +1,83 @@
+body{
+    font-family: sans-serif;
+    background-color: #212529;
+    
+}
+
+.logos {
+    margin-top: 60px;
+    margin-left: 100px;
+}
+.right-area{
+    float: right;
+    background-color: #f8fafb;
+    padding-top: 60px;
+    padding-left: 100px;
+    width: 45%;
+    height: 730px;
+    box-sizing: border-box;
+}
+
+.left-area{
+    float: left;
+    width: 50%;
+    height: 100px;
+}
+
+.text-title h1{
+    color: #212529;
+    font-size: 30px;
+    font-weight: bold;
+}
+.text-title p {
+    font-size: 14px;
+}
+
+.text-title{
+    margin-top: 60px;
+    margin-bottom: 40px;
+    color: #474e54;
+}
+
+
+.login-box{
+    font-size: 14px;
+    margin-right: 40px;
+    float: right;
+}
+
+.form-control{
+    width: 472px;
+    margin-top: 10px;
+}
+
+.form-group{
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.btn{
+    margin-top: 40px;
+    width: 472px;
+    height: 52px;
+}
+
+.btn a{
+    color: #fff;
+    text-decoration: none;
+}
+
+.reg-btn{
+    margin-top: -20px;
+}
+
+a{
+    text-decoration:none;
+    color:darkgray;
+    font-size: 14px;
+}
+
+.forgotpass a:hover{
+    color: #0E66E7;
+    font-weight: bold;
+}
