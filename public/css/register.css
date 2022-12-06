@@ -14,14 +14,13 @@ body{
     padding-top: 60px;
     padding-left: 100px;
     width: 45%;
-    height: 730px;
+    height: 712px;
     box-sizing: border-box;
 }
 
 .left-area{
     float: left;
     width: 50%;
-    height: 100px;
 }
 
 .title {
@@ -62,7 +61,7 @@ body{
 }
 
 .form-group{
-    margin-bottom: 20px;
+    margin-bottom: 12px;
     font-size: 14px;
 }
 

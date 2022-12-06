@@ -1,15 +1,4 @@
-h1 {
-    font-size: 46px;
-    font-weight: 700;
-    color: #2b3b4d;
-}
-
-h2, h4, h6 {
-    font-weight: 700;
-    color: #2b3b4d;
-}
-
-p {
+=
     font-size: 16px;
 }
 
@@ -18,10 +7,6 @@ p {
     color:#26b175;
 }
 
-
-.header-title{
-    margin-top: 70px;
-}
 
 .pt-50, .pb-50{
     padding-top: 50px;

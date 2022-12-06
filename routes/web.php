@@ -6,7 +6,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\DashboardPostController;
-
+use App\Http\Controllers\UserController;
 use App\Models\Category;
 use App\Models\User;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
@@ -107,3 +107,6 @@ Route::get('/categories/{category:slug}', function(Category $category) {
     ]);
 });
 
+Route::get('/account/profile', [UserController::class, 'index']);
+Route::patch('/account', [UserController::class,'update'])
+        ->name('account.update');

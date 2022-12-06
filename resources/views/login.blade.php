@@ -58,10 +58,10 @@
                     <div class="log-btn">
                         <button type="submit" class="btn btn-primary">Masuk</a></button>
                     </div>
-                    <div class="reg-btn">
-                        <button type="submit" class="btn btn-secondary"><a href="/register">Daftar Akun</a></button>
-                    </div>
                 </form>
+                <div class="reg-btn">
+                    <a href="/register"><button type="submit" class="btn btn-secondary">Daftar Akun</button></a>
+                </div>
 
             </div>
             
