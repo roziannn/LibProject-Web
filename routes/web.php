@@ -107,6 +107,8 @@ Route::get('/categories/{category:slug}', function(Category $category) {
     ]);
 });
 
+#user settings
 Route::get('/account/profile', [UserController::class, 'index']);
 Route::patch('/account', [UserController::class,'update'])
-        ->name('account.update');
+->name('account.update');
+Route::get('/account/change-password', [UserController::class, 'changePassword']);

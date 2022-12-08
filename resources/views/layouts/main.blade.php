@@ -8,13 +8,15 @@
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/870589c011.js" crossorigin="anonymous"></script>
     <title>LibProject</title>
+    
+    @stack('styles')
 </head>
 
 <body>
 
 
 
-    <div class="container mt-5">
+    <div class="container pt-3">
         @yield('container')
 
     </div>

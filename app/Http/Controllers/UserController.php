@@ -14,7 +14,11 @@ class UserController extends Controller
      */
     public function index(Request $request)
     {
-        return view('user.dashboard.index', ['data' => $request->user()]);
+        return view('user.pengaturan.index', ['data' => $request->user()]);
+    }
+
+    public function changePassword(){
+        return view('user.pengaturan.change_password');
     }
 
     /**

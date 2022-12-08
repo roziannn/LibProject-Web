@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
 
-<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+<nav class="navbar navbar-expand-md navbar-dark bg-dark ">
     <div class="container">
       <a class="navbar-brand" href="/" ><img src="{{ asset("/img/logo.png")}}" class="img"></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -29,7 +29,7 @@
               Welcome, {{ auth()->user()->username }}
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="/account/profile"><i class="fa-solid fa-user"></i> Profile</a>
+              <a class="dropdown-item" href="/account/profile"><i class="fa-solid fa-gear"></i> Pengaturan</a>
               <a class="dropdown-item" href="/dashboard/posts"><i class="fa-solid fa-sheet-plastic"></i> My Project</a>
               <a class="dropdown-item" href="/dashboard/posts"><i class="fa-solid fa-sheet-plastic"></i> Dashboard</a>
               <hr class="dropdown-divider">
