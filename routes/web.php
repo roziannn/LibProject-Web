@@ -1,9 +1,9 @@
 <?php
 
-use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\DashboardPostController;
 use App\Http\Controllers\DashboardAdminController;
@@ -117,3 +117,8 @@ Route::get('/account/change-password', [UserController::class, 'changePassword']
 #admin dashboard
 Route::get('/dashboard/admin', [DashboardAdminController::class, 'index']);
 Route::get('/dashboard/admin/category', [CategoryController::class, 'index']);
+Route::get('/dashboard/admin/user', [UserController::class, 'dashboard_user']);
+
+#category
+Route::post('/dashboard/admin/category/store', [CategoryController::class,'store']);
+Route::get('/dashboard/admin/category/checkSlug', [CategoryController::class, 'checkSlug']);

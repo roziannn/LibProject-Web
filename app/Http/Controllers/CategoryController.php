@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use Illuminate\Http\Request;
+use \Cviebrock\EloquentSluggable\Services\SlugService;
 
 class CategoryController extends Controller
 {
@@ -13,7 +15,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return view('dashboard.layouts.admin.category.index');
+        $data = Category::all();
+        return view('dashboard.layouts.admin.category.index', compact('data'));
     }
 
     /**
@@ -34,8 +37,19 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Category::create($request->all());
+
+        $request->accepts('session');
+        session()->flash('success', 'Berhasil menambahkan data!');
+
+        return back();
     }
+
+    public function checkSlug(Request $request){
+
+        $slug = SlugService::createSlug(Category::class, 'slug', $request->name);
+        return response()->json(['slug'=> $slug]);
+        }
 
     /**
      * Display the specified resource.

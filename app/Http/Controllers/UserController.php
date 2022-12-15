@@ -94,4 +94,8 @@ class UserController extends Controller
     {
         //
     }
+
+    public function dashboard_user(){
+        return view('dashboard.layouts.admin.user.index');
+    }
 }

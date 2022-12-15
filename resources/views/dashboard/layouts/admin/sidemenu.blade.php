@@ -10,7 +10,7 @@
                 <i class="fa fa-times"></i>
             </button>
             </h3>
-            <a class="menu-setting-item" href="/account/profile">
+            <a class="menu-setting-item" href="/dashboard/admin/user">
                 <i class="fa fa-user"></i> User
             </a>
 
