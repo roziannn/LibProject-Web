@@ -31,11 +31,11 @@
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="/account/profile"><i class="fa-solid fa-gear"></i> Pengaturan</a>
               <a class="dropdown-item" href="/dashboard/posts"><i class="fa-solid fa-sheet-plastic"></i> My Project</a>
-              <a class="dropdown-item" href="/dashboard/posts"><i class="fa-solid fa-sheet-plastic"></i> Dashboard</a>
+              <a class="dropdown-item" href="/dashboard/admin"><i class="fa-solid fa-sheet-plastic"></i> Dashboard Admin</a>
               <hr class="dropdown-divider">
               <form class="mb-0" action="/logout" method="post">
                 @csrf
-                <button type="submit" class="dropdown-item"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</button>
+                <button type="submit" class="dropdown-item text-danger"><i class="fa-solid fa-arrow-right-from-bracket "></i> Logout</button>
               </form>
             </ul>
           </li>

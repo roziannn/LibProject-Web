@@ -1,9 +1,18 @@
+body {
+    padding: 0;
+    color: #3d3d3d;
+    font-family: Quicksand,sans-serif!important;
+    background: #fff!important;
+    padding-bottom: 0!important;
+}
+
+
 @media (min-width: 992px)
 .container, .container-lg, .container-md, .container-sm {
     max-width: 960px;
 }
 
-media (min-width: 768px)
+@media (min-width: 768px)
 .container, .container-md, .container-sm {
     max-width: 720px;
 }
@@ -11,6 +20,12 @@ media (min-width: 768px)
 @media (min-width: 576px)
 .container, .container-sm {
     max-width: 540px;
+}
+
+
+@media (min-width: 768px)
+.pl-md-0, .px-md-0 {
+    padding-left: 0!important;
 }
 
 
@@ -29,24 +44,6 @@ media (min-width: 768px)
     margin-bottom: 3rem!important;
 }
 
-@media (min-width: 768px)
-.pl-md-0, .px-md-0 {
-    padding-left: 0!important;
-}
-
-@media (min-width: 768px)
-.col-md-9 {
-    flex: 0 0 75%;
-    max-width: 75%;
-}
-
-.user-settings__wrapper {
-    padding: 2rem;
-    background: #fff;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-}
-
 .card, .dcd-card {
     position: relative;
     display: flex;
@@ -63,13 +60,13 @@ media (min-width: 768px)
     border: 1px solid rgba(0,0,0,.125)!important;
 }
 
-body {
-    padding: 0;
-    color: #3d3d3d;
-    font-family: Quicksand,sans-serif!important;
-    background: #fff!important;
-    padding-bottom: 0!important;
+.user-settings__wrapper {
+    padding: 2rem;
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
 }
+
 
 .user-settings__wrapper .form-group {
     margin-bottom: 1.5rem;

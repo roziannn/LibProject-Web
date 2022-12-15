@@ -2,7 +2,7 @@
     <div class="nav flex-column nav-pills settings-nav" aria-orientation="vertical">
         <div class="card user-settings__wrapper">
             <div class="user-settings__title">
-                <h4>Settings</h4>
+                <h4>Dashboard Admin</h4>
                 <hr>
             </div>
 
@@ -11,11 +11,11 @@
             </button>
             </h3>
             <a class="menu-setting-item" href="/account/profile">
-                <i class="fa fa-user"></i> Profile
+                <i class="fa fa-user"></i> User
             </a>
 
-            <a class="menu-setting-item" href="/account/change-password"><i class="fa fa-key">
-                </i> Password
+            <a class="menu-setting-item" href="/dashboard/admin/category"><i class="fa fa-key">
+                </i> Kategori
             </a>
         </div>
     </div>

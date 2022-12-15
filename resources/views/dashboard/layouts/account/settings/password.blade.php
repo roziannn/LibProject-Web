@@ -4,7 +4,7 @@
         <div class="col-md-9 pl-md-0">
             <div class="card user-settings__wrapper">
                 <div class="user-settings__title">
-                    <h4>Profile Account</h4>
+                    <h4>Password Account</h4>
                     <hr>
                 </div>
                 <form action="{{ route('account.update') }}" method="POST">
@@ -12,7 +12,7 @@
                     @csrf
                     <div class="form-group form-row">
                         <div class="col-md-9">
-                            <label class="control-label" for="name">Nama Lengkap<span class="text-danger">
+                            <label class="control-label" for="name">Password Lama<span class="text-danger">
                                     *</span></label>
                             <input type="text" class="form-control" id="name" name="name"
                                 value="">
@@ -21,7 +21,15 @@
                     </div>
                     <div class="form-group form-row">
                         <div class="col-md-9">
-                            <label class="control-label" for="username">Username</label>
+                            <label class="control-label" for="username">Password Baru</label>
+                            <input type="text" class="form-control" id="username" name="username"
+                                value="">
+                            <div class="text-danger err name"></div>
+                        </div>
+                    </div>
+                    <div class="form-group form-row">
+                        <div class="col-md-9">
+                            <label class="control-label" for="username">Konfirmasi Password Baru</label>
                             <input type="text" class="form-control" id="username" name="username"
                                 value="">
                             <div class="text-danger err name"></div>
