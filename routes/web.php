@@ -122,3 +122,4 @@ Route::get('/dashboard/admin/user', [UserController::class, 'dashboard_user']);
 #category
 Route::post('/dashboard/admin/category/store', [CategoryController::class,'store']);
 Route::get('/dashboard/admin/category/checkSlug', [CategoryController::class, 'checkSlug']);
+Route::get('/dashboard/admin/category/delete{id}', [CategoryController::class,'delete']);

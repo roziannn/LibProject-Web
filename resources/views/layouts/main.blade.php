@@ -40,8 +40,3 @@
     </body>
 
 </html>
-<style>
-    body {
-        background: #f8f9fa;
-    }
-</style>

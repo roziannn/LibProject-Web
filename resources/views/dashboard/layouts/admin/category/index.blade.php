@@ -7,6 +7,12 @@
             @include('dashboard.layouts.admin.sidemenu')
             <div class="col-md-9 pl-md-0">
                 <div class="card user-settings__wrapper">
+                    @if (session()->has('successDelete'))
+                        <div class="alert alert-primary alert-dismissible fade show" role="alert">
+                            {{ session('successDelete') }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-hidden="true"></button>
+                        </div>
+                    @endif
                     <div class="user-settings__title">
                         <h4>Data Kategori</h4>
                         <hr>
@@ -32,7 +38,12 @@
 
                                         <td>{{ $i++ }}</td>
                                         <td>{{ $item->name }}</td>
-                                        <td>Aksi</td>
+                                        <td>
+                                            <a href="#" class="btn btn-danger btn-sm ml-1" data-bs-toggle="modal"
+                                                data-bs-target="#modal-danger{{ $item->id }}">
+                                                <i class="fas fa-trash"></i>
+                                            </a>
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>
@@ -42,6 +53,33 @@
             </div>
         </div>
     </div>
+
+         {{-- danger modal --}}
+         @foreach ($data as $item)
+         <div class="modal fade" id="modal-danger{{ $item->id }}">
+             <div class="modal-dialog">
+                 <div class="modal-content">
+                     <div class="modal-header">
+                         <h5 class="modal-title">Konfirmasi</h5>
+                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                            </button>
+                     </div>
+                     <div class="modal-body">
+                         <form action="{{ url('/dashboard/admin/category/delete' . $item->id) }}" method="GET">
+                             {{ csrf_field() }}
+                             <p>Yakin ingin menghapus data?</p>
+                     </div>
+                     <div class="modal-footer">
+                         <button type="button" class="btn btn-light btn-sm pull-left"
+                             data-bs-dismiss="modal">Close</button>
+                         <button type="submit" class="btn btn-danger btn-sm">Hapus</button>
+                     </div>
+                     </form>
+                 </div>
+             </div>
+         </div>
+     @endforeach
+     
     <div class="modal fade" id="modal">
         <div class="modal-dialog modal-m">
             <div class="modal-content">
@@ -88,7 +126,6 @@
                 .then(data => slug.value = data.slug)
         });
     </script>
-
 @endsection
 
 @push('styles')

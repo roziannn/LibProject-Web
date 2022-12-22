@@ -95,4 +95,12 @@ class CategoryController extends Controller
     {
         //
     }
+
+    public function delete($id)
+    {
+        $data = Category::find($id);
+        $data->delete();
+
+        return back()->with('successDelete', 'Kategori berhasil di hapus!');
+    }
 }
