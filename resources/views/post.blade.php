@@ -35,10 +35,16 @@
             </div>
 
             <div class="col-md-4">
+                <h5>Komentar</h5>
+                <hr>
+                @foreach ($post->comments as $comment)
+                <div class="mt-3">
+                    <a href="#" style="text-decoration:none"> {{$comment->user->name }}</a>
+                    <p>{{ $comment->subject }}</p>
+                </div>
+                @endforeach
                 <form method="POST" action="/post-comment/{{ $post->id }}">
                     @csrf
-                    <h5>Komentar</h5>
-                    <hr>
                     <div class="form-group">
                         <label for="subject"></label>
                         <textarea class="form-control" name="subject" id="subject" rows="3" style="width: 100%;"></textarea>
