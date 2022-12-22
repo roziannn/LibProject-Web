@@ -62,7 +62,7 @@
                             <div class="col-md-12">
                                 <label class="small mt-3" for="slug">Kategori Slug</label>
                                 <input class="form-control" id="slug" name="slug" type="text"
-                                    placeholder="Masukan Kategori" required autocomplete="off">
+                                    placeholder="Masukan Kategori" required value="{{ old('slug') }}" autocomplete="off">
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -75,21 +75,22 @@
             </div>
         </div>
     </div>
+
+    <script>
+        //ambil isi field
+        const name = document.querySelector('#name');
+        const slug = document.querySelector('#slug');
+
+        name.addEventListener('change', function() {
+            fetch('/dashboard/admin/category/checkSlug?name=' + name.value)
+                //mengubah dari input name  value jd sebuah slug otomatiss
+                .then(response => response.json())
+                .then(data => slug.value = data.slug)
+        });
+    </script>
+
 @endsection
+
 @push('styles')
     <link href="{{ asset('css/settings.css') }}" rel="stylesheet">
 @endpush
-
-<script>
-    //ambil isi field
-    const name = document.querySelector('#name');
-    const slug = document.querySelector('#slug');
-    
-    title.addEventListener('change', function(){
-      fetch('/dashboard/admin/category/checkSlug?name=' + name.value)
-      //mengubah dari input name  value jd sebuah slug otomatiss
-      .then(response => response.json())
-      .then(data => slug.value = data.slug)
-    });
-  
-  </script>
