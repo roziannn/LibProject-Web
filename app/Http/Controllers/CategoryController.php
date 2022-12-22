@@ -101,6 +101,6 @@ class CategoryController extends Controller
         $data = Category::find($id);
         $data->delete();
 
-        return back()->with('successDelete', 'Kategori berhasil di hapus!');
+        return back()->with('successDelete', 'Kategori berhasil di hapus!!');
     }
 }

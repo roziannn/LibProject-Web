@@ -37,6 +37,11 @@ class Post extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function comments(){
+        return $this->hasMany(PostsComment::class);
+    }
+
+
     public function getRouteKeyName()
     {
      return 'slug';   

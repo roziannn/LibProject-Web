@@ -8,6 +8,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\DashboardPostController;
 use App\Http\Controllers\DashboardAdminController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\PostCommentController;
 use App\Models\Category;
 use App\Models\User;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
@@ -123,3 +124,6 @@ Route::get('/dashboard/admin/user', [UserController::class, 'dashboard_user']);
 Route::post('/dashboard/admin/category/store', [CategoryController::class,'store']);
 Route::get('/dashboard/admin/category/checkSlug', [CategoryController::class, 'checkSlug']);
 Route::get('/dashboard/admin/category/delete{id}', [CategoryController::class,'delete']);
+
+
+Route::post('/post-comment/{id}', [PostCommentController::class,'store']);
