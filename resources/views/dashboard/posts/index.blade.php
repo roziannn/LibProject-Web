@@ -30,15 +30,15 @@
                 <td>{{ $post->title }}</td>
                 <td>{{ $post->category->name }}</td>
                     <td>
-                        <a href="/dashboard/posts/{{ $post->slug }}" class="badge bg-info"><i class="fa-solid fa-eye"></i></a>
+                        <a href="/dashboard/posts/{{ $post->slug }}" class="btn btn-info btn-sm ml-1"><i class="fa-solid fa-eye"></i></a>
 
-                        <a href="/dashboard/posts/{{ $post->slug }}/edit" class="badge bg-warning"><i class="fa-solid fa-pen-to-square"></i></a>
+                        <a href="/dashboard/posts/{{ $post->slug }}/edit" class="btn btn-warning btn-sm ml-1"><i class="fa-solid fa-pen-to-square"></i></a>
 
                         <form action="/dashboard/posts/{{ $post->slug }}" method="post" class="d-inline">
                           @method('delete')
                           @csrf
                           
-                          <button class="badge bg-danger border-0" onclick="return confirm('Hapus project?')"><i class="fa-solid fa-trash"></i></button>
+                          <button class="btn btn-danger btn-sm ml-1" onclick="return confirm('Hapus project?')"><i class="fa-solid fa-trash"></i></button>
                         </form>
                     </td>
                 </tr>

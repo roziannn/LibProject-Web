@@ -4,7 +4,7 @@
     <link rel="stylesheet" href="css/home.style.css">
 
     <div class="text-center d-flex flex-column align-items-center">
-        <div class="header-title mt-5">
+        <div class="header-title mt-3">
             <h1>Perdalam Kemampuan Desain dan Code
                 <br class="d-none d-md-block"> Bersama Developer Lainnya
             </h1>

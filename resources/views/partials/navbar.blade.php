@@ -26,7 +26,7 @@
         @auth
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Welcome, {{ auth()->user()->username }}
+              Halo, {{ auth()->user()->username }}
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="/account/profile"><i class="fa-solid fa-gear"></i> Pengaturan</a>
