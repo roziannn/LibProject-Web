@@ -38,10 +38,11 @@
                 <h5>Komentar</h5>
                 <hr>
                 @foreach ($post->comments as $comment)
-                <div class="mt-3">
-                    <a href="#" style="text-decoration:none"> {{$comment->user->name }}</a>
-                    <p>{{ $comment->subject }}</p>
-                </div>
+                    <div class="d-flex flex-column">
+                        <a href="#" style="text-decoration:none"> {{ $comment->user->name }}</a>
+                        <p>{{ $comment->subject }}
+                        <br> <span style="font-size: 11px">{{ $comment->created_at->diffForhumans() }}</span></p>
+                    </div>
                 @endforeach
                 <form method="POST" action="/post-comment/{{ $post->id }}">
                     @csrf
