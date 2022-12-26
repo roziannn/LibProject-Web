@@ -127,3 +127,4 @@ Route::get('/dashboard/admin/category/delete{id}', [CategoryController::class,'d
 
 
 Route::post('/post-comment/{id}', [PostCommentController::class,'store']);
+Route::get('/post-comment/delete{id}', [PostCommentController::class,'delete']);

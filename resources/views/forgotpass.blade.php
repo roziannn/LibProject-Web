@@ -1,44 +1,35 @@
 @extends('layouts.main')
 @include('partials.navbar')
 @section('container')
-
-<div class="forgot-pass col-md-6 offset-md-3 white-bg pad-4">
-    <h1>Lupa Password</h1>
-</div>
-<div class="box-forgot-pass col-md-6 offset-md-3 white-bg pad-4">
-        <form action="">
-            <div class="form-group">
-                <label class="control-label" for="InputEmail">Email address</label>
-                <input type="email" class="form-control" id="InputEmail"  placeholder="Enter email">
-                <button type="submit" class="btn btn-primary px-3 font-weight-bold" data-label="Kirim Permintaan" style="margin-top:12px ;">Kirim Permintaan</button>
-            </div>
-        </form>
+    <div class="row my-5">
+        <div class="col-md-6 offset-md-3 white-bg pad-4">
+            <p>Lupa Password</p>
+            <hr>
+        </div>
+        <div class="col-md-6 offset-md-3 white-bg pad-4">
+            <form action="">
+                <div class="form-group">
+                    <label class="control-label" for="InputEmail">Email</label>
+                    <input type="email" class="form-control" style="width: 100%;" id="InputEmail" placeholder="Enter email">
+                    <div class="text-right mt-2">
+                        <button type="submit" class="btn btn-primary px-3 font-weight-bold" data-label="Kirim Permintaan"
+                            style="margin-top:12px ;">Kirim Permintaan</button>
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
+    <style>
+        p { 
+            font-size: 24px;
+        }
 
-<style>
-    h1{
-        margin-top: 40px;
-        font-size: 24px;
-        font-weight: 600;
-    }
-    #inputEmail{
-        width: 472px;
-        margin-top: 10px;
-    }
-    .forgot-pass{
-        margin-top: 60px;
-    }
-    .box-forgot-pass{
-        margin-top: 30px;
-        background-color: #fafafa;
-        width: 512px;
-        padding: 20px;
-        box-sizing: border-box;
-        border-radius: 12px;
-    }
+        #inputEmail {
+            margin-top: 10px;
+        }
 
-</style>
+        .form-control {
+            width: 100%;
+        }
+    </style>
 @endsection
-
-
-

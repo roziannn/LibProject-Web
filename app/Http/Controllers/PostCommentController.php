@@ -29,4 +29,11 @@ class PostCommentController extends Controller
        
        return redirect()->back();
     }
+
+    public function delete($id){
+        $data = PostsComment::find($id);
+        $data->delete();
+
+        return back();
+    }
 }

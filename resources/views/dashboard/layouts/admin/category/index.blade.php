@@ -3,7 +3,7 @@
 
 @section('container')
     <div class="container">
-        <div class="row my-5">
+        <div class="row my-3">
             @include('dashboard.layouts.admin.sidemenu')
             <div class="col-md-9 pl-md-0">
                 <div class="card user-settings__wrapper">
@@ -13,16 +13,15 @@
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-hidden="true"></button>
                         </div>
                     @endif
-                    <div class="user-settings__title">
+                    <div class="user-settings__title d-flex justify-content-between">
                         <h4>Data Kategori</h4>
-                        <hr>
-                    </div>
-                    <div class="col-md-12">
                         <div class="text-right">
                             <a href="#" class="btn-primary btn-sm ml-1 text-decoration-none"data-bs-toggle="modal"
                                 data-bs-target="#modal"> Tambah Kategori
                             </a>
                         </div>
+                    </div>
+                    <div class="col-md-12">
                         <table class="table mt-3">
                             <thead>
                                 <tr>

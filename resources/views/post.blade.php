@@ -39,9 +39,16 @@
                 <hr>
                 @foreach ($post->comments as $comment)
                     <div class="d-flex flex-column">
-                        <a href="#" style="text-decoration:none"> {{ $comment->user->name }}</a>
+                        <div class="d-flex justify-content-between">
+                            <a href="#" style="text-decoration:none"> {{ $comment->user->name }}</a>
+                            @if ($comment->user->name == auth()->user()->name)
+                                <a href="#" style="font-size: 13px; text-decoration:none;">Hapus</a>
+                            @endif
+                        </div>
                         <p>{{ $comment->subject }}
-                        <br> <span style="font-size: 11px">{{ $comment->created_at->diffForhumans() }}</span></p>
+                            <br> <span style="font-size: 11px">{{ $comment->created_at->diffForhumans() }}</span>
+                        </p>
+
                     </div>
                 @endforeach
                 <form method="POST" action="/post-comment/{{ $post->id }}">

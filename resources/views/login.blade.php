@@ -55,6 +55,7 @@
                         <input type="password" name="password" class="form-control" id="password"  required placeholder="Enter Password" required>
                         <p class="forgotpass" style="margin-top:10px;margin-left:364px;"><a href="/forgotpass">Lupa Password?</a></p>
                     </div>
+                    <a href="">Lupa password?</a>
                     <div class="log-btn">
                         <button type="submit" class="btn btn-primary">Masuk</a></button>
                     </div>
