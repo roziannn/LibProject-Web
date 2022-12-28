@@ -1,5 +1,5 @@
 <div class="container ">
-    <div class="row my-5">
+    <div class="row">
         @include('dashboard.layouts.account.settings.sidemenu')
         <div class="col-md-9 pl-md-0">
             <div class="card user-settings__wrapper">

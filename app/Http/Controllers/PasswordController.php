@@ -20,6 +20,9 @@ class PasswordController extends Controller
         'password' => Hash::make($request->get('password'))
         ]);
 
+        $request->accepts('session');
+        session()->flash('success', 'Password berhasil diubah!');
+
         return redirect()->back();
 
     }

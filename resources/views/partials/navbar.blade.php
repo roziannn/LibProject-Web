@@ -47,7 +47,7 @@
             @else
                 <li class="nav-item">
                     <!-- <a href="/login" class="nav-link"><i class="fa-solid fa-arrow-right-to-bracket"></i> Login</a>           -->
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">Login
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#loginModal">Login
                     </button>
                 </li>
             @endauth
@@ -56,7 +56,8 @@
 </nav>
 
 
-<div class="modal" id="myModal">
+
+<div class="modal" id="loginModal">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
@@ -64,20 +65,18 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
             <div class="modal-body">
-
                 @if (session()->has('success'))
                     <div class="alert alert-success alert-dismissible fade show" role="alert" style="width:100% ;">
                         {{ session('success') }}
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
                 @endif
-
-                @if (session()->has('loginError'))
+                {{-- @if (session()->has('loginError'))
                     <div class="alert alert-danger alert-dismissible fade show" role="alert" style="width:100% ;">
                         {{ session('loginError') }}
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
-                @endif
+                @endif --}}
                 <form action="/login" method="post">
                     @csrf
                     <div class="form-group mb-3">
@@ -95,7 +94,8 @@
                         <label for="password">Password</label>
                         <input type="password" name="password" class="form-control" id="password" required
                             placeholder="Enter Password" required>
-                        <p class="mt-2 mb-4"><a href="/forgotpass" style="font-size: 13px; text-decoration:none;">Lupa Password?</a></p> 
+                        <p class="mt-2 mb-4"><a href="/forgotpass"
+                                style="font-size: 13px; text-decoration:none;">Lupa Password?</a></p>
                     </div>
                     <div class="text-right justify-content-around mt-3">
                         <button type="submit" class="btn btn-primary">Masuk</a></button>

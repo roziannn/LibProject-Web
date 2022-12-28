@@ -3,7 +3,7 @@
 
 @section('container')
 <div class="container">
-    <div class="row my-3">
+    <div class="row">
         @include('dashboard.layouts.admin.sidemenu')
         <div class="col-md-9 pl-md-0">
             <div class="card user-settings__wrapper">

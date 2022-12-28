@@ -23,10 +23,10 @@ class LoginController extends Controller
         if(Auth::attempt($credentials)){
             $request->session()->regenerate();
 
-            return redirect()->intended('/');
+            return redirect()->back();
         }
 
-        return back()->with('loginError', 'Login failed!');
+        return redirect('/')->with('loginError', 'Login failed!');
     }
 
     public function logout(Request $request){

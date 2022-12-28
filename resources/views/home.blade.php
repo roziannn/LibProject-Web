@@ -2,7 +2,12 @@
 @include('partials.navbar')
 @section('container')
     <link rel="stylesheet" href="css/home.style.css">
-
+    @if (session()->has('loginError'))
+        <div class="alert alert-danger alert-dismissible fade show" role="alert" style="width:100% ;">
+            {{ session('loginError') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
     <div class="text-center d-flex flex-column align-items-center">
         <div class="header-title mt-3">
             <h1>Perdalam Kemampuan Desain dan Code
@@ -11,8 +16,6 @@
         </div>
     </div>
     @include('partials.menu')
-
-
 
     <section class="featured pt-50 pb-50">
         <div class="container">
