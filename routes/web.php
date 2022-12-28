@@ -8,6 +8,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\DashboardPostController;
 use App\Http\Controllers\DashboardAdminController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\PasswordController;
 use App\Http\Controllers\PostCommentController;
 use App\Models\Category;
 use App\Models\User;
@@ -113,7 +114,6 @@ Route::get('/categories/{category:slug}', function(Category $category) {
 Route::get('/account/profile', [UserController::class, 'index']);
 Route::patch('/account', [UserController::class,'update'])
 ->name('account.update');
-Route::get('/account/change-password', [UserController::class, 'changePassword']);
 
 #admin dashboard
 Route::get('/dashboard/admin', [DashboardAdminController::class, 'index']);
@@ -127,4 +127,10 @@ Route::get('/dashboard/admin/category/delete{id}', [CategoryController::class,'d
 
 
 Route::post('/post-comment/{id}', [PostCommentController::class,'store']);
-Route::get('/post-comment/delete{id}', [PostCommentController::class,'delete']);
+// Route::get('/post-comment/delete{id}', [PostCommentController::class,'delete']);
+
+#password change for user
+Route::get('/account/change-password', [PasswordController::class,'edit'])->middleware('auth');
+Route::patch('password', [PasswordController::class,'update'])
+        ->name('account.password.update')->middleware('auth');
+

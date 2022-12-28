@@ -17,9 +17,6 @@ class UserController extends Controller
         return view('user.pengaturan.index', ['data' => $request->user()]);
     }
 
-    public function changePassword(){
-        return view('user.pengaturan.change_password');
-    }
 
     /**
      * Show the form for creating a new resource.
