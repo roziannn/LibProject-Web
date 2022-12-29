@@ -28,7 +28,31 @@
                         alt="{{ $post->category->name }}" class="img-fluid">
                 @endif
 
-                <article class="my-3">
+                {{-- like and views --}}
+                {{-- 
+                <div class="d-flex justify-content-start mt-3">
+                    <div class="col-md-2">
+                        <i class="fa fa-heart text-secondary"></i>
+                        <p>1500</p>
+                    </div>
+                    <div class="p-2 bd-highligh">
+                        <i class="fa fa-eye text-secondary"></i>
+                        2000
+                    </div>
+                </div> --}}
+
+                <div class="d-flex mt-3">
+                    <div class="me-2 bd-highlight">
+                        <a class="text-static"><i
+                                class="fa fa-heart"></i> 95</a>
+                    </div>
+                    <div class="bd-highlight">
+                        <a class="text-static"><i
+                                class="fa fa-eye"></i> 1500</a>
+                    </div>
+                </div>
+
+                <article class="my-3 mt-3">
                     {!! $post->body !!}
                 </article>
                 <a href="/posts" class="d-block mt-5">Back to Project</a>
@@ -64,3 +88,11 @@
             </div>
         </div>
     @endsection
+<style>
+
+    .text-static{
+        color:#9e9ea7;
+        text-decoration: none;
+        font-size: 14px;
+    }
+</style>

@@ -26,7 +26,7 @@ class LoginController extends Controller
             return redirect()->back();
         }
 
-        return redirect('/')->with('loginError', 'Login failed!');
+        return redirect('/')->with('loginError', 'Login failed! Masukkan email dan password dengan benar.');
     }
 
     public function logout(Request $request){
