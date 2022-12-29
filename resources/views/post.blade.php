@@ -43,12 +43,12 @@
 
                 <div class="d-flex mt-3">
                     <div class="me-2 bd-highlight">
-                        <a class="text-static"><i
-                                class="fa fa-heart"></i> 95</a>
+                        <p class="text-static"><i
+                                class="fa fa-heart"></i> 95</P>
                     </div>
                     <div class="bd-highlight">
-                        <a class="text-static"><i
-                                class="fa fa-eye"></i> 1500</a>
+                        <p class="text-static"><i
+                                class="fa fa-eye"></i> 1500</P>
                     </div>
                 </div>
 

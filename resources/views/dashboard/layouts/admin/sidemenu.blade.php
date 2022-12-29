@@ -32,7 +32,7 @@
 
 .menu-setting-item {
     position: relative;
-    font-size: 18px;
+    font-size: 16px;
     display: flex;
     align-items: center;
     padding: 5px;

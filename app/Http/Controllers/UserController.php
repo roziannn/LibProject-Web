@@ -93,6 +93,9 @@ class UserController extends Controller
     }
 
     public function dashboard_user(){
-        return view('dashboard.layouts.admin.user.index');
+
+        $data = User::all();
+
+        return view('dashboard.layouts.admin.user.index', compact('data'));
     }
 }
