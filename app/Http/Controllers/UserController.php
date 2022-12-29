@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
@@ -94,8 +95,15 @@ class UserController extends Controller
 
     public function dashboard_user(){
 
-        $data = User::all();
+        $data = DB::select("SELECT * FROM users order by name asc");
 
+        return view('dashboard.layouts.admin.user.index', compact('data'));
+    }
+
+    public function dashboard_user_edit($id){
+        $data = User::find($id);
+
+        
         return view('dashboard.layouts.admin.user.index', compact('data'));
     }
 }

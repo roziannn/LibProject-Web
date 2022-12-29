@@ -116,7 +116,7 @@ Route::patch('/account', [UserController::class,'update'])
 ->name('account.update');
 
 #admin dashboard
-Route::get('/dashboard/admin', [DashboardAdminController::class, 'index']);
+Route::get('/dashboard/admin', [UserController::class, 'dashboard_user']);
 Route::get('/dashboard/admin/category', [CategoryController::class, 'index']);
 Route::get('/dashboard/admin/user', [UserController::class, 'dashboard_user']);
 

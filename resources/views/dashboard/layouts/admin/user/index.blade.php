@@ -37,8 +37,8 @@
                                         <td>yesterday</td>
                                         <td>
                                             <a href="#" class="btn-warning btn-sm ml-1" data-bs-toggle="modal"
-                                                data-bs-target="#modal-danger">
-                                                <i class="fas fa-pencil text-white"></i>
+                                                data-bs-target="#modal{{ $item->id }}">
+                                                <i class="fas fa-pen-to-square text-white"></i>
                                             </a>
                                         </td>
                                     </tr>
@@ -51,6 +51,33 @@
             </div>
         </div>
     </div>
+    @foreach ($data as $item)
+        <div class="modal fade" id="modal{{ $item->id }}">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Edit Data</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="{{ url('/dashboard/admin/category/delete' . $item->id) }}" method="GET">
+                            {{ csrf_field() }}
+                            <div class="col-sm-12">
+                                <label class="small mb-1" for="roles">Roles</label>
+                                <input class="form-control" id="roles" name="roles" type="text"
+                                    value="{{ $item->roles }}">
+                            </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-light btn-sm pull-left" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary btn-sm">Simpan</button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    @endforeach
 @endsection
 @push('styles')
     <link href="{{ asset('css/settings.css') }}" rel="stylesheet">
