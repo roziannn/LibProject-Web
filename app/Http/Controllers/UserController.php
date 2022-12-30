@@ -100,10 +100,16 @@ class UserController extends Controller
         return view('dashboard.layouts.admin.user.index', compact('data'));
     }
 
-    public function dashboard_user_edit($id){
-        $data = User::find($id);
+    public function dashboard_user_update(Request $request, $id){
+        // $data = User::find($id);
+        User::find($id)->update([
+            'roles' => $request->roles
+        ]);
 
         
-        return view('dashboard.layouts.admin.user.index', compact('data'));
+        $request->accepts('session');
+        session()->flash('success', 'Berhasil diubah!');
+
+        return redirect()->back();
     }
 }

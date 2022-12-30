@@ -61,12 +61,12 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form action="{{ url('/dashboard/admin/category/delete' . $item->id) }}" method="GET">
+                        <form action="{{ url('/dashboard/admin/user/edit' . $item->id) }}" method="POST">
                             {{ csrf_field() }}
                             <div class="col-sm-12">
                                 <label class="small mb-1" for="roles">Roles</label>
                                 <input class="form-control" id="roles" name="roles" type="text"
-                                    value="{{ $item->roles }}">
+                                    value="{{ $item->roles }}" autocomplete="off">
                             </div>
                     </div>
                     <div class="modal-footer">

@@ -119,6 +119,8 @@ Route::patch('/account', [UserController::class,'update'])
 Route::get('/dashboard/admin', [UserController::class, 'dashboard_user']);
 Route::get('/dashboard/admin/category', [CategoryController::class, 'index']);
 Route::get('/dashboard/admin/user', [UserController::class, 'dashboard_user']);
+// user edit by admin
+Route::post('/dashboard/admin/user/edit{id}', [UserController::class,'dashboard_user_update']);
 
 #category
 Route::post('/dashboard/admin/category/store', [CategoryController::class,'store']);
