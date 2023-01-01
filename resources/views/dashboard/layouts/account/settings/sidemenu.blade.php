@@ -38,6 +38,7 @@
     padding: 5px;
     color: #333!important;
     text-decoration: none;
+    font-size : 14px;
 }
 
 .fa {

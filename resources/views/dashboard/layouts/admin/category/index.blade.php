@@ -38,7 +38,7 @@
                                         <td>{{ $i++ }}</td>
                                         <td>{{ $item->name }}</td>
                                         <td>
-                                            <a href="#" class="btn btn-danger btn-sm ml-1" data-bs-toggle="modal"
+                                            <a href="#" class="btn-danger btn-sm ml-1" data-bs-toggle="modal"
                                                 data-bs-target="#modal-danger{{ $item->id }}">
                                                 <i class="fas fa-trash"></i>
                                             </a>

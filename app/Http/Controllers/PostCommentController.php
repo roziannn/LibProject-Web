@@ -31,9 +31,13 @@ class PostCommentController extends Controller
     }
 
     public function delete($id){
-        $data = PostsComment::find($id);
-        $data->delete();
+        $comment = PostsComment::find($id);
 
+        if($comment->user_id != Auth::user()->id)
+        abort(403);
+
+        $comment->delete();
+        
         return back();
     }
 }

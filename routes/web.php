@@ -129,7 +129,7 @@ Route::get('/dashboard/admin/category/delete{id}', [CategoryController::class,'d
 
 
 Route::post('/post-comment/{id}', [PostCommentController::class,'store']);
-// Route::get('/post-comment/delete{id}', [PostCommentController::class,'delete']);
+Route::get('/post-comment/delete/{id}', [PostCommentController::class,'delete']);
 
 #password change for user
 Route::get('/account/change-password', [PasswordController::class,'edit'])->middleware('auth');

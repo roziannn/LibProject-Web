@@ -65,8 +65,8 @@
                     <div class="d-flex flex-column">
                         <div class="d-flex justify-content-between">
                             <a href="#" style="text-decoration:none"> {{ $comment->user->name }}</a>
-                            @if ($comment->user->name == auth()->user()->name)
-                                <a href="#" style="font-size: 13px; text-decoration:none;">Hapus</a>
+                            @if ($comment->user->id == auth()->user()->id)
+                                <a href="/post-comment/delete/{{ $comment->id }}" style="font-size: 13px; text-decoration:none;">Hapus</a>
                             @endif
                         </div>
                         <p>{{ $comment->subject }}
