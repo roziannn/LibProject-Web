@@ -34,20 +34,23 @@
                         alt="{{ $post->category->name }}" class="img-fluid">
                 @endif
 
-      
+
 
                 <div class="d-flex mt-3">
+                   
+                        <span>{{ $post->likes_count }}</span>
+                
                     <button class="btn btn-primary btn-sm" onclick="like({{ $post->id }}, this)">
-                        {{ ($post->is_liked() ? 'unlike' : 'like') }}
+                        {{ $post->is_liked() ? 'unlike' : 'like' }}
                     </button>
 
                     <script>
-                        function like(id, el){
-                            fetch('/like/POST/'+ id)
-                            .then(response => response.json())
-                            .then(data=>{
-                                el.innerText = (data.status == 'LIKE') ? 'unlike' : 'like'
-                            });
+                        function like(id, el) {
+                            fetch('/like/POST/' + id)
+                                .then(response => response.json())
+                                .then(data => {
+                                    el.innerText = (data.status == 'LIKE') ? 'unlike' : 'like'
+                                });
                         }
                     </script>
                 </div>
@@ -71,23 +74,27 @@
                                     style="font-size: 13px; text-decoration:none;">Hapus</a>
                             @endif
 
-                            {{-- like untuk komentar --}}
-                            <button class="btn btn-primary btn-sm" onclick="likeForComment({{ $comment->id }}, this)">
-                                {{ ($comment->is_liked() ? 'unlike' : 'like') }}
-                            </button>
+
                             <script>
-                                function likeForComment(id, el){
-                                    fetch('/like/COMMENT/'+ id)
-                                    .then(response => response.json())
-                                    .then(data=>{
-                                        el.innerText = (data.status == 'LIKE') ? 'unlike' : 'like'
-                                    });
+                                function likeForComment(id, el) {
+                                    fetch('/like/COMMENT/' + id)
+                                        .then(response => response.json())
+                                        .then(data => {
+                                            el.innerText = (data.status == 'LIKE') ? 'unlike' : 'like'
+                                        });
                                 }
                             </script>
                         </div>
-                        <p>{{ $comment->subject }}
-                            <br> <span style="font-size: 11px">{{ $comment->created_at->diffForhumans() }}</span>
-                        </p>
+                        <div class="d-flex">
+                            <p>{{ $comment->subject }}
+                                <br>
+                                <span style="font-size: 11px">{{ $comment->created_at->diffForhumans() }}</span>
+                                {{-- like untuk komentar --}}
+                                <a href="#" onclick="likeForComment({{ $comment->id }}, this)">
+                                    {{ $comment->is_liked() ? 'unlike' : 'like' }}
+                                </a>
+                            </p>
+                        </div>
 
                     </div>
                 @endforeach

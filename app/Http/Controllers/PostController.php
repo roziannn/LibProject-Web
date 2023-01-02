@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Like;
 use App\Models\Post;
-use App\Http\Requests\StorePostRequest;
-use App\Http\Requests\UpdatePostRequest;
 use App\Models\Category;
 use App\Models\PostsComment;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\StorePostRequest;
+use App\Http\Requests\UpdatePostRequest;
 
 class PostController extends Controller
 {
@@ -34,9 +37,8 @@ class PostController extends Controller
 
     public function show(Post $post){
 
-        return view('post', [
-            "title" => "Single Post",
-            "active" => 'posts',
+        $post->loadCount('likes'); 
+        return view('post', ["title" => "Single Post","active" => 'posts',
             "post" => $post
         ]);
     }
