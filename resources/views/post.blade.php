@@ -2,6 +2,12 @@
 @include('partials.navbar')
 
 @section('container')
+    @if (session()->has('deleteSuccess'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ session('deleteSuccess') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
     <div class="container">
         <div class="row justify-content-left mb-5">
             <div class="col-md-8">
@@ -28,28 +34,22 @@
                         alt="{{ $post->category->name }}" class="img-fluid">
                 @endif
 
-                {{-- like and views --}}
-                {{-- 
-                <div class="d-flex justify-content-start mt-3">
-                    <div class="col-md-2">
-                        <i class="fa fa-heart text-secondary"></i>
-                        <p>1500</p>
-                    </div>
-                    <div class="p-2 bd-highligh">
-                        <i class="fa fa-eye text-secondary"></i>
-                        2000
-                    </div>
-                </div> --}}
+      
 
                 <div class="d-flex mt-3">
-                    <div class="me-2 bd-highlight">
-                        <p class="text-static"><i
-                                class="fa fa-heart"></i> 95</P>
-                    </div>
-                    <div class="bd-highlight">
-                        <p class="text-static"><i
-                                class="fa fa-eye"></i> 1500</P>
-                    </div>
+                    <button class="btn-primary btn-sm" onclick="like({{ $post->id }}, this)">
+                        {{ ($post->is_liked() ? 'unlike' : 'like') }}
+                    </button>
+
+                    <script>
+                        function like(id, el){
+                            fetch('/like/'+ id)
+                            .then(response => response.json())
+                            .then(data=>{
+                                el.innerText = (data.status == 'LIKE') ? 'unlike' : 'like'
+                            });
+                        }
+                    </script>
                 </div>
 
                 <article class="my-3 mt-3">
@@ -61,12 +61,14 @@
             <div class="col-md-4">
                 <h5>Komentar</h5>
                 <hr>
+
                 @foreach ($post->comments as $comment)
                     <div class="d-flex flex-column">
                         <div class="d-flex justify-content-between">
                             <a href="#" style="text-decoration:none"> {{ $comment->user->name }}</a>
                             @if ($comment->user->id == auth()->user()->id)
-                                <a href="/post-comment/delete/{{ $comment->id }}" style="font-size: 13px; text-decoration:none;">Hapus</a>
+                                <a href="/post-comment/delete{{ $comment->id }}"
+                                    style="font-size: 13px; text-decoration:none;">Hapus</a>
                             @endif
                         </div>
                         <p>{{ $comment->subject }}
@@ -88,11 +90,10 @@
             </div>
         </div>
     @endsection
-<style>
-
-    .text-static{
-        color:#9e9ea7;
-        text-decoration: none;
-        font-size: 14px;
-    }
-</style>
+    <style>
+        .text-static {
+            color: #9e9ea7;
+            text-decoration: none;
+            font-size: 14px;
+        }
+    </style>

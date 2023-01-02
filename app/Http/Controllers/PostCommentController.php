@@ -37,7 +37,7 @@ class PostCommentController extends Controller
         abort(403);
 
         $comment->delete();
-        
-        return back();
+
+        return back()->with('deleteSuccess', 'Komentar berhasil dihapus!');
     }
 }

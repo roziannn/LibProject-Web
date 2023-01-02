@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
+use Illuminate\Support\Facades\Auth;
 
 class Post extends Model
 {
@@ -39,6 +40,15 @@ class Post extends Model
 
     public function comments(){
         return $this->hasMany(PostsComment::class);
+    }
+
+    public function likes(){
+        return $this->hasMany(Like::class);
+    }
+
+    public function is_liked(){
+        return $this->likes->where('user_id', Auth::user()->id)->count();
+        //is_liked = udah di like atau belum sama usernya
     }
 
 
