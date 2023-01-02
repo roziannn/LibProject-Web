@@ -139,5 +139,5 @@ Route::patch('password', [PasswordController::class,'update'])
 
 #like system
 Route::middleware('auth')->group(function(){
-    Route::get('/like/{post_id}', [LikeController::class,'toggle']);
+    Route::get('/like/{type}/{post_id}', [LikeController::class,'toggle']);
 });

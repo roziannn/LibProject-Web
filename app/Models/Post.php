@@ -2,14 +2,15 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\LikesTrait;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Post extends Model
 {
-    use HasFactory, Sluggable;
+    use HasFactory, Sluggable, LikesTrait;
 
     protected $guarded = ['id'];
     protected $with = ['category', 'user'];
@@ -41,16 +42,6 @@ class Post extends Model
     public function comments(){
         return $this->hasMany(PostsComment::class);
     }
-
-    public function likes(){
-        return $this->hasMany(Like::class);
-    }
-
-    public function is_liked(){
-        return $this->likes->where('user_id', Auth::user()->id)->count();
-        //is_liked = udah di like atau belum sama usernya
-    }
-
 
     public function getRouteKeyName()
     {

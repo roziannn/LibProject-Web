@@ -3,22 +3,29 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\PostsComment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class LikeController extends Controller
 {
-    public function toggle($post_id){
+    public function toggle($type, $object_id){
 
-        $post = Post::findOrFail($post_id);
+        if($type == "POST"){
+            $object = Post::findOrFail($object_id);
+        }else{
+            $object = PostsComment::findOrFail($object_id);
+        }
+
+        
         $data = ['user_id' => Auth::user()->id];
 
         //if user udah like, delete like nya jadi unlike. kalau belum, statusnya baru di 'like'
-        if($post->likes()->where($data)->exists()){
-            $post->likes()->where($data)->delete();
+        if($object->likes()->where($data)->exists()){
+            $object->likes()->where($data)->delete();
             $msg = ['status' => 'UNLIKE'];
         } else {
-            $post->likes()->create($data);
+            $object->likes()->create($data);
             $msg = ['status' => 'LIKE'];
         }
 

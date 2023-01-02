@@ -37,13 +37,13 @@
       
 
                 <div class="d-flex mt-3">
-                    <button class="btn-primary btn-sm" onclick="like({{ $post->id }}, this)">
+                    <button class="btn btn-primary btn-sm" onclick="like({{ $post->id }}, this)">
                         {{ ($post->is_liked() ? 'unlike' : 'like') }}
                     </button>
 
                     <script>
                         function like(id, el){
-                            fetch('/like/'+ id)
+                            fetch('/like/POST/'+ id)
                             .then(response => response.json())
                             .then(data=>{
                                 el.innerText = (data.status == 'LIKE') ? 'unlike' : 'like'
