@@ -40,7 +40,7 @@ class Post extends Model
     }
 
     public function comments(){
-        return $this->hasMany(PostsComment::class);
+        return $this->hasMany(PostsComment::class)->withCount('likes')->orderBy('created_at', 'desc');
     }
 
     public function getRouteKeyName()

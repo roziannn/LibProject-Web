@@ -37,22 +37,13 @@
 
 
                 <div class="d-flex mt-3">
-                   
-                        <span>{{ $post->likes_count }}</span>
-                
-                    <button class="btn btn-primary btn-sm" onclick="like({{ $post->id }}, this)">
+
+                    <span id="post-likescount-{{ $post->id }}">{{ $post->likes_count }}</span>
+
+                    <button class="btn btn-primary btn-sm" id="post-btn-{{ $post->id }}"
+                        onclick="like({{ $post->id }})">
                         {{ $post->is_liked() ? 'unlike' : 'like' }}
                     </button>
-
-                    <script>
-                        function like(id, el) {
-                            fetch('/like/POST/' + id)
-                                .then(response => response.json())
-                                .then(data => {
-                                    el.innerText = (data.status == 'LIKE') ? 'unlike' : 'like'
-                                });
-                        }
-                    </script>
                 </div>
 
                 <article class="my-3 mt-3">
@@ -74,25 +65,18 @@
                                     style="font-size: 13px; text-decoration:none;">Hapus</a>
                             @endif
 
-
-                            <script>
-                                function likeForComment(id, el) {
-                                    fetch('/like/COMMENT/' + id)
-                                        .then(response => response.json())
-                                        .then(data => {
-                                            el.innerText = (data.status == 'LIKE') ? 'unlike' : 'like'
-                                        });
-                                }
-                            </script>
                         </div>
                         <div class="d-flex">
                             <p>{{ $comment->subject }}
                                 <br>
                                 <span style="font-size: 11px">{{ $comment->created_at->diffForhumans() }}</span>
                                 {{-- like untuk komentar --}}
-                                <a href="#" onclick="likeForComment({{ $comment->id }}, this)">
+                                <a href="#" id="comment-btn-{{ $comment->id }}"
+                                    onclick="like({{ $comment->id }}, 'COMMENT')">
                                     {{ $comment->is_liked() ? 'unlike' : 'like' }}
                                 </a>
+                                <span style="font-size: 11px"
+                                    id="comment-likescount-{{ $comment->id }}">{{ $comment->likes_count }}</span>
                             </p>
                         </div>
 
@@ -118,3 +102,40 @@
             font-size: 14px;
         }
     </style>
+
+    {{-- script condition while user click like post and like comment button  --}}
+    <script>
+        function like(id, type = 'POST') {
+            // default type = post
+
+            let likesCount = 0 //count from 0
+            let el = ''
+
+            if (type == 'POST') {
+                el = document.getElementById('post-btn-' + id)
+                likesCount = document.getElementById('post-likescount-' + id)
+
+            } else {
+                el = document.getElementById('comment-btn-' + id)
+                likesCount = document.getElementById('comment-likescount-' + id)
+
+            }
+
+
+            fetch('/like/' + type + '/' + id)
+                .then(response => response.json())
+                .then(data => {
+                    let currentCount = 0
+                    
+                    if (data.status == 'LIKE') {
+                        currentCount = parseInt(likesCount.innerHTML) + 1
+                        el.innerText = 'unlike'
+                    } else {
+                        currentCount = parseInt(likesCount.innerHTML) - 1
+                        el.innerText = 'like'
+                    }
+
+                    likesCount.innerHTML = currentCount
+                });
+        }
+    </script>
