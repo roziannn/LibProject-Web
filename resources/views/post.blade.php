@@ -70,6 +70,20 @@
                                 <a href="/post-comment/delete{{ $comment->id }}"
                                     style="font-size: 13px; text-decoration:none;">Hapus</a>
                             @endif
+
+                            {{-- like untuk komentar --}}
+                            <button class="btn btn-primary btn-sm" onclick="likeForComment({{ $comment->id }}, this)">
+                                {{ ($comment->is_liked() ? 'unlike' : 'like') }}
+                            </button>
+                            <script>
+                                function likeForComment(id, el){
+                                    fetch('/like/COMMENT/'+ id)
+                                    .then(response => response.json())
+                                    .then(data=>{
+                                        el.innerText = (data.status == 'LIKE') ? 'unlike' : 'like'
+                                    });
+                                }
+                            </script>
                         </div>
                         <p>{{ $comment->subject }}
                             <br> <span style="font-size: 11px">{{ $comment->created_at->diffForhumans() }}</span>
