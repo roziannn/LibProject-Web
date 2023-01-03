@@ -104,14 +104,19 @@ class UserController extends Controller
         );
 
         
-
         $request->accepts('session');
         session()->flash('success', 'Berhasil mengubah profil!');
 
         return redirect()->back();
     }
 
+    public function notification(){
+        $user = Auth::user();
+        
+        $notifications = $user->notifications();
 
+        return view('user.notification', compact('notifications'));
+    }
 
     /**
      * Remove the specified resource from storage.

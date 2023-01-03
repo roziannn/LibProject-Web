@@ -141,3 +141,8 @@ Route::patch('password', [PasswordController::class,'update'])
 Route::middleware('auth')->group(function(){
     Route::get('/like/{type}/{post_id}', [LikeController::class,'toggle']);
 });
+
+#notification system
+Route::middleware('auth')->group(function(){
+    Route::get('/notification', [UserController::class,'notification']);
+});
