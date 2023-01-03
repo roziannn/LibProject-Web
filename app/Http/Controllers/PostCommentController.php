@@ -45,7 +45,7 @@ class PostCommentController extends Controller
             Notification::create([
                 'user_id' => $target_id,
                 'post_id' => $post_id,
-                'message' => 'komentar baru dari' . '' . $user->username
+                'message' => 'komentar baru dari ' . $user->username
             ]);
     }
 

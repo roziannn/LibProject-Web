@@ -113,9 +113,9 @@ class UserController extends Controller
     public function notification(){
         $user = Auth::user();
         
-        $notifications = $user->notifications();
+        $notifs = $user->notifications;
 
-        return view('user.notification', compact('notifications'));
+        return view('user.notifications.index', compact('notifs'));
     }
 
     /**
