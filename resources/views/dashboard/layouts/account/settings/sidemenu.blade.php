@@ -1,21 +1,32 @@
 <div class="col-md-3 pr-0 d-none d-md-block">
     <div class="nav flex-column nav-pills settings-nav" aria-orientation="vertical">
-        <div class="card user-settings__wrapper">
-            <div class="user-settings__title">
-                <h4>Settings</h4>
-                <hr>
+        {{-- <div class="card user-settings__wrapper mb-3">
+            <div class="d-flex">
+                <div class="box">
+                    <div class="avatar">
+
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="item">
+                       {{ Auth::user()->name }}
+                    </div>
+                    <div class="item-2">
+                       {{ Auth::user()->username }}
+                       <br>
+                       {{ Auth::user()->bio }}
+                    </div>
+                </div>
             </div>
+        </div> --}}
 
-            <button class="btn float-right d-md-none" data-dismiss="offcanvas" data-target="#mobile-settings-nav">
-                <i class="fa fa-times"></i>
-            </button>
-            </h3>
+        <div class="card user-settings">
             <a class="menu-setting-item" href="/account/profile">
-                <i class="fa fa-user"></i> Profile
+                <i class="fa fa-user"></i> Akun Saya
             </a>
-
+            <hr>
             <a class="menu-setting-item" href="/account/change-password"><i class="fa fa-key">
-                </i> Password
+                </i> Ganti Kata Sandi
             </a>
         </div>
     </div>
@@ -23,26 +34,37 @@
 
 <style>
     .nav {
-    display: flex;
-    flex-wrap: wrap;
-    padding-left: 0;
-    margin-bottom: 0;
-    list-style: none;
-}
+        display: flex;
+        flex-wrap: wrap;
+        padding-left: 0;
+        margin-bottom: 0;
+        list-style: none;
+    }
 
-.menu-setting-item {
-    position: relative;
-    font-size: 18px;
-    display: flex;
-    align-items: center;
-    padding: 5px;
-    color: #333!important;
-    text-decoration: none;
-    font-size : 14px;
-}
+    .menu-setting-item {
+        position: relative;
+        font-size: 18px;
+        display: flex;
+        align-items: center;
+        padding: 2px;
+        margin-left: 5px;
+        color: #333 !important;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: 600;
+        /* border-bottom: rgb(220, 220, 220) 1px solid; */
+    }
 
-.fa {
-    margin-right: 10px;
-}
+    .fa {
+        margin-right: 10px;
+    }
 
+    .card {
+        padding: 16px;
+        /* margin: 5px; */
+    }
+
+    .item {
+        font-weight: 600;
+    }
 </style>

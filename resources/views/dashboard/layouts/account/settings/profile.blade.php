@@ -7,9 +7,24 @@
                     <h4>Profile Account</h4>
                     <hr>
                 </div>
-                <form action="{{ route('account.update') }}" method="POST">
+                <form action="{{ route('account.update') }}" method="POST" enctype="multipart/form-data">
                     @method('patch')
                     @csrf
+                    {{-- show current avatar --}}
+                    <img src="{{asset('img/avatar/' . $data->avatar)}}" alt="foto profil {{ $data->username }}" width="150">
+                    {{-- end --}}
+                    <div class="form-group form-row">
+                        <div class="col-md-9">
+                            <label class="control-label" for="avatar">Avatar</label>
+                            <input class="form-control" type="file" id="avatar" name="avatar">
+                        </div>
+                        @if ($errors->has('avatar'))
+                            <span class="invalid-feedback" role="alert">
+                                {{ $errors->first('avatar') }}
+                            </span>
+                        @endif
+                    </div>
+
                     <div class="form-group form-row">
                         <div class="col-md-9">
                             <label class="control-label" for="name">Nama Lengkap<span class="text-danger">
@@ -55,4 +70,3 @@
         </div>
     </div>
 </div>
-

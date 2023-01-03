@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
@@ -15,6 +16,8 @@ class UserController extends Controller
      */
     public function index(Request $request)
     {
+
+
         return view('user.pengaturan.index', ['data' => $request->user()]);
     }
 
@@ -71,16 +74,44 @@ class UserController extends Controller
      */
     public function update(Request $request)
     {
-        $request->user()->update(
-            $request->all()
+
+        $user = Auth::user();
+
+        //spesific for avatar
+        $request->validate([
+            'username' => 'max:25',
+            'name' => 'max:50',
+            'bio' => 'max:255',
+            'avatar' => 'image|mimes:jpeg,png,jpg'
+        ]);
+
+
+        $imageName = $user->avatar;
+        
+        if ($request->avatar) {
+            $avatar_img = $request->avatar;
+            $imageName = $user->username . '-' . time() . '.' . $avatar_img->extension();
+            $avatar_img->move(public_path('img/avatar'), $imageName);
+        }
+
+        //HARUS DI VALIDATE
+        $request->user()->update([
+            'username' => $request->username,
+            'name' => $request->name,
+            'bio' => $request->bio,
+            'avatar' => $imageName
+        ]
         );
 
+        
 
         $request->accepts('session');
         session()->flash('success', 'Berhasil mengubah profil!');
 
         return redirect()->back();
     }
+
+
 
     /**
      * Remove the specified resource from storage.
@@ -93,20 +124,22 @@ class UserController extends Controller
         //
     }
 
-    public function dashboard_user(){
+    public function dashboard_user()
+    {
 
         $data = DB::select("SELECT * FROM users order by name asc");
 
         return view('dashboard.layouts.admin.user.index', compact('data'));
     }
 
-    public function dashboard_user_update(Request $request, $id){
+    public function dashboard_user_update(Request $request, $id)
+    {
         // $data = User::find($id);
         User::find($id)->update([
             'roles' => $request->roles
         ]);
 
-        
+
         $request->accepts('session');
         session()->flash('success', 'Berhasil diubah!');
 

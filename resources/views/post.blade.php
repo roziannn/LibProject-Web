@@ -37,15 +37,14 @@
 
 
                 <div class="d-flex mt-3">
-
+                    {{-- like for post --}}
                     <span id="post-likescount-{{ $post->id }}">{{ $post->likes_count }}</span>
-
                     <button class="btn btn-primary btn-sm" id="post-btn-{{ $post->id }}"
                         onclick="like({{ $post->id }})">
                         {{ $post->is_liked() ? 'unlike' : 'like' }}
                     </button>
                 </div>
-
+                    {{-- post body --}}
                 <article class="my-3 mt-3">
                     {!! $post->body !!}
                 </article>
@@ -126,7 +125,7 @@
                 .then(response => response.json())
                 .then(data => {
                     let currentCount = 0
-                    
+
                     if (data.status == 'LIKE') {
                         currentCount = parseInt(likesCount.innerHTML) + 1
                         el.innerText = 'unlike'
