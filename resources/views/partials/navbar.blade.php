@@ -44,6 +44,7 @@
                         </form>
                     </ul>
                 </li>
+                {{-- @include('components.avatar') --}}
             @else
                 <li class="nav-item">
                     <!-- <a href="/login" class="nav-link"><i class="fa-solid fa-arrow-right-to-bracket"></i> Login</a>           -->

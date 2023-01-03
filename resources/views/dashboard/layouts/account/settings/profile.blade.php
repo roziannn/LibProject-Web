@@ -11,7 +11,8 @@
                     @method('patch')
                     @csrf
                     {{-- show current avatar --}}
-                    <img src="{{asset('img/avatar/' . $data->avatar)}}" alt="foto profil {{ $data->username }}" width="150">
+                    {{-- <img src="{{asset('img/avatar/' . $data->avatar)}}" alt="foto profil {{ $data->username }}" width="150"> --}}
+                    @include('components.avatar')
                     {{-- end --}}
                     <div class="form-group form-row">
                         <div class="col-md-9">
