@@ -3,22 +3,34 @@
 
 @section('container')
     <div class="container">
-        <div class="row my-3">
+        <div class="row">
             <div class="col-lg-12">
                 <div class="card-body">
                     <div class="card-header">
                         <h3>Notifikasi</h3>
                         <hr>
                     </div>
-                    @foreach ($notifs as $notif)
-                        <a class="link-post" href="/posts/{{ $notif->post->slug }}">
-                            <div class="box-message">
-                                {{ $notif->message }}
-                                <br><span class="message-time">{{ $notif->created_at->diffForhumans() }}</span>
-                            </div>
-                        </a>
-                    @endforeach
+                    @if ($notifs->count())
+                        @foreach ($notifs as $notif)
+                            <a class="link-post" href="/posts/{{ $notif->post->slug }}">
+                                <div class="box-message {{ $notif->seen ? 'text-secondary' : '' }}">
+                                        {{ $notif->message }}
+                                    <br><span class="message-time">{{ $notif->created_at->diffForhumans() }}</span>
+                                </div>
+                            </a>
+                        @endforeach
+                    @else
+                        <p>Tidak ada notifikasi.</p>
+                    @endif
+                    {{ $notifs->links() }}
                 </div>
+                <script>
+                    //req ajax
+                    //all notification seen
+                    fetch('/notification/seen')
+                        .then(response => response.json())
+                        .catch(error => console.log(error))
+                </script>
             </div>
         </div>
     </div>
