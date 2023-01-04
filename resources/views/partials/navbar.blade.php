@@ -19,9 +19,11 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/about">Challenge</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/notification">Notifikasi</a>
-                </li>
+                @if (auth()->user())
+                    <li class="nav-item">
+                        <a class="nav-link" href="/notification">Notifikasi</a>
+                    </li>
+                @endif
             </ul>
         </div>
 
@@ -34,7 +36,7 @@
                         Halo, {{ auth()->user()->username }}
                     </a>
                     {{-- @include('components.avatar') --}}
-                    
+
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="/account/profile"><i class="fa-solid fa-gear"></i> Pengaturan</a>
                         <a class="dropdown-item" href="/dashboard/posts"><i class="fa-solid fa-sheet-plastic"></i> My
@@ -49,7 +51,6 @@
                         </form>
                     </ul>
                 </li>
-                
             @else
                 <li class="nav-item">
                     <!-- <a href="/login" class="nav-link"><i class="fa-solid fa-arrow-right-to-bracket"></i> Login</a>           -->
