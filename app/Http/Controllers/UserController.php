@@ -88,7 +88,7 @@ class UserController extends Controller
 
 
         $imageName = $user->avatar;
-        
+
         if ($request->avatar) {
             $avatar_img = $request->avatar;
             $imageName = $user->username . '-' . time() . '.' . $avatar_img->extension();
@@ -96,34 +96,43 @@ class UserController extends Controller
         }
 
         //HARUS DI VALIDATE
-        $request->user()->update([
-            'username' => $request->username,
-            'name' => $request->name,
-            'bio' => $request->bio,
-            'avatar' => $imageName
-        ]
+        $request->user()->update(
+            [
+                'username' => $request->username,
+                'name' => $request->name,
+                'bio' => $request->bio,
+                'avatar' => $imageName
+            ]
         );
 
-        
+
         $request->accepts('session');
         session()->flash('success', 'Berhasil mengubah profil!');
 
         return redirect()->back();
     }
 
-    public function notification(){
+    public function notification()
+    {
         $user = Auth::user();
-        
+
         $notifs = Notification::where('user_id', $user->id)->paginate(10);
 
         return view('user.notifications.index', compact('notifs'));
     }
 
-    public function notificationSeen(){
+    public function notificationSeen()
+    {
         $user = Auth::user();
 
-        Notification::where('user_id', $user->id)->update(['seen'=>true]);
+        Notification::where('user_id', $user->id)->update(['seen' => true]);
         return ['msg' => 'success'];
+    }
+
+    public function notificationCount()
+    {
+        $total = Auth::user()->notifications()->where('seen', 0)->count();
+        return ['total' => $total];
     }
 
     /**

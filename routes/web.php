@@ -146,4 +146,5 @@ Route::middleware('auth')->group(function(){
 Route::middleware('auth')->group(function(){
     Route::get('/notification', [UserController::class,'notification']);
     Route::get('/notification/seen', [UserController::class,'notificationSeen']);
+    Route::get('/notification/count', [UserController::class,'notificationCount']);
 });
