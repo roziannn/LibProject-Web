@@ -39,12 +39,11 @@
                 <div class="d-flex mt-3">
                     {{-- like for post --}}
                     <span id="post-likescount-{{ $post->id }}">{{ $post->likes_count }}</span>
-                    <button class="btn btn-primary btn-sm" id="post-btn-{{ $post->id }}"
-                        onclick="like({{ $post->id }})">
+                    <a href="#"class="like-btn" id="post-btn-{{ $post->id }}" onclick="like({{ $post->id }})">
                         {{ $post->is_liked() ? 'unlike' : 'like' }}
-                    </button>
+                    </a>
                 </div>
-                    {{-- post body --}}
+                {{-- post body --}}
                 <article class="my-3 mt-3">
                     {!! $post->body !!}
                 </article>
@@ -68,14 +67,14 @@
                         <div class="d-flex">
                             <p>{{ $comment->subject }}
                                 <br>
-                                <span style="font-size: 11px">{{ $comment->created_at->diffForhumans() }}</span>
+                                <span style="font-size: 11px">{{ $comment->created_at->diffForhumans() }} | </span>
                                 {{-- like untuk komentar --}}
-                                <a href="#" id="comment-btn-{{ $comment->id }}"
-                                    onclick="like({{ $comment->id }}, 'COMMENT')">
-                                    {{ $comment->is_liked() ? 'unlike' : 'like' }}
-                                </a>
                                 <span style="font-size: 11px"
                                     id="comment-likescount-{{ $comment->id }}">{{ $comment->likes_count }}</span>
+                                    <a href="#" class="like-btn" id="comment-btn-{{ $comment->id }}"
+                                        onclick="like({{ $comment->id }}, 'COMMENT')">
+                                        {{ $comment->is_liked() ? 'unlike' : 'like' }}
+                                    </a>
                             </p>
                         </div>
 
@@ -138,3 +137,11 @@
                 });
         }
     </script>
+
+<style>
+    .like-btn{
+        text-decoration: none;
+        font-size: 15px;
+        margin: 2px;
+    }
+</style>

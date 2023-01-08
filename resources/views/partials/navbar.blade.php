@@ -21,10 +21,7 @@
                 </li>
                 @if (auth()->user())
                     <li class="nav-item">
-                      
                             <a class="nav-link" href="/notification">Notifikasi <small id="notify-count"></small></a>
-                       
-
                         <script>
                             fetch('/notification/count')
                                 .then(response => response.json())

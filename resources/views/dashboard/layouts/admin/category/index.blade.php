@@ -16,7 +16,7 @@
                     <div class="user-settings__title d-flex justify-content-between">
                         <h4>Data Kategori</h4>
                         <div class="text-right">
-                            <a href="#" class="btn-primary btn-sm ml-1 text-decoration-none"data-bs-toggle="modal"
+                            <a href="#" class="btn btn-primary btn-sm ml-1 text-decoration-none"data-bs-toggle="modal"
                                 data-bs-target="#modal"> Tambah Kategori
                             </a>
                         </div>
