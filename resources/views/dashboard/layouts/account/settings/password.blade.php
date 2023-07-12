@@ -41,16 +41,14 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                                {{-- <div class="input-group-append">
-                                    <button class="btn btn-sm btn-secondary js-password-visibility-toggle"
-                                        type="button">
-                                        <i class="far js-btn-password-toggle__icon fa-eye"></i>
-                                    </button>
-                                </div> --}}
+                                <span class="input-group-text">
+                                    <i class="fas fa-eye"></i>
+                                </span>
                             </div>
                             <div class="mt-2">
-                            <small style="font-size:12px; color:#9e9ea7;">Minimal 6 Karakter dengan kombinasi huruf dan angka.</small>
-                        </div>
+                                <small style="font-size:12px; color:#9e9ea7;">Minimal 6 Karakter dengan kombinasi huruf
+                                    dan angka.</small>
+                            </div>
                         </div>
                     </div>
                     <div class="form-group form-row">
@@ -59,7 +57,7 @@
                             <div class="input-group">
                                 <input type="password" class="form-control" id="password-confirm"
                                     name="password_confirmation" required autocomplete="new-password">
-                                    
+
                                 {{-- <div class="input-group-append">
                                     <button class="btn btn-sm btn-secondary js-password-visibility-toggle"
                                         type="button">
@@ -79,3 +77,19 @@
         </div>
     </div>
 </div>
+<script>
+    document.querySelector('.input-group-text').addEventListener('click', function() {
+        var passwordInput = document.getElementById('password');
+        var eyeIcon = this.querySelector('i');
+
+        if (passwordInput.type === 'password') {
+            passwordInput.type = 'text';
+            eyeIcon.classList.remove('fa-eye');
+            eyeIcon.classList.add('fa-eye-slash');
+        } else {
+            passwordInput.type = 'password';
+            eyeIcon.classList.remove('fa-eye-slash');
+            eyeIcon.classList.add('fa-eye');
+        }
+    });
+</script>

@@ -11,6 +11,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\PasswordController;
 use App\Http\Controllers\PostCommentController;
 use App\Http\Controllers\LikeController;
+use App\Http\Controllers\testHomeController;
 use App\Models\Category;
 use App\Models\User;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
@@ -26,6 +27,11 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 |
 */
 
+
+//testHome
+Route::get('/testHome',[testHomeController::class, 'home'])->middleware('guest');
+
+//////
 Route::get('/', function(){
     return view('home', [
         "title" => "Home",
