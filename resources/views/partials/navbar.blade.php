@@ -87,12 +87,6 @@
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
                 @endif
-                {{-- @if (session()->has('loginError'))
-                    <div class="alert alert-danger alert-dismissible fade show" role="alert" style="width:100% ;">
-                        {{ session('loginError') }}
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>
-                @endif --}}
                 <form action="/login" method="post">
                     @csrf
                     <div class="form-group mb-3">
