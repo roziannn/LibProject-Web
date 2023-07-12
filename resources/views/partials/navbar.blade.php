@@ -21,7 +21,7 @@
                 </li>
                 @if (auth()->user())
                     <li class="nav-item">
-                            <a class="nav-link" href="/notification">Notifikasi <small id="notify-count"></small></a>
+                        <a class="nav-link" href="/notification">Notifikasi <small id="notify-count"></small></a>
                         <script>
                             fetch('/notification/count')
                                 .then(response => response.json())
@@ -108,14 +108,18 @@
                     </div>
                     <div class="form-group mb-3">
                         <label for="password">Password</label>
-                        <input type="password" name="password" class="form-control" id="password" required
-                            placeholder="Enter Password" required>
+                        <div class="input-group">
+                            <input type="password" name="password" class="form-control" id="password" required
+                                placeholder="Enter Password" required>
+                            <span class="input-group-text">
+                                <i class="fas fa-eye"></i>
+                            </span>
+                        </div>
                         <p class="mt-2 mb-4"><a href="/forgotpass"
                                 style="font-size: 13px; text-decoration:none;">Lupa Password?</a></p>
                     </div>
                     <div class="text-right justify-content-around mt-3">
                         <button type="submit" class="btn btn-primary">Masuk</a></button>
-                        <!-- <button type="submit" class="btn btn-secondary"><a href="/register">Daftar Akun</a></button> -->
                     </div>
                     <p>Belum punya akun? Daftar akun <a href="/register">disini</a></p>
                 </form>
@@ -123,6 +127,28 @@
         </div>
     </div>
 </div>
+
+<script>
+    document.querySelector('.input-group-text').addEventListener('click', function(event) {
+        event.preventDefault();
+        var passwordInput = document.getElementById('password');
+        var eyeIcon = this.querySelector('i');
+
+        if (passwordInput.type === 'password') {
+            passwordInput.type = 'text';
+            eyeIcon.classList.remove('fa-eye');
+            eyeIcon.classList.add('fa-eye-slash');
+            eyeIcon.setAttribute('title', 'Sembunyikan');
+            eyeIcon.parentNode.setAttribute('aria-label', 'Sembunyikan');
+        } else {
+            passwordInput.type = 'password';
+            eyeIcon.classList.remove('fa-eye-slash');
+            eyeIcon.classList.add('fa-eye');
+            eyeIcon.setAttribute('title', 'Lihat');
+            eyeIcon.parentNode.setAttribute('aria-label', 'Lihat');
+        }
+    });
+</script>
 
 
 <style>

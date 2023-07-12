@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg bg-white mt-5 mb-3">
+<nav class="navbar navbar-expand-lg bg-white mt-3">
   <a class="navbar-brand d-block d-sm-block d-md-none" href="#">Kategori</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample10" aria-controls="navbarsExample10" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>

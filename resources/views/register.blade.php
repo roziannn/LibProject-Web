@@ -72,6 +72,13 @@
 
                     <div class="form-group">
                         <label for="password">Password</label>
+                        {{-- <div class="input-group">
+                            <input type="password" name="password" class="form-control" id="password" required
+                                placeholder="Enter Password" required>
+                            <span class="input-group-text">
+                                <i class="fas fa-eye"></i>
+                            </span>
+                        </div> --}}
                         <input type="password" name="password"
                             class="form-control @error('password') is-invalid @enderror" id="password"
                             placeholder="Password" required>
@@ -102,3 +109,25 @@
 </body>
 
 </html>
+
+<script>
+    document.querySelector('.input-group-text').addEventListener('click', function(event) {
+        event.preventDefault();
+        var passwordInput = document.getElementById('password');
+        var eyeIcon = this.querySelector('i');
+
+        if (passwordInput.type === 'password') {
+            passwordInput.type = 'text';
+            eyeIcon.classList.remove('fa-eye');
+            eyeIcon.classList.add('fa-eye-slash');
+            eyeIcon.setAttribute('title', 'Sembunyikan');
+            eyeIcon.parentNode.setAttribute('aria-label', 'Sembunyikan');
+        } else {
+            passwordInput.type = 'password';
+            eyeIcon.classList.remove('fa-eye-slash');
+            eyeIcon.classList.add('fa-eye');
+            eyeIcon.setAttribute('title', 'Lihat');
+            eyeIcon.parentNode.setAttribute('aria-label', 'Lihat');
+        }
+    });
+</script>

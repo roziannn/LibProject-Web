@@ -11,7 +11,7 @@
     @endif
 
     <div class="text-center d-flex flex-column align-items-center">
-        <div class="header-title mt-3">
+        <div class="header-title">
             <h1>Perdalam Kemampuan Desain dan Code
                 <br class="d-none d-md-block"> Bersama Developer Lainnya
             </h1>
@@ -19,29 +19,20 @@
     </div>
     @include('partials.menu')
 
-    <section class="featured pt-50 pb-50">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="row col-lg-6 d-none d-sm-block justify-content-center">
-                    <img src="img/img1.png" style="width:560px;" alt="">
-                </div>
-
-                <div class="text-left col-lg-6 col-12">
-                    <div class="mb-20">
-                        <div class="front-text-group">
-                            <h5 class="text-support text-green  mt-3">#ProduktifOtodidak</h5>
-                            <h2 class="header-primary mb-0">Lorem ipsum dolor, sit amet <br> Lorem ipsum dolor sit amet.
-                            </h2>
-                            <p class="text-support text-green mt-2">Lorem ipsum, dolor sit amet consectetur <br>
-                                adipisicing elit. Excepturi recusandae minima iste, blanditiis, assumenda cupiditate<br> rem
-                                harum nam repellat adipisci inventore neque accusantium possimus quaerat.</p>
-                            <a href="/posts" class="btn btn-primary">Cari Project Sekarang</a>
-                        </div>
-                    </div>
-                </div>
+    <div class="jumbotron p-3 p-md-5 text-white rounded bg-light">
+        <div class="img-home d-flex align-items-center">
+            <img src="img/reg.png" class="img-responsive-home" width="40%" alt="Gambar" style=" max-width: 100%;">
+            <div class="img-text-group">
+                <h5 class="text-support mt-3 text-black">Temukan keunggulan belajar otodidak dengan #produktif!</h5>
+                <h2 class="header-primary mb-0 text-black"> Temukan keunggulan belajar otodidak dengan #produktif!
+                </h2>
+                <p class="text-support text-green mt-2 text-black">Lorem ipsum, dolor sit amet consectetur <br>
+                    adipisicing elit. Excepturi recusandae minima iste, blanditiis, assumenda cupiditate<br> rem
+                    harum nam repellat adipisci inventore neque accusantium possimus quaerat.</p>
+                <a href="/posts" class="btn btn-primary">Cari Project Sekarang</a>
             </div>
         </div>
-    </section>
+    </div>
 
     <section class="featured pt-50 pb-50">
         <div class="container-fluid">
@@ -63,7 +54,8 @@
                                 <img src="/img/roadmap/frontend.png" style="width:50px;">
                             </div>
                             <h4 class="card-title">Frontend Developer</h4>
-                            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
+                            <p class="card-text">This is a longer card with supporting text below as a natural lead-in
+                                to
                                 additional content. This content is a little bit longer.</p>
                             <a href="https://roadmap.sh/frontend" target="_blank" class="btn btn-primary stretched-link"> >
                             </a>
@@ -78,9 +70,11 @@
                                 <img src="/img/roadmap/backend.png" style="width:35px;">
                             </div>
                             <h4 class="card-title">Backend Developer</h4>
-                            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
+                            <p class="card-text">This is a longer card with supporting text below as a natural lead-in
+                                to
                                 additional content. This content is a little bit longer.</p>
-                            <a href="https://roadmap.sh/backend" target="_blank" class="btn btn-primary stretched-link"> >
+                            <a href="https://roadmap.sh/backend" target="_blank" class="btn btn-primary stretched-link">
+                                >
                             </a>
                         </div>
                     </div>
@@ -93,7 +87,8 @@
                                 <img src="/img/roadmap/react.png" style="width:35px;">
                             </div>
                             <h4 class="card-title">React</h4>
-                            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
+                            <p class="card-text">This is a longer card with supporting text below as a natural lead-in
+                                to
                                 additional content. This content is a little bit longer.</p>
                             <a href="https://roadmap.sh/react" target="_blank" class="btn btn-primary stretched-link"> >
                             </a>
@@ -108,9 +103,11 @@
                                 <img src="/img/roadmap/android.png" style="width:30px;">
                             </div>
                             <h4 class="card-title">Android</h4>
-                            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
+                            <p class="card-text">This is a longer card with supporting text below as a natural lead-in
+                                to
                                 additional content. This content is a little bit longer.</p>
-                            <a href="https://roadmap.sh/android" target="_blank" class="btn btn-primary stretched-link"> >
+                            <a href="https://roadmap.sh/android" target="_blank" class="btn btn-primary stretched-link">
+                                >
                             </a>
                         </div>
                     </div>
@@ -281,6 +278,41 @@
     <style>
         .card {
             background-color: #F6F8FD;
+        }
+
+        .img-home {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.img-home .img-responsive-home {
+  max-width: 40%;
+  margin-right: 20px;
+}
+
+.img-home .img-text-group {
+  flex-grow: 1;
+  padding-left: 20px;
+}
+
+
+        @media (max-width: 678px) {
+            .img-home {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .img-home img {
+                width: 100%;
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+
+            .img-home .img-text-group {
+    padding-left: 0;
+    text-align: left;
+  }
         }
     </style>
 @endsection
