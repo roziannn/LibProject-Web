@@ -1,25 +1,6 @@
 <div class="col-md-3 pr-0 d-none d-md-block">
     <div class="nav flex-column nav-pills settings-nav" aria-orientation="vertical">
-        {{-- <div class="card user-settings__wrapper mb-3">
-            <div class="d-flex">
-                <div class="box">
-                    <div class="avatar">
-
-                    </div>
-                </div>
-                <div class="box">
-                    <div class="item">
-                       {{ Auth::user()->name }}
-                    </div>
-                    <div class="item-2">
-                       {{ Auth::user()->username }}
-                       <br>
-                       {{ Auth::user()->bio }}
-                    </div>
-                </div>
-            </div>
-        </div> --}}
-
+    
         <div class="card user-settings">
             <a class="menu-setting-item" href="/account/profile">
                 <i class="fa fa-user"></i> Akun Saya

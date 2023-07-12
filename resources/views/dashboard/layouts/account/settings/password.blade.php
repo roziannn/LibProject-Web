@@ -34,7 +34,7 @@
                         <div class="col-md-9">
                             <label class="control-label" for="password">Password Baru</label>
                             <div class="input-group">
-                                <input type="password" class="form-control" id="password" name="password" required
+                                <input type="password" class="form-control" id="password_show" name="password" required
                                     autocomplete="new-passwod">
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
@@ -57,13 +57,6 @@
                             <div class="input-group">
                                 <input type="password" class="form-control" id="password-confirm"
                                     name="password_confirmation" required autocomplete="new-password">
-
-                                {{-- <div class="input-group-append">
-                                    <button class="btn btn-sm btn-secondary js-password-visibility-toggle"
-                                        type="button">
-                                        <i class="far js-btn-password-toggle__icon fa-eye"></i>
-                                    </button>
-                                </div> --}}
                             </div>
                         </div>
                     </div>
@@ -78,18 +71,24 @@
     </div>
 </div>
 <script>
-    document.querySelector('.input-group-text').addEventListener('click', function() {
-        var passwordInput = document.getElementById('password');
+    document.querySelector('.input-group').addEventListener('click', function() {
+        var passwordInput = document.getElementById('password_show');
         var eyeIcon = this.querySelector('i');
 
         if (passwordInput.type === 'password') {
             passwordInput.type = 'text';
             eyeIcon.classList.remove('fa-eye');
             eyeIcon.classList.add('fa-eye-slash');
+            eyeIcon.setAttribute('title', 'Sembunyikan');
+            eyeIcon.parentNode.setAttribute('aria-label', 'Sembunyikan');
         } else {
             passwordInput.type = 'password';
             eyeIcon.classList.remove('fa-eye-slash');
             eyeIcon.classList.add('fa-eye');
+            eyeIcon.setAttribute('title', 'Lihat');
+            eyeIcon.parentNode.setAttribute('aria-label', 'Lihat');
         }
     });
 </script>
+
+
