@@ -37,18 +37,23 @@
 
                 <div class="d-flex mt-3">
                     {{-- like for post --}}
-                    <a href="#" class="like-btn btn btn-primary btn-sm" id="post-btn-{{ $post->id }}"
-                        onclick="like({{ $post->id }})">
+                    <a href="#" class="icon-mini-btn btn btn-primary btn-sm" id="post-btn-{{ $post->id }}"
+                        onclick="likePost({{ $post->id }})">
                         <span id="post-likescount-{{ $post->id }}">{{ $post->likes_count }}</span>
                         <i class="like-icon {{ $post->is_liked() ? 'fas fa-thumbs-up' : 'bi bi-hand-thumbs-up' }}"></i>
                     </a>
 
+                    {{-- share icon --}}
+                    <a href="#" class="icon-mini-btn btn btn-primary btn-sm" style="margin-left: 5px;">
+                        <span>12</span>
+                        <i class="bi bi-share"></i>
+                    </a>
                 </div>
                 {{-- post body --}}
                 <article class="my-3 mt-3">
                     {!! $post->body !!}
                 </article>
-                <a href="/posts" class="d-block mt-5">Back to Project</a>
+                <a href="/posts" style="text-decoration: none" class="d-block mt-5">Back to Project</a>
             </div>
 
             <div class="col-md-4">
@@ -68,14 +73,26 @@
                         <div class="d-flex">
                             <p>{{ $comment->subject }}
                                 <br>
-                                <span style="font-size: 11px">{{ $comment->created_at->diffForhumans() }} | </span>
                                 {{-- like untuk komentar --}}
-                                <span style="font-size: 11px"
-                                    id="comment-likescount-{{ $comment->id }}">{{ $comment->likes_count }}</span>
-                                <a href="#" class="like-btn" id="comment-btn-{{ $comment->id }}"
-                                    onclick="like({{ $comment->id }}, 'COMMENT')">
-                                    {{ $comment->is_liked() ? 'unlike' : 'like' }}
+                                <a href="#" id="comment-btn-{{ $comment->id }}" style="text-decoration: none" onclick="like({{ $comment->id }}, 'COMMENT')">
+                                   <span class="like-text">
+                                      {{ $comment->is_liked() ? 'Unlike' : 'Like' }}
+                                   </span>
                                 </a>
+                                <span class="comment-section-text">
+                                    @php
+                                       $diff = $comment->created_at->diff(now());
+                                 
+                                       if ($diff->m > 0) {
+                                          $diff = ceil($diff->days / 7) . 'w';
+                                       } else {
+                                          $diff = $comment->created_at->diffForHumans();
+                                       }
+                                    @endphp
+                                    {{ $diff }}
+                                 </span>
+                                 
+                                <span class="comment-count-text" id="post-likescount-{{ $comment->id }}">{{ $comment->likes_count }}</span><span class="comment-count-text"> likes</span>
                             </p>
                         </div>
 
@@ -105,34 +122,68 @@
     {{-- script condition while user click like post and like comment button  --}}
     <script>
         function like(id, type = 'POST') {
-            let likesCount = 0; // Count starts from 0
-            let el = document.getElementById('post-btn-' + id);
-
-            likesCount = el.querySelector('span');
-            let icon = el.querySelector('i');
-
-            fetch('/like/' + type + '/' + id)
-                .then(response => response.json())
-                .then(data => {
-                    let currentCount = parseInt(likesCount.innerHTML);
-
-                    if (data.status === 'LIKE') {
-                        currentCount += 1;
-                        icon.className = 'like-icon fas fa-thumbs-up';
-                    } else {
-                        currentCount -= 1;
-                        icon.className = 'like-icon bi bi-hand-thumbs-up';
-                    }
-
-                    likesCount.innerHTML = currentCount;
-                });
+           let likesCount = document.getElementById('post-likescount-' + id);
+           let likeText = document.getElementById('comment-btn-' + id).querySelector('.like-text');
+     
+           fetch('/like/' + type + '/' + id)
+              .then(response => response.json())
+              .then(data => {
+                 let currentCount = parseInt(likesCount.innerText);
+     
+                 if (data.status === 'LIKE') {
+                    currentCount += 1;
+                    likeText.innerText = 'Unlike';
+                 } else {
+                    currentCount -= 1;
+                    likeText.innerText = 'Like';
+                 }
+     
+                 likesCount.innerText = currentCount;
+              });
         }
-    </script>
-
+     
+        function likePost(id) {
+           let likesCount = document.getElementById('post-likescount-' + id);
+           let icon = document.getElementById('post-btn-' + id).querySelector('.like-icon');
+     
+           fetch('/like/POST/' + id)
+              .then(response => response.json())
+              .then(data => {
+                 let currentCount = parseInt(likesCount.innerText);
+     
+                 if (data.status === 'LIKE') {
+                    currentCount += 1;
+                    icon.className = 'like-icon fas fa-thumbs-up';
+                 } else {
+                    currentCount -= 1;
+                    icon.className = 'like-icon bi bi-hand-thumbs-up';
+                 }
+     
+                 likesCount.innerText = currentCount;
+              });
+        }
+     </script>
     <style>
-        .like-btn {
+        .icon-mini-btn {
             text-decoration: none;
             font-size: 15px;
             margin: 2px;
+        }
+
+        .like-text {
+            margin-right: 5px;
+            font-size: 13px;
+            font-weight: bold;
+            text-decoration: none;
+            color: #565656;
+        }
+
+        .comment-section-text{
+            margin-right: 5px;
+            font-size: 13px;
+        }
+
+        .comment-count-text{
+            font-size: 13px;
         }
     </style>
