@@ -25,7 +25,7 @@
         @if ($posts->count())
             <div class="row">
                 @foreach ($posts as $post)
-                    <div class="col-12 col-md-3 mb-4">
+                    <div class="col-12 col-md-3 mb-3">
                         <div class="card">
                             <div class="position-absolute px-2 py-1 fs-6" style="background-color: rgba(0,0,0,0.7);"><a
                                     href="/posts?category={{ $post->category->slug }}"
@@ -43,7 +43,7 @@
 
 
                             <div class="card-body">
-                                <h5 class="card-title">{{ $post->title }}</h5>
+                                <h6 class="card-title">{{ $post->title }}</h6>
                                 <p class="card-text">{{ $post->excerpt }}</p>
                             </div>
                         </div>
@@ -61,4 +61,12 @@
     </div>
 
 @endsection
+
+<style>
+     .card-title {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+</style>
 

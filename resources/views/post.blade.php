@@ -1,7 +1,6 @@
 @extends('layouts.main')
 @include('partials.navbar')
 @section('container')
-
     @if (session()->has('deleteSuccess'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
             {{ session('deleteSuccess') }}
@@ -38,10 +37,12 @@
 
                 <div class="d-flex mt-3">
                     {{-- like for post --}}
-                    <span id="post-likescount-{{ $post->id }}">{{ $post->likes_count }}</span>
-                    <a href="#"class="like-btn" id="post-btn-{{ $post->id }}" onclick="like({{ $post->id }})">
-                        {{ $post->is_liked() ? 'unlike' : 'like' }}
+                    <a href="#" class="like-btn btn btn-primary btn-sm" id="post-btn-{{ $post->id }}"
+                        onclick="like({{ $post->id }})">
+                        <span id="post-likescount-{{ $post->id }}">{{ $post->likes_count }}</span>
+                        <i class="like-icon {{ $post->is_liked() ? 'fas fa-thumbs-up' : 'bi bi-hand-thumbs-up' }}"></i>
                     </a>
+
                 </div>
                 {{-- post body --}}
                 <article class="my-3 mt-3">
@@ -71,10 +72,10 @@
                                 {{-- like untuk komentar --}}
                                 <span style="font-size: 11px"
                                     id="comment-likescount-{{ $comment->id }}">{{ $comment->likes_count }}</span>
-                                    <a href="#" class="like-btn" id="comment-btn-{{ $comment->id }}"
-                                        onclick="like({{ $comment->id }}, 'COMMENT')">
-                                        {{ $comment->is_liked() ? 'unlike' : 'like' }}
-                                    </a>
+                                <a href="#" class="like-btn" id="comment-btn-{{ $comment->id }}"
+                                    onclick="like({{ $comment->id }}, 'COMMENT')">
+                                    {{ $comment->is_liked() ? 'unlike' : 'like' }}
+                                </a>
                             </p>
                         </div>
 
@@ -104,44 +105,34 @@
     {{-- script condition while user click like post and like comment button  --}}
     <script>
         function like(id, type = 'POST') {
-            // default type = post
+            let likesCount = 0; // Count starts from 0
+            let el = document.getElementById('post-btn-' + id);
 
-            let likesCount = 0 //count from 0
-            let el = ''
-
-            if (type == 'POST') {
-                el = document.getElementById('post-btn-' + id)
-                likesCount = document.getElementById('post-likescount-' + id)
-
-            } else {
-                el = document.getElementById('comment-btn-' + id)
-                likesCount = document.getElementById('comment-likescount-' + id)
-
-            }
-
+            likesCount = el.querySelector('span');
+            let icon = el.querySelector('i');
 
             fetch('/like/' + type + '/' + id)
                 .then(response => response.json())
                 .then(data => {
-                    let currentCount = 0
+                    let currentCount = parseInt(likesCount.innerHTML);
 
-                    if (data.status == 'LIKE') {
-                        currentCount = parseInt(likesCount.innerHTML) + 1
-                        el.innerText = 'unlike'
+                    if (data.status === 'LIKE') {
+                        currentCount += 1;
+                        icon.className = 'like-icon fas fa-thumbs-up';
                     } else {
-                        currentCount = parseInt(likesCount.innerHTML) - 1
-                        el.innerText = 'like'
+                        currentCount -= 1;
+                        icon.className = 'like-icon bi bi-hand-thumbs-up';
                     }
 
-                    likesCount.innerHTML = currentCount
+                    likesCount.innerHTML = currentCount;
                 });
         }
     </script>
 
-<style>
-    .like-btn{
-        text-decoration: none;
-        font-size: 15px;
-        margin: 2px;
-    }
-</style>
+    <style>
+        .like-btn {
+            text-decoration: none;
+            font-size: 15px;
+            margin: 2px;
+        }
+    </style>
