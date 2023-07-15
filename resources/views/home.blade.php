@@ -23,16 +23,33 @@
         <div class="img-home d-flex align-items-center">
             <img src="img/reg.png" class="img-responsive-home" width="40%" alt="Gambar" style=" max-width: 100%;">
             <div class="img-text-group">
+                <div class="container-fluid">
+                    <div class="row data-stats">
+                        <div class="col-lg-12">
+                            <div class="row gy-5">
+                                <div class="col-6 col-md-4">
+                                    <h3 class="text-green">696,607</h3>
+                                    <p class="text-dark">Member Join</p>
+                                </div>
+                                <div class="col-6 col-md-4">
+                                    <h3 class="text-green">1000+</h3>
+                                    <p class="text-dark">Project Available</p>
+                                </div>
+                                <div class="col-6 col-md-4">
+                                    <h3 class="text-green">36,707</h3>
+                                    <p class="text-dark">Final Case</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <h5 class="text-support mt-3 text-black">Temukan keunggulan belajar otodidak dengan #produktif!</h5>
-                <h2 class="header-primary mb-0 text-black"> Temukan keunggulan belajar otodidak dengan #produktif!
-                </h2>
-                <p class="text-support text-green mt-2 text-black">Lorem ipsum, dolor sit amet consectetur <br>
-                    adipisicing elit. Excepturi recusandae minima iste, blanditiis, assumenda cupiditate<br> rem
-                    harum nam repellat adipisci inventore neque accusantium possimus quaerat.</p>
+                <p class="text-support text-green mt-2 text-black"> Setiap mahasiswa dapat mengemukakan ide-ide baru, menguji batasan mereka, <br> dan tumbuh sebagai individu maupun tim. Melalui kolaborasi erat, proyek <br> yang dihasilkan dapat memberikan kontribusi dalam dunia nyata.</p>
                 <a href="/posts" class="btn btn-primary">Cari Project Sekarang</a>
             </div>
         </div>
     </div>
+    
 
     <section class="featured pt-50 pb-50">
         <div class="container-fluid">
@@ -166,35 +183,10 @@
             </div>
     </section>
 
-
-    <section class="featured pt-50 pb-30">
-        <div class="container-fluid">
-            <div class="row data-stats">
-                <div class="col-lg-8 offset-lg-2">
-                    <div class="row gy-5 justify-content-center">
-                        <div class="text-center col-6 col-md-4">
-                            <h3 class="text-green">696,607</h3>
-                            <p>Member Join</p>
-                        </div>
-                        <div class="text-center col-6 col-md-4">
-                            <h3 class="text-green">1000+</h3>
-                            <p>Project Available</p>
-                        </div>
-                        <div class="text-center col-6 col-md-4">
-                            <h3 class="text-green">36,707</h3>
-                            <p>Final Case</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section class="footer-nd">
         <div class="container-fluid">
             <div class="row">
                 <div class="item-footer col-lg-3 col-10">
-                    <img src="img/logo.png" style="margin-left:-10px;" width="320" height="100" alt="logo">
                     <p class="mt-2 tagline">
                         Website untuk berkolaborasi membangun project bersama dan menghasilkan portfolio
                         untuk peluang karir.
@@ -288,7 +280,7 @@
 
         .img-home .img-responsive-home {
             max-width: 40%;
-            margin-right: 20px;
+            /* margin-right: 20px; */
         }
 
         .img-home .img-text-group {
@@ -312,6 +304,11 @@
             .img-home .img-text-group {
                 padding-left: 0;
                 text-align: left;
+            }
+        }
+        @media (min-width: 679px) {
+            .img-home .img-text-group {
+                margin: 10px;
             }
         }
     </style>
