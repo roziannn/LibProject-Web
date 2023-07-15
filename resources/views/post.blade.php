@@ -1,7 +1,7 @@
 @extends('layouts.main')
 @include('partials.navbar')
-
 @section('container')
+
     @if (session()->has('deleteSuccess'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
             {{ session('deleteSuccess') }}

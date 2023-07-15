@@ -10,6 +10,13 @@
         </div>
     @endif
 
+    @if (session()->has('successRegister'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert" style="width:100% ;">
+            {{ session('successRegister') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
+
     <div class="text-center d-flex flex-column align-items-center">
         <div class="header-title">
             <h1>Perdalam Kemampuan Desain dan Code
@@ -207,11 +214,12 @@
             flex-grow: 1;
             padding-left: 20px;
         }
-/* 
-        .text-green {
-            color: #4d4d4d;
-            text-shadow: 0 0 5px #00ff00;
-        } */
+
+        /*
+            .text-green {
+                color: #4d4d4d;
+                text-shadow: 0 0 5px #00ff00;
+            } */
 
 
         @media (max-width: 678px) {

@@ -1,4 +1,4 @@
-<div class="container ">
+<div class="container">
     <div class="row">
         @include('dashboard.layouts.account.settings.sidemenu')
         <div class="col-md-9 pl-md-0">
