@@ -1,6 +1,7 @@
 @extends('layouts.main')
 @include('partials.navbar')
 @section('container')
+
     <link rel="stylesheet" href="css/home.style.css">
 
     <h2 class="mb-4 mt-5 text-center" style="font-weight: 700;">{{ $title }}</h2>
@@ -49,13 +50,15 @@
                     </div>
                 @endforeach
             </div>
-    </div>
+        </div>
+    @include('partials.footer')
 @else
     <p class="text-center fs-4">No project found.</p>
     @endif
 
-    <div class="d-flex justify-content-center mt-5 mb-5">
+    <div class="d-flex justify-content-center">
         {{ $posts->links() }}
     </div>
 
 @endsection
+

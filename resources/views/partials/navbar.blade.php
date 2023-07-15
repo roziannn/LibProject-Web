@@ -1,7 +1,8 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
 
-<nav class="navbar navbar-expand-md navbar-dark bg-dark ">
+
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
     <div class="container">
         <a class="navbar-brand" href="/"><img src="{{ asset('/img/logo.png') }}" class="img"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -154,8 +155,6 @@
         margin-right: 30px;
         height: 40px;
     }
-
-    .navbar-nav li {}
 
     .img {
         width: 140px;

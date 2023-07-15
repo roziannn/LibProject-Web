@@ -44,12 +44,14 @@
                     </div>
                 </div>
                 <h5 class="text-support mt-3 text-black">Temukan keunggulan belajar otodidak dengan #produktif!</h5>
-                <p class="text-support text-green mt-2 text-black"> Setiap mahasiswa dapat mengemukakan ide-ide baru, menguji batasan mereka, <br> dan tumbuh sebagai individu maupun tim. Melalui kolaborasi erat, proyek <br> yang dihasilkan dapat memberikan kontribusi dalam dunia nyata.</p>
+                <p class="text-support mt-2 text-black"> Setiap mahasiswa dapat mengemukakan ide-ide baru, menguji batasan
+                    mereka, <br> dan tumbuh sebagai individu maupun tim. Melalui kolaborasi erat, proyek <br> yang
+                    dihasilkan dapat memberikan kontribusi dalam dunia nyata.</p>
                 <a href="/posts" class="btn btn-primary">Cari Project Sekarang</a>
             </div>
         </div>
     </div>
-    
+
 
     <section class="featured pt-50 pb-50">
         <div class="container-fluid">
@@ -183,89 +185,7 @@
             </div>
     </section>
 
-    <section class="footer-nd">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="item-footer col-lg-3 col-10">
-                    <p class="mt-2 tagline">
-                        Website untuk berkolaborasi membangun project bersama dan menghasilkan portfolio
-                        untuk peluang karir.
-                    </p>
-                    <h6 class="mt-4">© 2022 LibProject</h6>
-                </div>
-
-                <div class="item-footer col-lg-1 col-12"></div>
-
-                <div class="col-lg-8 col-12">
-                    <div class="row">
-                        <div class="item-footer col-lg-3 col-12">
-                            <h6 class="header-category">Project Category</h6>
-                            <ul>
-                                <li>
-                                    <a href="#">UI/UX Designer</a>
-                                </li>
-                                <li>
-                                    <a href="#">Web Developer</a>
-                                </li>
-                                <li>
-                                    <a href="#">Android/iOS</a>
-                                </li>
-                                <li>
-                                    <a href="#">UX Designer</a>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div class="item-footer col-lg-3 col-12">
-                            <h6 class="header-category">Community</h6>
-                            <ul>
-                                <li>
-                                    <a href="#">UI Kit</a>
-                                </li>
-                                <li>
-                                    <a href="#">Assets</a>
-                                </li>
-                                <li>
-                                    <a href="#">Mockup</a>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div class="item-footer col-lg-3 col-6">
-                            <h6 class="header-category">Find Us</h6>
-                            <ul>
-                                <li>
-                                    <a href="#">Contact</a>
-                                </li>
-                                <li>
-                                    <a href="#">YouTube</a>
-                                </li>
-                                <li>
-                                    <a href="#">Instagram</a>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div class="item-footer col-lg-3 col-6">
-                            <h6 class="header-category">Company</h6>
-                            <ul>
-                                <li>
-                                    <a href="#">About</a>
-                                </li>
-                                <li>
-                                    <a href="#">Events and Info</a>
-                                </li>
-                                <li>
-                                    <a href="#">Challenge</a>
-                                </li>
-                            </ul>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    @include('partials.footer')
 
     <style>
         .card {
@@ -287,6 +207,11 @@
             flex-grow: 1;
             padding-left: 20px;
         }
+/* 
+        .text-green {
+            color: #4d4d4d;
+            text-shadow: 0 0 5px #00ff00;
+        } */
 
 
         @media (max-width: 678px) {
@@ -306,6 +231,7 @@
                 text-align: left;
             }
         }
+
         @media (min-width: 679px) {
             .img-home .img-text-group {
                 margin: 10px;

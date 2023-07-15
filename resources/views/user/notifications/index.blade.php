@@ -1,7 +1,7 @@
 @extends('layouts.main')
 @include('partials.navbar')
-
 @section('container')
+
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
@@ -35,6 +35,7 @@
         </div>
     </div>
 @endsection
+
 
 <style>
     .link-post {
