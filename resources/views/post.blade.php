@@ -57,7 +57,9 @@
             </div>
 
             <div class="col-md-4">
-                <h5>Komentar</h5>
+                <div class="d-flex">
+                    <h5>Komentar</h5><i class="bi bi-chat-left-text mx-2"></i>
+                </div>
                 <hr>
 
                 @foreach ($post->comments as $comment)
@@ -74,25 +76,28 @@
                             <p>{{ $comment->subject }}
                                 <br>
                                 {{-- like untuk komentar --}}
-                                <a href="#" id="comment-btn-{{ $comment->id }}" style="text-decoration: none" onclick="like({{ $comment->id }}, 'COMMENT')">
-                                   <span class="like-text">
-                                      {{ $comment->is_liked() ? 'Unlike' : 'Like' }}
-                                   </span>
+                                <a href="#" id="comment-btn-{{ $comment->id }}" style="text-decoration: none"
+                                    onclick="like({{ $comment->id }}, 'COMMENT')">
+                                    <span class="like-text">
+                                        {{ $comment->is_liked() ? 'Unlike' : 'Like' }}
+                                    </span>
                                 </a>
                                 <span class="comment-section-text">
                                     @php
-                                       $diff = $comment->created_at->diff(now());
-                                 
-                                       if ($diff->m > 0) {
-                                          $diff = ceil($diff->days / 7) . 'w';
-                                       } else {
-                                          $diff = $comment->created_at->diffForHumans();
-                                       }
+                                        $diff = $comment->created_at->diff(now());
+                                        
+                                        if ($diff->m > 0) {
+                                            $diff = ceil($diff->days / 7) . 'w';
+                                        } else {
+                                            $diff = $comment->created_at->diffForHumans();
+                                        }
                                     @endphp
                                     {{ $diff }}
-                                 </span>
-                                 
-                                <span class="comment-count-text" id="post-likescount-{{ $comment->id }}">{{ $comment->likes_count }}</span><span class="comment-count-text"> likes</span>
+                                </span>
+
+                                <span class="comment-count-text"
+                                    id="post-likescount-{{ $comment->id }}">{{ $comment->likes_count }}</span><span
+                                    class="comment-count-text"> likes</span>
                             </p>
                         </div>
 
@@ -122,47 +127,47 @@
     {{-- script condition while user click like post and like comment button  --}}
     <script>
         function like(id, type = 'POST') {
-           let likesCount = document.getElementById('post-likescount-' + id);
-           let likeText = document.getElementById('comment-btn-' + id).querySelector('.like-text');
-     
-           fetch('/like/' + type + '/' + id)
-              .then(response => response.json())
-              .then(data => {
-                 let currentCount = parseInt(likesCount.innerText);
-     
-                 if (data.status === 'LIKE') {
-                    currentCount += 1;
-                    likeText.innerText = 'Unlike';
-                 } else {
-                    currentCount -= 1;
-                    likeText.innerText = 'Like';
-                 }
-     
-                 likesCount.innerText = currentCount;
-              });
+            let likesCount = document.getElementById('post-likescount-' + id);
+            let likeText = document.getElementById('comment-btn-' + id).querySelector('.like-text');
+
+            fetch('/like/' + type + '/' + id)
+                .then(response => response.json())
+                .then(data => {
+                    let currentCount = parseInt(likesCount.innerText);
+
+                    if (data.status === 'LIKE') {
+                        currentCount += 1;
+                        likeText.innerText = 'Unlike';
+                    } else {
+                        currentCount -= 1;
+                        likeText.innerText = 'Like';
+                    }
+
+                    likesCount.innerText = currentCount;
+                });
         }
-     
+
         function likePost(id) {
-           let likesCount = document.getElementById('post-likescount-' + id);
-           let icon = document.getElementById('post-btn-' + id).querySelector('.like-icon');
-     
-           fetch('/like/POST/' + id)
-              .then(response => response.json())
-              .then(data => {
-                 let currentCount = parseInt(likesCount.innerText);
-     
-                 if (data.status === 'LIKE') {
-                    currentCount += 1;
-                    icon.className = 'like-icon fas fa-thumbs-up';
-                 } else {
-                    currentCount -= 1;
-                    icon.className = 'like-icon bi bi-hand-thumbs-up';
-                 }
-     
-                 likesCount.innerText = currentCount;
-              });
+            let likesCount = document.getElementById('post-likescount-' + id);
+            let icon = document.getElementById('post-btn-' + id).querySelector('.like-icon');
+
+            fetch('/like/POST/' + id)
+                .then(response => response.json())
+                .then(data => {
+                    let currentCount = parseInt(likesCount.innerText);
+
+                    if (data.status === 'LIKE') {
+                        currentCount += 1;
+                        icon.className = 'like-icon fas fa-thumbs-up';
+                    } else {
+                        currentCount -= 1;
+                        icon.className = 'like-icon bi bi-hand-thumbs-up';
+                    }
+
+                    likesCount.innerText = currentCount;
+                });
         }
-     </script>
+    </script>
     <style>
         .icon-mini-btn {
             text-decoration: none;
@@ -178,12 +183,12 @@
             color: #565656;
         }
 
-        .comment-section-text{
+        .comment-section-text {
             margin-right: 5px;
             font-size: 13px;
         }
 
-        .comment-count-text{
+        .comment-count-text {
             font-size: 13px;
         }
     </style>

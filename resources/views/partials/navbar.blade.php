@@ -43,7 +43,10 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false">
-                        Halo, {{ auth()->user()->username }}
+                        Halo, {{ auth()->user()->username}}  
+                        
+                        <img src="{{ asset('img/avatar/' . auth()->user()->avatar) }}" class="rounded-circle ml-2" alt="{{ auth()->user()->username }}" width="32" height="32">
+
                     </a>
                     {{-- @include('components.avatar') --}}
 
