@@ -24,7 +24,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/about">Challenge</a>
                 </li>
-                @if (auth()->user())
+                {{-- @if (auth()->user())
                     <li class="nav-item">
                         <a class="nav-link" href="/notification">Notifikasi <small id="notify-count"></small></a>
                         <script>
@@ -37,14 +37,14 @@
                                 })
                         </script>
                     </li>
-                @endif
+                @endif --}}
             </ul>
         </div>
         
 
         <div class="navbar ms-auto">
             @auth
-            <div class="nav-item dropdown">
+            <div class="nav-item-right">
                 <a class="nav-link dropdown" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
                     aria-expanded="false">
                     <span class="username-name text-light"> Halo, {{ auth()->user()->username }}</span>
@@ -69,6 +69,11 @@
                         </form>
                     </li>
                 </ul>
+            </div>
+            <div class="nav-item-right">
+                <a class="nav-link" href="/notification">
+                    <i class="btn-lg bi bi-bell text-light"></i>
+                </a>
             </div>
             @else
             <div class="nav-item">
