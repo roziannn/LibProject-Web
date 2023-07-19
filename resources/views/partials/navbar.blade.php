@@ -40,45 +40,68 @@
                 @endif --}}
             </ul>
         </div>
-        
+
 
         <div class="navbar ms-auto">
             @auth
-            <div class="nav-item-right">
-                <a class="nav-link dropdown" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-                    aria-expanded="false">
-                    <span class="username-name text-light"> Halo, {{ auth()->user()->username }}</span>
-                    <?php
-                    $avatar_url = auth()->user()->avatar ? asset('img/avatar/' . auth()->user()->avatar) : 'https://ui-avatars.com/api/?size=128&background=random&name=' . auth()->user()->username;
-                    ?>
-                    <img src="{{ $avatar_url }}" class="rounded-circle ml-2 m-1" alt="" width="32" height="32">
-                </a>
-        
-                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="/account/profile"><i class="fa-solid fa-gear"></i> Pengaturan</a></li>
-                    <li><a class="dropdown-item" href="/dashboard/posts"><i class="fa-solid fa-sheet-plastic"></i> My Project</a>
-                    </li>
-                    <li><a class="dropdown-item" href="/dashboard/admin"><i class="fa-solid fa-sheet-plastic"></i> Dashboard
-                            Admin</a></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li>
-                        <form class="mb-0" action="/logout" method="post">
-                            @csrf
-                            <button type="submit" class="dropdown-item"><i
-                                    class="fa-solid fa-arrow-right-from-bracket "></i> Logout</button>
-                        </form>
-                    </li>
-                </ul>
-            </div>
-            <div class="nav-item-right">
-                <a class="nav-link" href="/notification">
-                    <i class="btn-lg bi bi-bell text-light"></i>
-                </a>
-            </div>
+                <div class="nav-item-right">
+                    <a class="nav-link dropdown" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        <span class="username-name text-light"> Halo, {{ auth()->user()->username }}</span>
+                        <?php
+                        $avatar_url = auth()->user()->avatar ? asset('img/avatar/' . auth()->user()->avatar) : 'https://ui-avatars.com/api/?size=128&background=random&name=' . auth()->user()->username;
+                        ?>
+                        <img src="{{ $avatar_url }}" class="rounded-circle ml-2 m-1" alt="" width="32"
+                            height="32">
+                    </a>
+
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="/account/profile"><i class="fa-solid fa-gear"></i> Pengaturan</a>
+                        </li>
+                        <li><a class="dropdown-item" href="/dashboard/posts"><i class="fa-solid fa-sheet-plastic"></i> My
+                                Project</a>
+                        </li>
+                        <li><a class="dropdown-item" href="/dashboard/admin"><i class="fa-solid fa-sheet-plastic"></i>
+                                Dashboard
+                                Admin</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li>
+                            <form class="mb-0" action="/logout" method="post">
+                                @csrf
+                                <button type="submit" class="dropdown-item"><i
+                                        class="fa-solid fa-arrow-right-from-bracket "></i> Logout</button>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+                <div class="nav-item-right">
+                    <a class="nav-link" href="/notification">
+                        <i class="btn-lg bi bi-bell text-light"></i>
+                        <span class="badge rounded-pill badge-notification bg-danger" id="notify-count"></span>
+                        <script>
+                            fetch('/notification/count')
+                                .then(response => response.json())
+                                .then(data => {
+                                    const notifyCount = parseInt(data.total);
+                                    if (notifyCount > 0) {
+                                        document.getElementById('notify-count').innerText = notifyCount;
+                                    } else {
+                                        document.getElementById('notify-count').style.display = 'none';
+                                    }
+                                })
+                                .catch(err => {
+                                    console.log(err);
+                                });
+                        </script>
+                    </a>
+                </div>
             @else
-            <div class="nav-item">
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
-            </div>
+                <div class="nav-item">
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                        data-bs-target="#loginModal">Login</button>
+                </div>
             @endauth
         </div>
     </div>
@@ -123,7 +146,8 @@
                                 <i class="fas fa-eye"></i>
                             </span>
                         </div>
-                        <p class="mt-2 mb-4"><a href="/forgotpass" style="font-size: 13px; text-decoration:none;">Lupa
+                        <p class="mt-2 mb-4"><a href="/forgotpass"
+                                style="font-size: 13px; text-decoration:none;">Lupa
                                 Password?</a></p>
                     </div>
                     <div class="text-right justify-content-around mt-3">
@@ -170,6 +194,26 @@
 
     .nav-item a {
         margin-right: 20px;
+    }
+
+    .bi-bell i {
+        width: 100px;
+        text-align: center;
+        vertical-align: middle;
+        position: relative;
+        font-size: 5px;
+    }
+    
+    .badge {
+        background: rgba(0, 0, 0, 0.5);
+        width: auto;
+        height: auto;
+        margin: 0;
+        border-radius: 50%;
+        position: absolute;
+        top: 0px;
+        right: -2px;
+        padding: 1px;
     }
 
     @media (max-width: 768px) {
