@@ -4,11 +4,15 @@
 
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
     <div class="container">
-        <a class="navbar-brand" href="/"><img src="{{ asset('/img/logo.png') }}" class="img"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
+        <div class="navbar-brand mx-auto">
+            <a href="/">
+                <img src="{{ asset('/img/logo.png') }}" class="img">
+            </a>
+        </div>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
@@ -36,44 +40,45 @@
                 @endif
             </ul>
         </div>
+        
 
-
-        <ul class="navbar-nav ms-auto">
+        <div class="navbar ms-auto">
             @auth
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                        data-bs-toggle="dropdown" aria-expanded="false">
-                        Halo, {{ auth()->user()->username}}  
-                        
-                        <img src="{{ asset('img/avatar/' . auth()->user()->avatar) }}" class="rounded-circle ml-2" alt="{{ auth()->user()->username }}" width="32" height="32">
-
-                    </a>
-                    {{-- @include('components.avatar') --}}
-
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="/account/profile"><i class="fa-solid fa-gear"></i> Pengaturan</a>
-                        <a class="dropdown-item" href="/dashboard/posts"><i class="fa-solid fa-sheet-plastic"></i> My
-                            Project</a>
-                        <a class="dropdown-item" href="/dashboard/admin"><i class="fa-solid fa-sheet-plastic"></i> Dashboard
-                            Admin</a>
-                        <hr class="dropdown-divider">
+            <div class="nav-item dropdown">
+                <a class="nav-link dropdown" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    <span class="username-name text-light"> Halo, {{ auth()->user()->username }}</span>
+                    <?php
+                    $avatar_url = auth()->user()->avatar ? asset('img/avatar/' . auth()->user()->avatar) : 'https://ui-avatars.com/api/?size=128&background=random&name=' . auth()->user()->username;
+                    ?>
+                    <img src="{{ $avatar_url }}" class="rounded-circle ml-2 m-1" alt="" width="32" height="32">
+                </a>
+        
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="/account/profile"><i class="fa-solid fa-gear"></i> Pengaturan</a></li>
+                    <li><a class="dropdown-item" href="/dashboard/posts"><i class="fa-solid fa-sheet-plastic"></i> My Project</a>
+                    </li>
+                    <li><a class="dropdown-item" href="/dashboard/admin"><i class="fa-solid fa-sheet-plastic"></i> Dashboard
+                            Admin</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li>
                         <form class="mb-0" action="/logout" method="post">
                             @csrf
                             <button type="submit" class="dropdown-item"><i
                                     class="fa-solid fa-arrow-right-from-bracket "></i> Logout</button>
                         </form>
-                    </ul>
-                </li>
+                    </li>
+                </ul>
+            </div>
             @else
-                <li class="nav-item">
-                    <!-- <a href="/login" class="nav-link"><i class="fa-solid fa-arrow-right-to-bracket"></i> Login</a>           -->
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#loginModal">Login
-                    </button>
-                </li>
+            <div class="nav-item">
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
+            </div>
             @endauth
-        </ul>
+        </div>
     </div>
 </nav>
+
 
 
 
@@ -113,8 +118,8 @@
                                 <i class="fas fa-eye"></i>
                             </span>
                         </div>
-                        <p class="mt-2 mb-4"><a href="/forgotpass"
-                                style="font-size: 13px; text-decoration:none;">Lupa Password?</a></p>
+                        <p class="mt-2 mb-4"><a href="/forgotpass" style="font-size: 13px; text-decoration:none;">Lupa
+                                Password?</a></p>
                     </div>
                     <div class="text-right justify-content-around mt-3">
                         <button type="submit" class="btn btn-primary">Masuk</a></button>
@@ -148,16 +153,11 @@
     });
 </script>
 
-
 <style>
     .text-right {
         text-align: right !important;
     }
 
-    .search-field {
-        margin-right: 30px;
-        height: 40px;
-    }
 
     .img {
         width: 140px;
@@ -165,5 +165,11 @@
 
     .nav-item a {
         margin-right: 20px;
+    }
+
+    @media (max-width: 768px) {
+        .username-name {
+            display: none;
+        }
     }
 </style>
