@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Workshop;
 use Illuminate\Http\Request;
+use \Cviebrock\EloquentSluggable\Services\SlugService;
 
 class WorkshopController extends Controller
 {
@@ -13,18 +15,20 @@ class WorkshopController extends Controller
      */
     public function index()
     {
-        //
+        return view('workshops.index');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    // admin only
+    public function dashboard_workshop()
+    {
+        return view('workshops.dashboard');
+    }
+
     public function create()
     {
-        //
+        return view('workshops.create');
     }
+
 
     /**
      * Store a newly created resource in storage.
@@ -34,7 +38,19 @@ class WorkshopController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Workshop::create($request->all());
+
+        $request->accepts('session');
+        session()->flash('success', 'Berhasil menambahkan data!');
+
+        return back();
+    }
+
+    public function checkSlug(Request $request)
+    {
+
+        $slug = SlugService::createSlug(Workshop::class, 'slug', $request->workshop_name);
+        return response()->json(['slug' => $slug]);
     }
 
     /**

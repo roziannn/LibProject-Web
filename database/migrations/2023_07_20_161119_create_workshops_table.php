@@ -17,11 +17,15 @@ return new class extends Migration
             $table->id();
             $table->string('token');
             $table->string('workshop_name');
+            $table->string('workshop_type');
+            $table->string('workshop_fee');
+            $table->string('workshop_img')->nullable();
             $table->string('desc');
             $table->date('start_date');
             $table->date('end_date');
-            $table->boolean('workshop_status');
+            $table->boolean('workshop_status')->default('true');
             $table->string('member_join');
+            $table->string('slug')->unique();
             $table->timestamps();
         });
     }

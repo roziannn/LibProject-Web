@@ -12,8 +12,10 @@ use App\Http\Controllers\PasswordController;
 use App\Http\Controllers\PostCommentController;
 use App\Http\Controllers\LikeController;
 use App\Http\Controllers\testHomeController;
+use App\Http\Controllers\WorkshopController;
 use App\Models\Category;
 use App\Models\User;
+use App\Models\Workshop;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
@@ -57,6 +59,14 @@ Route::get('/about', function(){
         "image" => "3.jpg"
     ]);
 });
+
+// workshops
+Route::get('/workshop', [WorkshopController::class,'index']);
+Route::get('/dashboard/workshop/', [WorkshopController::class,'dashboard_workshop']);
+Route::get('/dashboard/workshop/create', [WorkshopController::class,'create']);
+Route::post('/dashboard/workshop/store', [WorkshopController::class,'store']);
+Route::get('/dashboard/workshop/checkSlug', [WorkshopController::class, 'checkSlug']);
+
 
 Route::get('/login',[LoginController::class, 'login'])->name('login')->middleware('guest');
 Route::post('/login',[LoginController::class, 'authenticate']); 

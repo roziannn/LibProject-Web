@@ -22,7 +22,7 @@
                     <a class="nav-link" href="/posts">Project</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/about">Workshop</a>
+                    <a class="nav-link" href="/workshop">Workshop</a>
                 </li>
             </ul>
         </div>
@@ -46,6 +46,8 @@
                         </li>
                         <li><a class="dropdown-item mt-2" href="/dashboard/posts">My
                                 Project</a>
+                        </li>
+                        <li><a class="dropdown-item mt-2" href="/dashboard/workshop/">Workshop</a>
                         </li>
                         <li><a class="dropdown-item mt-2" href="/dashboard/admin">
                                 Dashboard
