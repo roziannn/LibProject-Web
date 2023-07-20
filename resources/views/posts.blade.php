@@ -33,7 +33,7 @@
 
                             <a href="/posts/{{ $post->slug }}">
                                 @if ($post->image)
-                                    <img src="{{ asset('storage/' . $post->image) }}" style="height: 190px; width:100%;"
+                                    <img src="{{ asset('storage/' . $post->image) }}" style="height: 200px; width:100%;"
                                         alt="{{ $post->category->name }}" class="img-fluid">
                                 @else
                                     <img src="https://source.unsplash.com/220x140? {{ $post->category->name }}"
