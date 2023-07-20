@@ -14,11 +14,18 @@
                         <div class="mr-auto">
                             <h4 class="mb-3">{{ $post->title }}</h4>
                         </div>
+                        <div class="content-user-actions">
+                            <a href="#" class="icon-mini-btn btn btn-light" id="post-btn-{{ $post->id }}"
+                                onclick="likePost({{ $post->id }})">
+                                <span id="post-likescount-{{ $post->id }}">{{ $post->likes_count }}</span>
+                                <i class="like-icon {{ $post->is_liked() ? 'fas fa-thumbs-up' : 'bi bi-hand-thumbs-up' }}"></i>
+                            </a>
+                            <a href="#" class="icon-mini-btn btn btn-light" style="margin-left: 5px;">
+                                <span>12</span>
+                                <i class="bi bi-share"></i>
+                            </a>
+                        </div>
                     </div>
-                    {{-- <p><a href="#/{{ $post->user->username }}" class="text-decoration-none">{{ $post->user->name }} </a> in
-                        <a href="/posts?category={{ $post->category->slug }}"
-                            class="text-decoration-none">{{ $post->category->name }}</a>
-                    </p> --}}
                     <div class="content-info d-flex align-items-center justify-content-between mb-3">
                         <div class="d-flex created-by-user align-items-center">
                             <div class="created-by-user avatar">
@@ -26,12 +33,14 @@
                                     class="rounded-circle ml-2 m-1" alt="" width="32" height="32">
                             </div>
                             <div class="created-by-user name my-1 mx-1 d-flex justify-content-center align-items-center">
-                                <small class="fs-6">{{ $post->user->name }}</small>
+                                <small class="fs-6 font-weight-600">{{ $post->user->name }}</small>
                             </div>
+                            <span class="mx-1 text-muted">•</span>
+                            <h6 class="mb-0">Project <a href="{{ url('posts?category=' . $post->category->slug) }}" class="text-decoration-none">{{ $post->category->slug }}</a></h6>
                         </div>
 
                         <div class="d-flex created-by-date align-items-center">
-                            <p class="text-sm mb-0">{{ \Carbon\Carbon::parse($post->created_at)->isoFormat('DD MMMM YYYY') }}</p>
+                            <small class="text-muted mb-0">{{ \Carbon\Carbon::parse($post->created_at)->isoFormat('DD MMMM YYYY') }}</small>
                         </div>
                     </div>
                     
@@ -51,17 +60,17 @@
 
                     <div class="d-flex mt-3">
                         {{-- like for post --}}
-                        <a href="#" class="icon-mini-btn btn btn-primary btn-sm" id="post-btn-{{ $post->id }}"
+                        {{-- <a href="#" class="icon-mini-btn btn btn-primary btn-sm" id="post-btn-{{ $post->id }}"
                             onclick="likePost({{ $post->id }})">
                             <span id="post-likescount-{{ $post->id }}">{{ $post->likes_count }}</span>
                             <i class="like-icon {{ $post->is_liked() ? 'fas fa-thumbs-up' : 'bi bi-hand-thumbs-up' }}"></i>
-                        </a>
+                        </a> --}}
 
                         {{-- share icon --}}
-                        <a href="#" class="icon-mini-btn btn btn-primary btn-sm" style="margin-left: 5px;">
+                        {{-- <a href="#" class="icon-mini-btn btn btn-primary btn-sm" style="margin-left: 5px;">
                             <span>12</span>
                             <i class="bi bi-share"></i>
-                        </a>
+                        </a> --}}
                     </div>
                     {{-- post body --}}
                     <article class="my-3 mt-3">
