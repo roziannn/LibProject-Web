@@ -15,7 +15,9 @@ class WorkshopController extends Controller
      */
     public function index()
     {
-        return view('workshops.index');
+
+        $datas = Workshop::all();
+        return view('workshops.index', compact('datas'));
     }
 
     // admin only
@@ -38,7 +40,28 @@ class WorkshopController extends Controller
      */
     public function store(Request $request)
     {
-        Workshop::create($request->all());
+        // Workshop::create($request->all());
+
+        $validatedData = $request->validate([
+            'token' => 'required',
+            'workshop_name'=> 'required|max:255',
+            'workshop_type'=>'required',
+            'workshop_fee'=> 'required',
+            'workshop_img'=> 'image|file|max:2000',
+            'desc'=> 'required',
+            'start_date'=> 'required',
+            'end_date'=> 'required',
+            'workshop_status'=> 'required',
+            'member_join'=> 'required',
+            'slug'=> 'required',
+        ]);
+
+        if ($request->file('workshop_img')) {
+            $validatedData['workshop_img'] = $request->file('workshop_img')->store('workshop-images');
+        }
+        
+
+        Workshop::create($validatedData);
 
         $request->accepts('session');
         session()->flash('success', 'Berhasil menambahkan data!');
