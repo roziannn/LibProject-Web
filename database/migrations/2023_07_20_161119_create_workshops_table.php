@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('workshop_type');
             $table->string('workshop_fee');
             $table->string('workshop_img');
-            $table->string('desc');
+            $table->text('desc');
             $table->date('start_date');
             $table->date('end_date');
             $table->boolean('workshop_status')->default('true');
