@@ -8,26 +8,27 @@
     </div>
 
     <div class="container">
-        @foreach ($datas as $data)
-            <div class="col-12 col-md-3 mb-3">
-                <div class="card white-bg shadow mb-3">
-                    <div class="card-header">
-                        <div>
-                            <span class="badge text-bg-success">{{ $data->workshop_type }}</span>
-                            <small>{{ \Carbon\Carbon::parse($data->start_date)->isoFormat('dddd, D MMMM YYYY') }}</small>
+        <div class="row">
+            @foreach ($datas as $data)
+                <div class="col-12 col-md-3 mb-3">
+                    <div class="card white-bg shadow mb-3">
+                        <div class="card-header">
+                            <div>
+                                <span class="badge rounded-pill text-bg-success">{{ $data->workshop_type }}</span>
+                                <small>{{ \Carbon\Carbon::parse($data->start_date)->isoFormat('dddd, D MMMM YYYY') }}</small>
+                            </div>
+                        </div>
+                        <img src="{{ asset('storage/' . $data->workshop_img) }}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <a href="#">
+                                <h6 class="card-title">{{ $data->workshop_name }}</h6>
+                            </a>
+                            <small class="card-text text-muted my-3">{!! $data->desc !!}</small>
                         </div>
                     </div>
-                    <img src="{{ asset('storage/' . $data->workshop_img) }}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <a href="#">
-                            <h5 class="card-title">{{ $data->workshop_name }}</h5>
-                        </a>
-                        <small class="card-text text-muted my-3">{!! $data->desc !!}</small>
-
-
-                    </div>
                 </div>
-        @endforeach
+            @endforeach
+        </div>
     </div>
 
 
@@ -54,9 +55,9 @@
         overflow: hidden;
     }
 
-    .card-text{
+    .card-text {
         display: -webkit-box;
-        -webkit-line-clamp: 4;
+        -webkit-line-clamp: 3;
         -webkit-box-orient: vertical;
         overflow: hidden;
     }
