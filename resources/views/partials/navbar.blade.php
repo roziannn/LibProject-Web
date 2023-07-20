@@ -24,20 +24,6 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/about">Challenge</a>
                 </li>
-                {{-- @if (auth()->user())
-                    <li class="nav-item">
-                        <a class="nav-link" href="/notification">Notifikasi <small id="notify-count"></small></a>
-                        <script>
-                            fetch('/notification/count')
-                                .then(response => response.json())
-                                .then(data => {
-                                    document.getElementById('notify-count').innerText = parseInt(data.total)
-                                }).catch(err => {
-                                    console.log(err)
-                                })
-                        </script>
-                    </li>
-                @endif --}}
             </ul>
         </div>
 
@@ -106,8 +92,6 @@
         </div>
     </div>
 </nav>
-
-
 
 
 <div class="modal" id="loginModal">

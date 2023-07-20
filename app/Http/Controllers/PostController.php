@@ -29,7 +29,8 @@ class PostController extends Controller
         return view('posts', [
             "title" => "Project Available" . $title,
             "active" => 'posts',
-            "posts" => Post::latest()->filter(request(['search', 'category']))->paginate(8)->withQueryString()
+            "posts" => Post::latest()->filter(request(['search', 'category']))->paginate(8)->withQueryString(),
+            'categories' => Category::all(),
         ]);
 
         

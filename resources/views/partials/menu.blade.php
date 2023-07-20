@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg bg-white mt-3">
+{{-- <nav class="navbar navbar-expand-lg bg-white">
   <a class="navbar-brand d-block d-sm-block d-md-none" href="#">Kategori</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample10" aria-controls="navbarsExample10" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -12,11 +12,18 @@
         </ul>
        @endforeach
     </div>
-    
+</nav> --}}
+{{-- new ver. 7/20/23 --}}
+<nav class="nav col-12 col-md-auto justify-content-center my-4">
+    @foreach ($categories as $category)
+    <li><a href="posts?category={{ $category->slug }}"
+      class="me-3 fs-5 link-body-emphasis text-decoration-none">{{ $category->name }}</a>
+    </li>
+    @endforeach
 </nav>
 
-  <style>
-    .menu a{
-      margin-left: 40px;
+<style>
+    .menu a {
+        margin-left: 40px;
     }
-  </style>
+</style>

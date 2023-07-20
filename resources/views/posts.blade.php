@@ -4,20 +4,20 @@
 
     <link rel="stylesheet" href="css/home.style.css">
 
-    <h2 class="mb-4 mt-5 text-center" style="font-weight: 700;">{{ $title }}</h2>
-
-    <div class="row justify-content-center mb-5">
+    <h2 class="text-center mb-4" style="font-weight: 700;">{{ $title }}</h2>
+    <div class="row justify-content-center mb-3">
         <div class="col-md-6">
             <form action="/posts">
                 @if (request('category'))
                     <input type="hidden" name="category" value="{{ request('category') }}">
                 @endif
-                <div class="input-group mb-3">
+                <div class="input-group">
                     <input type="text" class="form-control" placeholder="Search.." name="search"
                         value="{{ request('search') }}">
                     <button class="btn btn-outline-primary" type="submit">Search</button>
                 </div>
             </form>
+            @include('partials.menu')
         </div>
     </div>
 
@@ -50,7 +50,7 @@
                     </div>
                 @endforeach
             </div>
-        </div>
+    </div>
     @include('partials.footer')
 @else
     <p class="text-center fs-4">No project found.</p>
@@ -63,10 +63,9 @@
 @endsection
 
 <style>
-     .card-title {
+    .card-title {
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
     }
 </style>
-
