@@ -8,31 +8,45 @@
             </div>
         @endif
         <div class="container">
-            <div class="row justify-content-left mb-5">
+            <div class="row justify-content-between mb-5">
                 <div class="col-md-8">
                     <div class="item-join d-flex justify-content-between">
                         <div class="mr-auto">
-                            <h3 class="mb-3">{{ $post->title }}</h3>
-                        </div>
-                        <div class="join-button">
-                            <button type="button" class="btn btn-primary btn-sm text-white"> + Join Project</button>
+                            <h4 class="mb-3">{{ $post->title }}</h4>
                         </div>
                     </div>
-
-                    <p><a href="#/{{ $post->user->username }}" class="text-decoration-none">{{ $post->user->name }} </a> in <a
-                            href="/posts?category={{ $post->category->slug }}"
-                            class="text-decoration-none">{{ $post->category->name }}</a></p>
-
-                    @if ($post->image)
-                        <div style="max-height: 350px; overflow:hidden">
-                            <img src="{{ asset('storage/' . $post->image) }}" alt="{{ $post->category->name }}"
-                                class="img-fluid">
+                    {{-- <p><a href="#/{{ $post->user->username }}" class="text-decoration-none">{{ $post->user->name }} </a> in
+                        <a href="/posts?category={{ $post->category->slug }}"
+                            class="text-decoration-none">{{ $post->category->name }}</a>
+                    </p> --}}
+                    <div class="content-info d-flex align-items-center justify-content-between mb-3">
+                        <div class="d-flex created-by-user align-items-center">
+                            <div class="created-by-user avatar">
+                                <img src="{{ asset('img/avatar/' . $post->user->avatar) ?: 'https://ui-avatars.com/api/?size=128&background=random&name=' . $post->user->username }}"
+                                    class="rounded-circle ml-2 m-1" alt="" width="32" height="32">
+                            </div>
+                            <div class="created-by-user name my-1 mx-1 d-flex justify-content-center align-items-center">
+                                <small class="fs-6">{{ $post->user->name }}</small>
+                            </div>
                         </div>
-                    @else
-                        <img src="https://source.unsplash.com/1200x400? {{ $post->category->name }}"
-                            alt="{{ $post->category->name }}" class="img-fluid">
-                    @endif
 
+                        <div class="d-flex created-by-date align-items-center">
+                            <p class="text-sm mb-0">{{ \Carbon\Carbon::parse($post->created_at)->isoFormat('DD MMMM YYYY') }}</p>
+                        </div>
+                    </div>
+                    
+
+                    <div class="col-lg-12">
+                        @if ($post->image)
+                            <div style="max-height: auto; overflow:hidden">
+                                <img src="{{ asset('storage/' . $post->image) }}" alt="{{ $post->category->name }}"
+                                    class="img-fluid">
+                            </div>
+                        @else
+                            <img src="https://source.unsplash.com/1200x400? {{ $post->category->name }}"
+                                alt="{{ $post->category->name }}" class="img-fluid">
+                        @endif
+                    </div>
 
 
                     <div class="d-flex mt-3">
@@ -56,12 +70,10 @@
                     {{-- <a href="/posts" style="text-decoration: none" class="d-block mt-5">Back to Project</a> --}}
                 </div>
 
-                <div class="col-md-4">
-                    <div class="d-flex">
-                        <h5>Komentar</h5><i class="bi bi-chat-left-text mx-2"></i>
+                <div class="col-md-3">
+                    <div class="d-flex border-bottom my-2">
+                        <h5>Komentar</h5><i class="bi bi-chat-dots left-text mx-2"></i>
                     </div>
-                    <hr>
-
                     @foreach ($post->comments as $comment)
                         <div class="d-flex flex-column">
                             <div class="d-flex justify-content-between">

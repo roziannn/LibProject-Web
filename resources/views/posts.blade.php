@@ -11,12 +11,13 @@
 
     <div class="row justify-content-center mx-1 mb-3">
         <div class="col-md-2">
-            <select class="form-select form-select-md mb-3" aria-label=".form-select-lg example">
-                <option selected>Cari berdasarkan</option>
+            <select class="form-select form-select-md mb-3" aria-label=".form-select-lg example" onchange="window.location.href = this.value;">
+                <option value="">Cari berdasarkan</option>
                 @foreach ($categories as $category)
-                    <option value="1">{{ $category->name }}</option>
+                <option value="{{ url('/posts') }}">Semua Project</option>
+                    <option value="{{ url('posts?category=' . $category->slug) }}">{{ $category->name }}</option>
                 @endforeach
-            </select>
+            </select>            
         </div>
         <div class="col-md-4">
             <form action="/posts">
