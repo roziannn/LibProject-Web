@@ -22,7 +22,7 @@
                     <a class="nav-link" href="/posts">Project</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/about">Challenge</a>
+                    <a class="nav-link" href="/about">Workshop</a>
                 </li>
             </ul>
         </div>
@@ -42,22 +42,21 @@
                     </a>
 
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="/account/profile"><i class="fa-solid fa-gear"></i> Pengaturan</a>
+                        <li><a class="dropdown-item mt-2" href="/account/profile"> Pengaturan</a>
                         </li>
-                        <li><a class="dropdown-item" href="/dashboard/posts"><i class="fa-solid fa-sheet-plastic"></i> My
+                        <li><a class="dropdown-item mt-2" href="/dashboard/posts">My
                                 Project</a>
                         </li>
-                        <li><a class="dropdown-item" href="/dashboard/admin"><i class="fa-solid fa-sheet-plastic"></i>
+                        <li><a class="dropdown-item mt-2" href="/dashboard/admin">
                                 Dashboard
                                 Admin</a></li>
-                        <li>
+                        {{-- <li>
                             <hr class="dropdown-divider">
-                        </li>
+                        </li> --}}
                         <li>
-                            <form class="mb-0" action="/logout" method="post">
+                            <form class="mb-0 mt-2" action="/logout" method="post">
                                 @csrf
-                                <button type="submit" class="dropdown-item"><i
-                                        class="fa-solid fa-arrow-right-from-bracket "></i> Logout</button>
+                                <button type="submit" class="dropdown-item">Logout</button>
                             </form>
                         </li>
                     </ul>

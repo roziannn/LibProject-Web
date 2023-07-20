@@ -4,7 +4,7 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-lg-12 m-3">
+            <div class="col-lg-12 mb-5">
                 <div class="card-body">
                     <div class="card-header">
                         <h3>Notifikasi</h3>

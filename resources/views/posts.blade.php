@@ -4,7 +4,7 @@
 
     <link rel="stylesheet" href="css/home.style.css">
 
-    <h2 class="text-center mb-4" style="font-weight: 700;">{{ $title }}</h2>
+    <h2 class="text-center mb-4" style="font-weight: 500;">{{ $title }}</h2>
     <div class="row justify-content-center mb-3">
         <div class="col-md-6">
             <form action="/posts">

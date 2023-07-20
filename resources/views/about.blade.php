@@ -2,9 +2,9 @@
 @include('partials.navbar')
 @section('container')
 <link rel="stylesheet" href="css/home.style.css">
-    <div class="text-head mt-5 mb-5">
-        <h1>LibChallenge</h1>
-        <p> Ikuti challenge bulanan untuk mengasah keterampilan ngoding kamu </p>
+    <div class="text-head text-center mb-5">
+        <h2 class="text-center" style="font-weight: 500;">Ikuti Workshop bersama LibPro!</h2>
+        <p> Beragam workshop seru dan menarik untuk asah keterampilan kamu </p>
     </div>
 
     <div class="container">
