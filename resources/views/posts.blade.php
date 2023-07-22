@@ -21,9 +21,6 @@
         </div>
         <div class="col-md-4">
             <form action="/posts">
-                {{-- @if (request('category'))
-                    <input type="hidden" name="category" value="{{ request('category') }}">
-                @endif --}}
                 <div class="input-group">
                     <input type="text" class="form-control" placeholder="Search.." name="search"
                         value="{{ request('search') }}">

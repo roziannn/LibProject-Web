@@ -81,3 +81,32 @@
         </div>
     </div>
 </section>
+
+<style>
+    .footer-nd {
+        margin-top: 100px;
+        margin-bottom: 10px;
+    }
+
+    .footer-nd .item-footer ul li {
+        padding-bottom: 10px;
+        list-style: none;
+    }
+
+    .footer-nd .item-footer ul {
+        margin-left: -32px;
+    }
+
+    .footer-nd .item-footer {
+        margin-bottom: 30px;
+    }
+
+    .footer-nd .item-footer ul li a {
+        text-decoration: none;
+        color: #34364a;
+    }
+
+    .footer-nd .item-footer ul li a:hover {
+        color: #0E66E7;
+    }
+</style>
