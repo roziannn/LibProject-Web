@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 @extends('layouts.main')
 @include('partials.navbar')
 @section('container')
@@ -29,6 +30,7 @@
                     dihasilkan dapat memberikan kontribusi dalam dunia nyata.</p>
                     <a href="/posts" class="btn btn-primary btn-lg shadow">Cari Project<i class="ms-3 bi bi-arrow-right-circle-fill"></i></a>
                     <a href="/posts" class="btn btn-warning btn-lg shadow mx-3"><i class="me-3 bi bi-play-circle-fill"></i>Introduction</a>
+                    
             </div>
             <div class="col-5">
                 <img src="img/sketch.png" class="img-responsive-home" width="100%"  alt="Gambar">
@@ -55,13 +57,11 @@
                     <div class="card p-2 border-0">
                         <div class="card-body">
                             <div class="icon-roadmap mt-3 mb-3">
-                                <img src="/img/roadmap/frontend.png" style="width:50px;">
+                                {{-- <img src="/img/roadmap/frontend.png" style="width:50px;"> --}}
                             </div>
-                            <h4 class="card-title">Frontend Developer</h4>
-                            <p class="card-text">This is a longer card with supporting text below as a natural lead-in
-                                to
-                                additional content. This content is a little bit longer.</p>
-                            <a href="https://roadmap.sh/frontend" target="_blank" class="btn btn-primary stretched-link"> >
+                            <h5 class="card-title"><span><i class="bi bi-code-slash"></i></span> Frontend</h5>
+                            <p class="card-text text-justify">Kembangkan antarmuka pengguna untuk menciptakan pengalaman visual dan interaktif yang menarik.</p>
+                            <a href="https://roadmap.sh/frontend" target="_blank" class="btn btn-sm btn-primary  stretched-link"> <i class="bi bi-arrow-right"></i> 
                             </a>
                         </div>
                     </div>
@@ -70,15 +70,12 @@
                 <div class="col">
                     <div class="card p-2 border-0">
                         <div class="card-body">
-                            <div class="icon-roadmap mt-3 mb-3">
-                                <img src="/img/roadmap/backend.png" style="width:35px;">
-                            </div>
-                            <h4 class="card-title">Backend Developer</h4>
+                            <h5 class="card-title my-3"><span><i class="bi bi-database-fill-lock"></i></span> Backend</h5>
                             <p class="card-text">This is a longer card with supporting text below as a natural lead-in
                                 to
                                 additional content. This content is a little bit longer.</p>
-                            <a href="https://roadmap.sh/backend" target="_blank" class="btn btn-primary stretched-link">
-                                >
+                            <a href="https://roadmap.sh/backend" target="_blank" class="btn btn-sm btn-primary stretched-link">
+                                <i class="bi bi-arrow-right"></i>
                             </a>
                         </div>
                     </div>
@@ -87,14 +84,11 @@
                 <div class="col">
                     <div class="card p-2  border-0">
                         <div class="card-body">
-                            <div class="icon-roadmap mt-3 mb-3">
-                                <img src="/img/roadmap/react.png" style="width:35px;">
-                            </div>
-                            <h4 class="card-title">React</h4>
+                            <h5 class="card-title my-3"><span><i class="bi bi-android"></i></span> Android</h5>
                             <p class="card-text">This is a longer card with supporting text below as a natural lead-in
                                 to
                                 additional content. This content is a little bit longer.</p>
-                            <a href="https://roadmap.sh/react" target="_blank" class="btn btn-primary stretched-link"> >
+                            <a href="https://roadmap.sh/react" target="_blank" class="btn btn-sm btn-primary stretched-link"><i class="bi bi-arrow-right"></i> 
                             </a>
                         </div>
                     </div>
@@ -103,15 +97,12 @@
                 <div class="col">
                     <div class="card p-2 border-0">
                         <div class="card-body">
-                            <div class="icon-roadmap mt-3 mb-3">
-                                <img src="/img/roadmap/android.png" style="width:30px;">
-                            </div>
-                            <h4 class="card-title">Android</h4>
+                            <h5 class="card-title my-3"><span><i class="bi bi-apple"></i></span> iOS</h5>
                             <p class="card-text">This is a longer card with supporting text below as a natural lead-in
                                 to
                                 additional content. This content is a little bit longer.</p>
-                            <a href="https://roadmap.sh/android" target="_blank" class="btn btn-primary stretched-link">
-                                >
+                            <a href="https://roadmap.sh/android" target="_blank" class="btn btn-sm btn-primary stretched-link">
+                                <i class="bi bi-arrow-right"></i>
                             </a>
                         </div>
                     </div>
