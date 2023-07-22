@@ -4,28 +4,25 @@
 @section('container')
     <div class="container">
         <div class="row">
-            @include('dashboard.layouts.admin.sidemenu')
-            <div class="col-md-9 pl-md-0">
-                <div class="card user-settings__wrapper">
+            @include('dashboard.layouts.admin.partials.sidebar')
+            <div class="col-md-9">
+                <div class="card content p-4">
                     @if (session()->has('successDelete'))
                         <div class="alert alert-primary alert-dismissible fade show" role="alert">
                             {{ session('successDelete') }}
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-hidden="true"></button>
                         </div>
                     @endif
-                    <div class="user-settings__title d-flex justify-content-between">
-                        <h4>Data Kategori</h4>
-                        <div class="text-right">
-                            <a href="#" class="btn btn-primary btn-sm ml-1 text-decoration-none"data-bs-toggle="modal"
-                                data-bs-target="#modal"> Tambah Kategori
-                            </a>
-                        </div>
+                    <strong class="fs-5 border-bottom">Data Kategori Proyek</strong>
+                    <div class="text-right">
+                        <a href="#" class="btn btn-primary btn-sm m-3 text-decoration-none"data-bs-toggle="modal"
+                            data-bs-target="#modal"> Tambah Kategori
+                        </a>
                     </div>
-                    <div class="col-md-12">
-                        <table class="table mt-3">
+                    <div class="col-lg-12">
+                        <table class="table small">
                             <thead>
                                 <tr>
-                                    <th>#</th>
                                     <th>Nama Kategori</th>
                                     <th>Aksi</th>
                                 </tr>
@@ -34,8 +31,6 @@
                                 @php $i=1 @endphp
                                 @foreach ($data as $item)
                                     <tr>
-
-                                        <td>{{ $i++ }}</td>
                                         <td>{{ $item->name }}</td>
                                         <td>
                                             <a href="#" class="btn-danger btn-sm ml-1" data-bs-toggle="modal"

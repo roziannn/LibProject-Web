@@ -5,29 +5,23 @@
 
     <div class="card profile-settings d-none d-lg-flex">
         <div class="header-title mb-3">
-            <strong class="fs-5">Pengaturan Akun</strong>
+            <strong class="fs-5">Pengaturan Admin</strong>
         </div>
-        <a href="/account/profile" class="profile-settings-item">Data Akun</a>
-        <a href="#" class="profile-settings-item">Data Instansi</a>
-        <a href="/account/change-password" class="profile-settings-item">Ubah Kata Sandi</a>
+        <a href="/dashboard/admin/user" class="profile-settings-item">Data User</a>
+        <a href="/dashboard/admin/category" class="profile-settings-item">Data Kategori</a>
     </div>
 
     <div class="offcanvas-lg offcanvas-start" tabindex="-1" id="sidebar-profile-settings"
         aria-labelledby="offcanvasResponsiveLabel">
         <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasResponsiveLabel">Pengaturan Akun</h5>
+            <h5 class="offcanvas-title" id="offcanvasResponsiveLabel">Pengaturan Admin</h5>
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
                 data-bs-target="#sidebar-profile-settings" aria-label="Close"></button>
         </div>
         <div class="d-lg-none sidebar-offcanvas sidebar-offcanvas-profile-settings">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-               
-                    <a class="profile-settings-item" aria-current="page" href="/account/profile">Data Akun</a>
-                
-                    <a class="profile-settings-item" aria-current="page" href="#">Data Instansi</a>
-               
-                    <a class="profile-settings-item" href="/account/change-password">Ubah Kata Sandi</a>
-              
+                    <a class="profile-settings-item" aria-current="page" href="/dashboard/admin/user">Data User</a>
+                    <a class="profile-settings-item" aria-current="page" href="#">Data Kategori</a>
                 {{-- <li class="nav-item">
                     <a class="nav-link" href="#">Profile</a>
                 </li>

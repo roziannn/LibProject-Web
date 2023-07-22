@@ -4,23 +4,18 @@
 @section('container')
     <div class="container">
         <div class="row">
-            @include('dashboard.layouts.admin.sidemenu')
-            <div class="col-md-9 pl-md-0">
-                <div class="card user-settings__wrapper">
-                    <div class="user-settings__title">
-                        <h4>Data User</h4>
+            @include('dashboard.layouts.admin.partials.sidebar')
+            <div class="col-md-9">
+                <div class="card content p-4">
+                    <strong class="fs-5 border-bottom">Data Akun User</strong>
+                    <div class="alert alert-info my-2" role="alert">
+                        <small class="text-muted">Use desktop mode to view tables more optimally</small>
                     </div>
-                    <div class="col-md-12">
-                        <table class="table mt-3">
+                    <div class="col-lg-12">
+                        <table class="table small">
                             <thead>
                                 <tr>
-                                    <th>#</th>
-                                    <th>Name</th>
-                                    <th>Email</th>
                                     <th>Username</th>
-                                    <th>Roles</th>
-                                    <th>Created_at</th>
-                                    <th>Last_login</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
@@ -28,13 +23,7 @@
                                 @php $i=1 @endphp
                                 @foreach ($data as $item)
                                     <tr>
-                                        <td>{{ $i++ }}</td>
-                                        <td>{{ $item->name }}</td>
-                                        <td>{{ $item->email }}</td>
                                         <td>{{ $item->username }}</td>
-                                        <td>{{ $item->roles }}</td>
-                                        <td>{{ $item->created_at }}</td>
-                                        <td>yesterday</td>
                                         <td>
                                             <a href="#" class="btn-warning btn-sm ml-1" data-bs-toggle="modal"
                                                 data-bs-target="#modal{{ $item->id }}">

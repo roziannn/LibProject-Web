@@ -59,7 +59,7 @@
                     </div>
 
                     <div class="form-group form-row">
-                        <div class="col-md-12">
+                        <div class="col-md-12 mb-3">
                             <label for="bio" class="control-label my-2">Bio</label>
                             <textarea name="bio" id="bio" class="form-control" rows="3">{{ old('bio', $data->bio) }}</textarea>
                             <div class="text-danger err bio"></div>

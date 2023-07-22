@@ -2,7 +2,7 @@
 @include('partials.navbar')
 
 @section('container')
-    <div class="row mb-5">
+    <div class="row">
         @include('dashboard.layouts.account.settings.sidebar')
         <div class="col-lg-9">
             <div class="card profile-content p-4">
@@ -10,10 +10,8 @@
                 <form action="{{ route('account.password.update') }}">
                     @method('patch')
                     @csrf
-
-
                     <div class="form-group form row">
-                        <div class="col-12">
+                        <div class="col-lg-12 my-3">
                             <label for="new-password">Kata Sandi Baru<span class="text-danger">*</span></label>
                             <div class="input-group">
                                 <input type="password" name="new-password" class="form-control" id="new-password" required
@@ -25,8 +23,8 @@
                         </div>
                     </div>
                     <div class="form-group form row">
-                        <div class="col-12">
-                            <label for="confirm-new-password">Kata Sandi Baru<span class="text-danger">*</span></label>
+                        <div class="col-lg-12">
+                            <label for="confirm-new-password">Konfirmasi Kata Sandi Baru<span class="text-danger">*</span></label>
                             <div class="input-group">
                                 <input type="password" name="confirm-new-password" class="form-control"
                                     id="confirm-new-password" required placeholder="Enter Password">
