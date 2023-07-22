@@ -66,6 +66,7 @@ Route::get('/dashboard/workshop/', [WorkshopController::class,'dashboard_worksho
 Route::get('/dashboard/workshop/create', [WorkshopController::class,'create']);
 Route::post('/dashboard/workshop/store', [WorkshopController::class,'store']);
 Route::get('/dashboard/workshop/checkSlug', [WorkshopController::class, 'checkSlug']);
+Route::get('workshop/{workshop:slug}', [WorkshopController::class, 'show'])->middleware('auth');
 
 
 Route::get('/login',[LoginController::class, 'login'])->name('login')->middleware('guest');

@@ -20,7 +20,7 @@
                         </div>
                         <img src="{{ asset('storage/' . $data->workshop_img) }}" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <a href="#">
+                            <a href="workshop/{{ $data->slug }}">
                                 <h6 class="card-title">{{ $data->workshop_name }}</h6>
                             </a>
                             <small class="card-text text-muted my-3">{!! $data->desc !!}</small>
