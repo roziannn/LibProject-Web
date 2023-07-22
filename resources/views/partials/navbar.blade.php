@@ -2,15 +2,16 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
 
 
-<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+<nav class="navbar navbar-expand-md navbar-dark bg-dark shadow">
     <div class="container">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="navbar-brand mx-auto">
-            <a href="/">
-                <img src="{{ asset('/img/logo.png') }}" class="img">
+            <a href="/" class="text-decoration-none me-5">
+                {{-- <img src="{{ asset('/img/logo.png') }}" class="img"> --}}
+                <span class="text-logos"><i class="bi bi-alt"></i>LIB<strong>PRO</strong></span>
             </a>
         </div>
         <div class="collapse navbar-collapse" id="navbarNav">
@@ -200,7 +201,10 @@
         right: -2px;
         padding: 1px;
     }
-
+    .text-logos {
+        color: #ffffff;
+      
+    }
     @media (max-width: 768px) {
         .username-name {
             display: none;
