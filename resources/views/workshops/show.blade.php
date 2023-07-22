@@ -16,9 +16,28 @@
                     </div>
                 </div>
                 <div class="col-lg-3">
-                    <div class="content-workshop-img">
-                        <img src="{{ asset('storage/' . $workshop->workshop_img) }}" alt="" class="img-fluid"
-                            width="300" height="250">
+                    <div class="content-workshop-additional-info">
+                        <div class="content-workshop-img">
+                            <img src="{{ asset('storage/' . $workshop->workshop_img) }}" alt="" class="img-fluid"
+                                width="300" height="250">
+                        </div>
+                        <div class="text-additional-info">
+                            <div class="row">
+                                <strong class="text-title-detail mt-3">Detail Kegiatan</strong>
+                                <div class="mt-1">
+                                    <span class="text-desc">Tanggal : {{ \Carbon\Carbon::parse($workshop->start_date)->isoFormat('D MMMM YYYY') }}</span>
+                                </div>
+                                <div class="mt-1">
+                                    <span class="text-desc">Platform : {{ $workshop->workshop_type }}</span>
+                                </div>
+                                <div class="mt-1">
+                                    <span class="text-desc">Participan : {{ $workshop->member_join }}</span>
+                                </div>
+                                <div class="my-5">
+                                    <button class="btn btn-primary w-100 shadow"> Daftar {{ $workshop->workshop_fee }} </button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -37,22 +56,25 @@
         flex: 1;
     }
 
+    .text-title-detail {
+        font-size: 20px;
+    }
 
-
+    
     @media (max-width: 998px) {
         .col-lg-9 {
             padding: 0 !important;
         }
 
         .content-workshop-info {
-            flex-direction:  column-reverse;
-            
+            flex-direction: column-reverse;
+
         }
 
         .img-fluid {
             margin: 15px;
         }
 
-        
+
     }
 </style>
