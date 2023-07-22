@@ -17,47 +17,25 @@
         </div>
     @endif
 
-    <div class="text-center d-flex flex-column align-items-center">
-        <div class="header-title">
-            <h1>Perdalam Kemampuan Desain dan Code
+    <div class="container container-hero">
+        <div class="row align-items-center justify-content-between">
+            <div class="col-lg-6 col-md-5 text-highlight-homepage">
+                <h1 class="mb-3 font-weight-500">
+                    Perdalam Kemampuan <br> <strong>Desain</strong> dan <strong>Code</strong>
                 <br class="d-none d-md-block"> Bersama Developer Lainnya
-            </h1>
-        </div>
-    </div>
-    @include('partials.menu')
-
-    <div class="jumbotron p-3 p-md-5 text-white rounded bg-light">
-        <div class="img-home d-flex align-items-center">
-            <img src="img/reg.png" class="img-responsive-home" width="40%" alt="Gambar" style=" max-width: 100%;">
-            <div class="img-text-group">
-                <div class="container-fluid">
-                    <div class="row data-stats">
-                        <div class="col-lg-12">
-                            <div class="row gy-5">
-                                <div class="col-6 col-md-4">
-                                    <h3 class="text-green">696,607</h3>
-                                    <p class="text-dark">Member Join</p>
-                                </div>
-                                <div class="col-6 col-md-4">
-                                    <h3 class="text-green">1000+</h3>
-                                    <p class="text-dark">Project Available</p>
-                                </div>
-                                <div class="col-6 col-md-4">
-                                    <h3 class="text-green">36,707</h3>
-                                    <p class="text-dark">Final Case</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <h5 class="text-support mt-3 text-black">Temukan keunggulan belajar otodidak dengan #produktif!</h5>
-                <p class="text-support mt-2 text-black"> Setiap mahasiswa dapat mengemukakan ide-ide baru, menguji batasan
-                    mereka, <br> dan tumbuh sebagai individu maupun tim. Melalui kolaborasi erat, proyek <br> yang
+                </h1>
+                <p class="mb-5">Setiap mahasiswa dapat mengemukakan ide-ide baru, menguji batasan
+                    mereka dan tumbuh sebagai individu maupun tim. Melalui kolaborasi, proyek yang
                     dihasilkan dapat memberikan kontribusi dalam dunia nyata.</p>
-                <a href="/posts" class="btn btn-primary">Cari Project Sekarang</a>
+                    <a href="/posts" class="btn btn-primary btn-lg shadow">Cari Project<i class="ms-3 bi bi-arrow-right-circle-fill"></i></a>
+                    <a href="/posts" class="btn btn-warning btn-lg shadow mx-3"><i class="me-3 bi bi-play-circle-fill"></i>Introduction</a>
+            </div>
+            <div class="col-5">
+                <img src="img/sketch.png" class="img-responsive-home" width="100%"  alt="Gambar">
             </div>
         </div>
     </div>
+
 
 
     <section class="featured pt-50 pb-50">
@@ -195,33 +173,13 @@
     @include('partials.footer')
 
     <style>
+     
         .card {
             background-color: #F6F8FD;
         }
 
-        .img-home {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
 
-        .img-home .img-responsive-home {
-            max-width: 40%;
-            /* margin-right: 20px; */
-        }
-
-        .img-home .img-text-group {
-            flex-grow: 1;
-            padding-left: 20px;
-        }
-
-        /*
-            .text-green {
-                color: #4d4d4d;
-                text-shadow: 0 0 5px #00ff00;
-            } */
-
-
+/* 
         @media (max-width: 678px) {
             .img-home {
                 flex-direction: column;
@@ -244,6 +202,6 @@
             .img-home .img-text-group {
                 margin: 10px;
             }
-        }
+        } */
     </style>
 @endsection
