@@ -60,58 +60,46 @@
         </div>
 
         <div class="col-lg-4">
-            <div class="col-lg-12 p-3 border">
+            <div class="col-lg-12 p-3 border rounded">
                 <div class="d-flex border-bottom mb-3">
                     <h5>Komentar</h5>
                 </div>
                 @foreach ($post->comments as $comment)
-                    <div class="d-flex flex-column">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div class="created-by-user">
+                    <div class="d-lg-flex">
+                        <div class="d-flex mb-3 my-2">
+                            <div>
                                 <img src="{{ asset('img/avatar/' . $comment->user->avatar) ?: 'https://ui-avatars.com/api/?size=128&background=random&name=' . $comment->user->username }}"
-                                    class="rounded-circle ml-2 m-1" alt="" width="32" height="32">
-                                <small class="fs-6 text-bold">{{ $comment->user->name }}</small>
+                                    class="rounded-circle ml-2" alt="" width="32" height="32">
                             </div>
-                            <div class="delete-comment">
-                                @if ($comment->user->id == auth()->user()->id)
-                                    <a class="text-black-50 fs-6" href="/post-comment/delete{{ $comment->id }}"><i
-                                            class="bi bi-trash-fill"></i></a>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="d-flex flex-column mx-5">
-                            <div class="comment-subject">
-                                <p class="my-1">{{ $comment->subject }}</p>
-                            </div>
-                            {{-- like untuk komentar --}}
-                            <div class="comment-likes-count mb-3">
-                                <a href="#" id="comment-btn-{{ $comment->id }}" style="text-decoration: none"
-                                    onclick="like({{ $comment->id }}, 'COMMENT')">
-                                    <span class="like-text">
-                                        {{ $comment->is_liked() ? 'Unlike' : 'Like' }}
-                                    </span>
-                                </a>
-                                <span class="comment-section-text">
-                                    @php
-                                        $diff = $comment->created_at->diff(now());
-                                        
-                                        if ($diff->m > 0) {
-                                            $diff = ceil($diff->days / 7) . 'w';
-                                        } else {
-                                            $diff = $comment->created_at->diffForHumans();
-                                        }
-                                    @endphp
-                                    {{ $diff }}
-                                </span>
-
-                                <span class="comment-count-text"
-                                    id="post-likescount-{{ $comment->id }}">{{ $comment->likes_count }}</span><span
-                                    class="comment-count-text"> likes
-                                </span>
+                            <div class="ml-2">
+                                <div class="d-flex flex-column mx-3">
+                                    <small class="fs-6 font-weight-bold">{{ $comment->user->name }}</small>
+                                    <p class="my-1">{{ $comment->subject }}</p>
+                                    <div class="comment-likes-count">
+                                        <a href="#" id="comment-btn-{{ $comment->id }}"
+                                            style="text-decoration: none" onclick="like({{ $comment->id }}, 'COMMENT')">
+                                            <span class="like-text">
+                                                {{ $comment->is_liked() ? 'Unlike' : 'Like' }}
+                                            </span>
+                                        </a>
+                                        <span class="comment-section-text">
+                                            @php
+                                                $diff = $comment->created_at->diff(now());
+                                                if ($diff->m > 0) {
+                                                    $diff = ceil($diff->days / 7) . 'w';
+                                                } else {
+                                                    $diff = $comment->created_at->diffForHumans();
+                                                }
+                                            @endphp
+                                            {{ $diff }}
+                                        </span>
+                                        <span class="comment-count-text"
+                                            id="post-likescount-{{ $comment->id }}">{{ $comment->likes_count }}</span>
+                                        <span class="comment-count-text"> likes</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-
                     </div>
                 @endforeach
                 <form method="POST" action="/post-comment/{{ $post->id }}">
@@ -121,7 +109,7 @@
                         <textarea class="form-control" name="subject" id="subject" rows="3"></textarea>
                     </div>
                     <div class="item-button mt-3 text-right">
-                        <button type="submit" class="btn btn-primary btn-sm">Kirim</button>
+                        <button type="submit" class="btn btn-primary btn-sm shadow">Kirim</button>
                     </div>
                 </form>
             </div>

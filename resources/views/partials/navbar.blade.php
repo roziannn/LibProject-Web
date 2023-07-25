@@ -45,8 +45,7 @@
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item mt-2" href="/account/profile"> Pengaturan</a>
                         </li>
-                        <li><a class="dropdown-item mt-2 border-bottom" href="/dashboard/posts">My
-                                Project</a>
+                        <li><a class="dropdown-item mt-2 border-bottom" href="/dashboard/posts">Dashboard</a>
                         </li>
                         {{-- <li><a class="dropdown-item mt-2" href="/dashboard/workshop/">Workshop</a>
                         </li> --}}

@@ -5,53 +5,27 @@
     <div class="row">
         @include('dashboard.layouts.account.settings.sidebar-user')
         <div class="col-md-9">
-            <div class="card content p-4">
+            <div class="card content p-5">
                 @if (session()->has('success'))
                     <div class="alert alert-success col-lg-8" role="alert" style="width:100%">
                         {{ session('success') }}
                     </div>
                 @endif
-                <strong class="fs-5 mb-2">Hi, {{ auth()->user()->name }} !</strong>
-                <h5>Saat ini kamu telah berpartisipasi dalam 5 proyek</h5>
-                <div class="col-lg-12 mt-3">
-                    {{-- <table class="table small">
-                        <thead>
-                            <tr>
-                                <th class="align-left">Nama Project</th>
-                                <th class="align-right">Aksi</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @php $i=1 @endphp
-                            @foreach ($posts as $post)
-                                <tr>
-                                    <td class="align-left">{{ $post->title }}</td>
-                                    <td class="align-right">
-                                        <a href="/dashboard/posts/{{ $post->slug }}" class="btn btn-info btn-sm ml-1"><i
-                                            class="fas fa-eye text-white"></i></a>
-        
-                                    <a href="/dashboard/posts/{{ $post->slug }}/edit" class="btn btn-warning btn-sm ml-1"><i
-                                            class="fas fa-pen-to-square text-white"></i></a>
-        
-                                    <form action="/dashboard/posts/{{ $post->slug }}" method="post" class="d-inline">
-                                        @method('delete')
-                                        @csrf
-        
-                                        <button class="btn btn-danger btn-sm ml-1" onclick="return confirm('Hapus project?')"><i
-                                                class="fas fa-trash"></i></button>
-                                    </form>
-                                    </td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table> --}}
-                    <div class="row row-cols-1 row-cols-md-4 g-4">
+                <strong class="fs-5 mb-1">Hi, {{ auth()->user()->name }} !</strong>
+                <div class="d-flex justify-content-between">
+                    <h5>Saat ini kamu telah berpartisipasi dalam {{ auth()->user()->posts->count() }} Project</h5>
+                    <div class="text-right">
+                        <a href="/dashboard/posts/create" class="btn btn-primary btn-sm shadow">Buat Proyek Baru</a>
+                    </div>
+                </div>
+                <div class="col-lg-12 mt-5">
+                    <div class="row row-cols-1 row-cols-md-3 g-4">
                         @foreach ($posts as $post)
                             <div class="col">
                                 <div class="card white-bg shadow">
-                                    <div class="position-absolute px-2 py-1 fs-6 bg-dark"><a
+                                    {{-- <div class="position-absolute px-2 py-1 fs-6 bg-dark"><a
                                             href="/posts?category={{ $post->category->slug }}"
-                                            class="text-white text-decoration-none">{{ $post->category->name }}</a></div>
+                                            class="text-white text-decoration-none">{{ $post->category->name }}</a></div> --}}
                                     <a href="/posts/{{ $post->slug }}">
                                         @if ($post->image)
                                             <img src="{{ asset('storage/' . $post->image) }}"
@@ -63,32 +37,29 @@
                                         @endif
                                     </a>
 
-                                    <div class="card-body">
+                                    <div class="card-body d-flex justify-content-between align-content-between">
                                         <h6 class="card-title">{{ $post->title }}</h6>
                                         <a href="/dashboard/posts/{{ $post->slug }}/edit"
                                             class="btn btn-warning btn-sm ml-1"><i
                                                 class="fas fa-pen-to-square text-white"></i></a>
 
-                                        <form action="/dashboard/posts/{{ $post->slug }}" method="post"
+                                        {{-- <form action="/dashboard/posts/{{ $post->slug }}" method="post"
                                             class="d-inline">
                                             @method('delete')
                                             @csrf
                                             <button class="btn btn-danger btn-sm ml-1"
                                                 onclick="return confirm('Hapus project?')"><i
                                                     class="fas fa-trash"></i></button>
-                                        </form>
-                                        {{-- <small class="card-text">{!! $post->body !!}</small> --}}
+                                        </form> --}}
                                     </div>
                                 </div>
                             </div>
                         @endforeach
                     </div>
-                    <div class="text-right">
-                        <a href="/dashboard/posts/create" class="btn btn-primary btn-sm mt-3">Buat Proyek Baru</a>
-                    </div>
                 </div>
             </div>
         </div>
+        @include('partials.footer')
     @endsection
 
     <style>
@@ -109,17 +80,18 @@
         .align-right {
             text-align: right;
         }
-        .card-title {
-        display: -webkit-box;
-        -webkit-line-clamp: 1;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-    }
 
-    .card-text {
-        display: -webkit-box;
-        -webkit-line-clamp: 2;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-    }
+        .card-title {
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .card-text {
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
     </style>

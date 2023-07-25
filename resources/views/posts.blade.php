@@ -37,9 +37,9 @@
                 @foreach ($posts as $post)
                     <div class="col-12 col-md-3 mb-3">
                         <div class="card white-bg shadow">
-                            <div class="position-absolute px-2 py-1 fs-6 bg-dark"><a
+                            {{-- <div class="position-absolute px-2 py-1 fs-6 bg-dark"><a
                                     href="/posts?category={{ $post->category->slug }}"
-                                    class="text-white text-decoration-none">{{ $post->category->name }}</a></div>
+                                    class="text-white text-decoration-none">{{ $post->category->name }}</a></div> --}}
                             <a href="/posts/{{ $post->slug }}">
                                 @if ($post->image)
                                     <img src="{{ asset('storage/' . $post->image) }}" style="height: 200px; width:auto;"
