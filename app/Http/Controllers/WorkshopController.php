@@ -23,7 +23,8 @@ class WorkshopController extends Controller
     // admin only
     public function dashboard_workshop()
     {
-        return view('workshops.dashboard');
+        $datas = Workshop::all();
+        return view('workshops.dashboard', compact('datas'));
     }
 
     public function create()

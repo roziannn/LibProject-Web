@@ -13,12 +13,8 @@
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-hidden="true"></button>
                         </div>
                     @endif
-                    <strong class="fs-5 border-bottom">Data Kategori Proyek</strong>
-                    <div class="text-right">
-                        <a href="#" class="btn btn-primary btn-sm m-3 text-decoration-none"data-bs-toggle="modal"
-                            data-bs-target="#modal"> Tambah Kategori
-                        </a>
-                    </div>
+                    <strong class="fs-5 border-bottom mb-2">Data Kategori Proyek</strong>
+                   
                     <div class="col-lg-12">
                         <table class="table small">
                             <thead>
@@ -42,38 +38,42 @@
                                 @endforeach
                             </tbody>
                         </table>
+                        <div class="text-right">
+                            <a href="#" class="btn btn-primary btn-sm m-3 text-decoration-none"data-bs-toggle="modal"
+                                data-bs-target="#modal"> Tambah Kategori
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-         {{-- danger modal --}}
-         @foreach ($data as $item)
-         <div class="modal fade" id="modal-danger{{ $item->id }}">
-             <div class="modal-dialog">
-                 <div class="modal-content">
-                     <div class="modal-header">
-                         <h5 class="modal-title">Konfirmasi</h5>
-                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-                            </button>
-                     </div>
-                     <div class="modal-body">
-                         <form action="{{ url('/dashboard/admin/category/delete' . $item->id) }}" method="GET">
-                             {{ csrf_field() }}
-                             <p>Yakin ingin menghapus data?</p>
-                     </div>
-                     <div class="modal-footer">
-                         <button type="button" class="btn btn-light btn-sm pull-left"
-                             data-bs-dismiss="modal">Close</button>
-                         <button type="submit" class="btn btn-danger btn-sm">Hapus</button>
-                     </div>
-                     </form>
-                 </div>
-             </div>
-         </div>
-     @endforeach
-     
+    {{-- danger modal --}}
+    @foreach ($data as $item)
+        <div class="modal fade" id="modal-danger{{ $item->id }}">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Konfirmasi</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="{{ url('/dashboard/admin/category/delete' . $item->id) }}" method="GET">
+                            {{ csrf_field() }}
+                            <p>Yakin ingin menghapus data?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-light btn-sm pull-left" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-danger btn-sm">Hapus</button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    @endforeach
+
     <div class="modal fade" id="modal">
         <div class="modal-dialog modal-m">
             <div class="modal-content">
@@ -121,7 +121,3 @@
         });
     </script>
 @endsection
-
-@push('styles')
-    <link href="{{ asset('css/settings.css') }}" rel="stylesheet">
-@endpush

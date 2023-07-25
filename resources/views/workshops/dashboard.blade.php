@@ -1,20 +1,42 @@
 @extends('layouts.main')
 @include('partials.navbar')
 @section('container')
-    <div class="text-head mb-2">
-        <h2 class="text-header" style="font-weight: 500;">Dashboard Event dan Workshop</h2>
-        <p> Pengaturan jadwal kegiatan event dan workshop </p>
-    </div>
+    <div class="row">
+        @include('dashboard.layouts.admin.partials.sidebar')
+        <div class="col-md-9">
+            <div class="card content p-4">
+                <strong class="fs-5 border-bottom"> Pengaturan Jadwal Event dan Workshop</strong>
 
-    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-        <h5 class="title-page mt-3 mb-1">Sedang Berjalan</h5>
-        <a href="/dashboard/workshop/create" class="btn btn-primary">Create new project</a>
-    </div>
- 
-
-
-    
-    <div class="text-head mb-5">
-        <h2 class="text-header" style="font-weight: 500;">Arsip Kegiatan</h2>
+                <div class="col-lg-12">
+                    <table class="table small">
+                        <thead>
+                            <tr>
+                                <th>Nama Kegiatan</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @php $i=1 @endphp
+                            @foreach ($datas as $data)
+                                <tr>
+                                    <td>{{ $data->workshop_name }}</td>
+                                    <td>
+                                        <a href="#" class="btn-warning btn-sm ml-1" data-bs-toggle="modal"
+                                            data-bs-target="#modal{{ $data->id }}">
+                                            <i class="fas fa-pen-to-square text-white"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                    <div class="text-right">
+                        <a href="/dashboard/workshop/create" class="btn btn-primary btn-sm m-3 text-decoration-none"> Tambah
+                            Kegiatan
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 @endsection

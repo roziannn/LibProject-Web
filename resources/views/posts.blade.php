@@ -13,8 +13,8 @@
         <div class="col-md-2">
             <select class="form-select form-select-md mb-3" aria-label=".form-select-lg example" onchange="window.location.href = this.value;">
                 <option value="">Cari berdasarkan</option>
-                @foreach ($categories as $category)
                 <option value="{{ url('/posts') }}">Semua Project</option>
+                @foreach ($categories as $category)
                     <option value="{{ url('posts?category=' . $category->slug) }}">{{ $category->name }}</option>
                 @endforeach
             </select>            

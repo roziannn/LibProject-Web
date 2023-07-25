@@ -25,7 +25,7 @@
                     Perdalam Kemampuan <br> <strong>Desain</strong> dan <strong>Code</strong>
                 <br class="d-none d-md-block"> Bersama Developer Lainnya
                 </h1>
-                <p class="mb-5">Setiap mahasiswa dapat mengemukakan ide-ide baru, menguji batasan
+                <p class="mb-5">Setiap mahasiswa dapat mengemukakan <span class="text-underline">ide-ide baru</span>, menguji batasan
                     mereka dan tumbuh sebagai individu maupun tim. Melalui kolaborasi, proyek yang
                     dihasilkan dapat memberikan kontribusi dalam dunia nyata.</p>
                     <a href="/posts" class="btn btn-primary btn-lg shadow">Cari Project<i class="ms-3 bi bi-arrow-right-circle-fill"></i></a>
@@ -45,7 +45,7 @@
             <div class="mb-3 row">
                 <div class="text-left col-lg-12 col-12">
                     <div class="front-text-group">
-                        <h5 class="text-support text-green">Start Develop</h5>
+                        <h5 class="text-support text-green">Start Making Project</h5>
                         <h2 class="header-primary mb-0">Help you with Roadmap</h2>
                         <p class="text-support text-green mt-2">Bingung mau mulai dari mana?</p>
                     </div>
@@ -56,9 +56,6 @@
                 <div class="col">
                     <div class="card p-2 border-0">
                         <div class="card-body">
-                            <div class="icon-roadmap mt-3 mb-3">
-                                {{-- <img src="/img/roadmap/frontend.png" style="width:50px;"> --}}
-                            </div>
                             <h5 class="card-title"><span><i class="bi bi-code-slash"></i></span> Frontend</h5>
                             <p class="card-text text-justify">Kembangkan antarmuka pengguna untuk menciptakan pengalaman visual dan interaktif yang menarik.</p>
                             <a href="https://roadmap.sh/frontend" target="_blank" class="btn btn-sm btn-primary  stretched-link"> <i class="bi bi-arrow-right"></i> 
@@ -70,10 +67,8 @@
                 <div class="col">
                     <div class="card p-2 border-0">
                         <div class="card-body">
-                            <h5 class="card-title my-3"><span><i class="bi bi-database-fill-lock"></i></span> Backend</h5>
-                            <p class="card-text">This is a longer card with supporting text below as a natural lead-in
-                                to
-                                additional content. This content is a little bit longer.</p>
+                            <h5 class="card-title"><span><i class="bi bi-database-fill-lock"></i></span> Backend</h5>
+                            <p class="card-text text-justify">Menciptakan fungsionalitas kompleks dan kuat yang berada di balik layar antarmuka pengguna.</p>
                             <a href="https://roadmap.sh/backend" target="_blank" class="btn btn-sm btn-primary stretched-link">
                                 <i class="bi bi-arrow-right"></i>
                             </a>
@@ -84,10 +79,8 @@
                 <div class="col">
                     <div class="card p-2  border-0">
                         <div class="card-body">
-                            <h5 class="card-title my-3"><span><i class="bi bi-android"></i></span> Android</h5>
-                            <p class="card-text">This is a longer card with supporting text below as a natural lead-in
-                                to
-                                additional content. This content is a little bit longer.</p>
+                            <h5 class="card-title"><span><i class="bi bi-android"></i></span> Android</h5>
+                            <p class="card-text">Membangun aplikasi Android agar dapat diakses dan digunakan oleh pengguna secara luas.</p>
                             <a href="https://roadmap.sh/react" target="_blank" class="btn btn-sm btn-primary stretched-link"><i class="bi bi-arrow-right"></i> 
                             </a>
                         </div>
@@ -97,10 +90,8 @@
                 <div class="col">
                     <div class="card p-2 border-0">
                         <div class="card-body">
-                            <h5 class="card-title my-3"><span><i class="bi bi-apple"></i></span> iOS</h5>
-                            <p class="card-text">This is a longer card with supporting text below as a natural lead-in
-                                to
-                                additional content. This content is a little bit longer.</p>
+                            <h5 class="card-title"><span><i class="bi bi-apple"></i></span> iOS</h5>
+                            <p class="card-text">Membangun aplikasi iOS ke App Store yang compact dan siap untuk digunakan oleh pengguna Apple.</p>
                             <a href="https://roadmap.sh/android" target="_blank" class="btn btn-sm btn-primary stretched-link">
                                 <i class="bi bi-arrow-right"></i>
                             </a>
@@ -115,8 +106,8 @@
             <div class="mb-3 row">
                 <div class="text-left col-lg-12 col-12">
                     <div class="front-text-group">
-                        <h5 class="text-support text-green">Why Us</h5>
-                        <h2 class="header-primary mb-0">Platform Berkumpulnya <br> Developer Indonesia</h2>
+                        <h5 class="text-support text-green">Our Purpose</h5>
+                        <h2 class="header-primary mb-0">Platform Berkumpulnya <br> Calon Developer Indonesia</h2>
                         <p class="text-support text-green mt-2"></p>
                     </div>
                 </div>
@@ -126,8 +117,8 @@
                 <div class="col">
                     <div class="card p-2 border-0">
                         <div class="card-body">
-                            <h4 class="card-title">Improve Skills</h4>
-                            <p class="card-text">Bangun project membantu perdalam skills </p>
+                            <h5 class="card-title">Improve Skills</h5>
+                            <p class="card-text">Bangun project membantu perdalam keterampilan </p>
                         </div>
                     </div>
                 </div>
@@ -145,7 +136,7 @@
                     <div class="card p-2 border-0">
                         <div class="card-body">
                             <h4 class="card-title">Kolaborasi</h4>
-                            <p class="card-text">Kolaborasikan keahlian mu bersama developer lainnya</p>
+                            <p class="card-text">Berkolaborasi dengan mahasiswa informatika lainnya</p>
                         </div>
                     </div>
                 </div>
@@ -168,7 +159,10 @@
         .card {
             background-color: #F6F8FD;
         }
-
+        .text-underline {
+            text-decoration: underline;
+            text-decoration-color: blue;
+        }
 
 /* 
         @media (max-width: 678px) {

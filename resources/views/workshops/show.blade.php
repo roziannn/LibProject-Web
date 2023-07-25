@@ -4,7 +4,8 @@
     <div class="row mb-5">
         <div class="col-lg-12">
             <div class="btn-back pb-3 col-lg-9">
-                <a href="/workshop"class="text-decoration-none"> <i class="bi bi-arrow-left"></i></a>
+                {{-- <a href="/workshop"class="text-decoration-none"> <i class="bi bi-arrow-left"></i></a> --}}
+                <strong class="text-title-detail mt-3">Deskripsi</strong>
             </div>
             <div class="content-workshop-info d-flex align-items-start justify-content-between mb-3 ">
                 <div class="col-lg-9">

@@ -7,7 +7,7 @@
             @include('dashboard.layouts.admin.partials.sidebar')
             <div class="col-md-9">
                 <div class="card content p-4">
-                    <strong class="fs-5 border-bottom">Data Akun User</strong>
+                    <strong class="fs-5 border-bottom mb-2">Data Akun User</strong>
                     <div class="alert alert-info my-2" role="alert">
                         <small class="text-muted">Use desktop mode to view tables more optimally</small>
                     </div>
@@ -68,6 +68,3 @@
         </div>
     @endforeach
 @endsection
-@push('styles')
-    <link href="{{ asset('css/settings.css') }}" rel="stylesheet">
-@endpush
