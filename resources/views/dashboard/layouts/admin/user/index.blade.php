@@ -11,12 +11,12 @@
                     <div class="alert alert-info my-2" role="alert">
                         <small class="text-muted">Use desktop mode to view tables more optimally</small>
                     </div>
-                    <div class="col-lg-12">
+                    <div class="d-flex justify-content-between">
                         <table class="table small">
                             <thead>
                                 <tr>
-                                    <th>Username</th>
-                                    <th>Aksi</th>
+                                    <th >Username</th>
+                                    <th class="text-right">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -24,8 +24,8 @@
                                 @foreach ($data as $item)
                                     <tr>
                                         <td>{{ $item->username }}</td>
-                                        <td>
-                                            <a href="#" class="btn-warning btn-sm ml-1" data-bs-toggle="modal"
+                                        <td class="text-right">
+                                            <a href="#" class="btn btn-warning btn-sm" data-bs-toggle="modal"
                                                 data-bs-target="#modal{{ $item->id }}">
                                                 <i class="fas fa-pen-to-square text-white"></i>
                                             </a>
@@ -36,7 +36,6 @@
                         </table>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>

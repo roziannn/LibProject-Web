@@ -26,7 +26,8 @@
                             <div class="row">
                                 <strong class="text-title-detail mt-3">Detail Kegiatan</strong>
                                 <div class="mt-1">
-                                    <span class="text-desc">Tanggal : {{ \Carbon\Carbon::parse($workshop->start_date)->isoFormat('D MMMM YYYY') }}</span>
+                                    <span class="text-desc">Tanggal :
+                                        {{ \Carbon\Carbon::parse($workshop->start_date)->isoFormat('D MMMM YYYY') }}</span>
                                 </div>
                                 <div class="mt-1">
                                     <span class="text-desc">Platform : {{ $workshop->workshop_type }}</span>
@@ -35,7 +36,8 @@
                                     <span class="text-desc">Participan : {{ $workshop->member_join }}</span>
                                 </div>
                                 <div class="my-5">
-                                    <button class="btn btn-primary w-100 shadow"> Daftar {{ $workshop->workshop_fee }} </button>
+                                    <button class="btn btn-primary w-100 shadow"> Daftar {{ $workshop->workshop_fee }}
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -61,7 +63,7 @@
         font-size: 20px;
     }
 
-    
+
     @media (max-width: 998px) {
         .col-lg-9 {
             padding: 0 !important;

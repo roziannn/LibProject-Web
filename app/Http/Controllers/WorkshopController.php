@@ -13,11 +13,24 @@ class WorkshopController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    // all
     public function index()
     {
 
         $datas = Workshop::all();
         return view('workshops.index', compact('datas'));
+    }
+    public function show(Workshop $workshop)
+    {
+        return view('workshops.show', ["workshop_name" => "Single Post","active" => 'workshop', "workshop" => $workshop
+        ]);
+    }
+
+    // user only
+    public function user_workshop()
+    {
+        return view('workshops.dashboard-user', [ 'workshop' => Workshop::where('id', auth()->user()->id)->get()
+        ]);
     }
 
     // admin only
@@ -83,11 +96,7 @@ class WorkshopController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Workshop $workshop)
-    {
-        return view('workshops.show', ["workshop_name" => "Single Post","active" => 'workshop', "workshop" => $workshop
-        ]);
-    }
+    
 
     /**
      * Show the form for editing the specified resource.

@@ -25,6 +25,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/workshop">Workshop</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/posts">Forum</a>
+                </li>
             </ul>
         </div>
 

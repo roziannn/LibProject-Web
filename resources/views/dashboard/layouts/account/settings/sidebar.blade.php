@@ -63,8 +63,8 @@
 
     .profile-settings-item{
         text-decoration: none;
-        padding-bottom: 20px;
-        padding-left: 20px;
+        padding-bottom: 16px;
+        padding-left: 0px;
         color: #111111;
     }
     

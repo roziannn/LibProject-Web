@@ -10,7 +10,8 @@
             ?>
             <div class="row align-items-center">
                 <div class="col-lg-3">
-                    <img src="{{ $avatar_url }}" class="rounded-circle ml-2 " alt="" width="64" height="64">
+                    <img src="{{ $avatar_url }}" class="rounded-circle ml-2 " alt="" width="64"
+                        height="64">
                 </div>
                 <div class="col">
                     <strong class="fs-6">{{ auth()->user()->name }}</strong>
@@ -18,10 +19,13 @@
                 </div>
             </div>
         </div>
-        
-        <a href="#" class="profile-settings-item">Proyek Saya</a>
-        <a href="#" class="profile-settings-item">Event</a>
-        <a href="#" class="profile-settings-item">Pengaturan</a>
+
+
+        <a href="/dashboard/posts" class="profile-settings-item mb-3 mt-2"><i class="bi bi-kanban"></i> Proyek Saya</a>
+        <a href="/dashboard/my-workshop" class="profile-settings-item mb-3"><i class="bi bi-calendar2-event"></i> Event</a>
+        <a href="#" class="profile-settings-item"><i class="bi bi-gear"></i> Pengaturan</a>
+
+
     </div>
 
     <div class="offcanvas-lg offcanvas-start" tabindex="-1" id="sidebar-profile-settings"
@@ -44,7 +48,37 @@
     </div>
 </div>
 
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+      // Get the current URL path
+      var url = window.location.pathname;
+    
+      // Get all the links with the class "profile-settings-item"
+      var links = document.querySelectorAll('.profile-settings-item');
+    
+      // Loop through the links
+      links.forEach(function(link) {
+        // Get the link's href attribute
+        var href = link.getAttribute('href');
+    
+        // Check if the current URL path matches the link's href
+        if (url === href) {
+          // If it's a match, add the "active" class to the link
+          link.classList.add('active');
+        }
+      });
+    });
+    </script>
+    
+
 <style>
+    .profile-settings-item.active {
+        background-color: #1b1b1b;
+        border-radius: 5px;
+        color: #fff;
+        padding: 6px;
+    }
+
     .sidebar-profile-settings-btn {
         position: fixed;
         top: 80px;
@@ -59,7 +93,6 @@
 
     .profile-settings-item {
         text-decoration: none;
-        padding-bottom: 16px;
         padding-left: 8px;
         color: #111111;
     }

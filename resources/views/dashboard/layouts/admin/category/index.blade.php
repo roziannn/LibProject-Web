@@ -14,35 +14,32 @@
                         </div>
                     @endif
                     <strong class="fs-5 border-bottom mb-2">Data Kategori Proyek</strong>
-                   
-                    <div class="col-lg-12">
-                        <table class="table small">
-                            <thead>
+
+                    <table class="table small">
+                        <thead>
+                            <tr>
+                                <th>Nama Kategori</th>
+                                <th class="text-right">Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($data as $item)
                                 <tr>
-                                    <th>Nama Kategori</th>
-                                    <th>Aksi</th>
+                                    <td>{{ $item->name }}</td>
+                                    <td class="text-right">
+                                        <a href="#" class="btn-danger btn-sm" data-bs-toggle="modal"
+                                            data-bs-target="#modal-danger{{ $item->id }}">
+                                            <i class="fas fa-trash"></i>
+                                        </a>
+                                    </td>
                                 </tr>
-                            </thead>
-                            <tbody>
-                                @php $i=1 @endphp
-                                @foreach ($data as $item)
-                                    <tr>
-                                        <td>{{ $item->name }}</td>
-                                        <td>
-                                            <a href="#" class="btn-danger btn-sm ml-1" data-bs-toggle="modal"
-                                                data-bs-target="#modal-danger{{ $item->id }}">
-                                                <i class="fas fa-trash"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                        <div class="text-right">
-                            <a href="#" class="btn btn-primary btn-sm m-3 text-decoration-none"data-bs-toggle="modal"
-                                data-bs-target="#modal"> Tambah Kategori
-                            </a>
-                        </div>
+                            @endforeach
+                        </tbody>
+                    </table>
+                    <div class="text-right">
+                        <a href="#" class="btn btn-primary btn-sm m-3 text-decoration-none"data-bs-toggle="modal"
+                            data-bs-target="#modal"> Tambah Kategori
+                        </a>
                     </div>
                 </div>
             </div>

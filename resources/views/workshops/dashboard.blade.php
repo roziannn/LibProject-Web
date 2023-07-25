@@ -5,8 +5,7 @@
         @include('dashboard.layouts.admin.partials.sidebar')
         <div class="col-md-9">
             <div class="card content p-4">
-                <strong class="fs-5 border-bottom"> Pengaturan Jadwal Event dan Workshop</strong>
-
+                <strong class="fs-5 border-bottom mb-2"> Pengaturan Jadwal Event dan Workshop</strong>
                 <div class="col-lg-12">
                     <table class="table small">
                         <thead>

@@ -63,6 +63,7 @@ Route::get('/about', function(){
 // workshops
 Route::get('/workshop', [WorkshopController::class,'index']);
 Route::get('/dashboard/workshop/', [WorkshopController::class,'dashboard_workshop']);
+Route::get('/dashboard/my-workshop', [WorkshopController::class,'user_workshop']);
 Route::get('/dashboard/workshop/create', [WorkshopController::class,'create']);
 Route::post('/dashboard/workshop/store', [WorkshopController::class,'store']);
 Route::get('/dashboard/workshop/checkSlug', [WorkshopController::class, 'checkSlug']);
