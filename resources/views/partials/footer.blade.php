@@ -6,7 +6,7 @@
                     Website untuk berkolaborasi membangun project bersama dan menghasilkan portfolio
                     untuk peluang karir.
                 </p>
-                <h6 class="mt-4">© 2022 LibProject</h6>
+                <h6 class="mt-4">© 2023 LibProject <br> Coded by: Firda Rosiana</h6>
             </div>
 
             <div class="item-footer col-lg-1"></div>
@@ -32,7 +32,7 @@
                     </div>
 
                     <div class="item-footer col-lg-3 col-md-3 col-sm-6 col-6">
-                        <h6 class="header-category">Community</h6>
+                        <h6 class="header-category">Resource</h6>
                         <ul>
                             <li>
                                 <a href="#">UI Kit</a>
@@ -41,7 +41,7 @@
                                 <a href="#">Assets</a>
                             </li>
                             <li>
-                                <a href="#">Mockup</a>
+                                <a href="#">Web Mockup</a>
                             </li>
                         </ul>
                     </div>
@@ -62,7 +62,7 @@
                     </div>
 
                     <div class="item-footer col-lg-3 col-md-3 col-sm-6 col-6">
-                        <h6 class="header-category">Company</h6>
+                        <h6 class="header-category">Community</h6>
                         <ul>
                             <li>
                                 <a href="#">About</a>

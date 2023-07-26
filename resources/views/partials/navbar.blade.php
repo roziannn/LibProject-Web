@@ -46,16 +46,15 @@
                     </a>
 
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item mt-2" href="/account/profile"> Pengaturan</a>
+                        <li><a class="dropdown-item" href="/account/profile"> Pengaturan</a>
                         </li>
-                        <li><a class="dropdown-item mt-2 border-bottom" href="/dashboard/posts">Dashboard</a>
+                        <li><a class="dropdown-item my-2" href="/dashboard/posts">Dashboard</a>
                         </li>
-                        <li><a class="dropdown-item border-bottom" href="/dashboard/admin/user">
+                        <div class="dropdown-divider"></div>
+                        <li><a class="dropdown-item my-2" href="/dashboard/admin/user">
                                 Pengaturan Admin</a></li>
-                        {{-- <li>
-                            <hr class="dropdown-divider">
-                        </li> --}}
                         <li>
+                            <div class="dropdown-divider"></div>
                             <form class="mb-0 mt-2" action="/logout" method="post">
                                 @csrf
                                 <button type="submit" class="dropdown-item text-danger">Logout</button>
@@ -204,6 +203,7 @@
         color: #ffffff;
       
     }
+
     @media (max-width: 768px) {
         .username-name {
             display: none;
