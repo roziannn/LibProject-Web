@@ -3,8 +3,8 @@
 @section('container')
     <link rel="stylesheet" href="css/home.style.css">
     <div class="text-head text-center mb-5">
-        <h2 class="text-center" style="font-weight: 500;">Ikuti Workshop bersama LibPro!</h2>
-        <p> Beragam workshop seru dan menarik untuk asah keterampilan kamu </p>
+        <strong class="text-center fs-2">Ikuti Rangkaian Event Seru!</strong>
+        <p> Beragam workshop menarik untuk asah keterampilan kamu bersama developer lainnya </p>
     </div>
 
     <div class="container">
@@ -12,17 +12,14 @@
             @foreach ($datas as $data)
                 <div class="col-12 col-md-3 mb-3">
                     <div class="card white-bg shadow mb-3">
-                        {{-- <div class="card-header">
-                            <span class="badge rounded-pill text-bg-success">{{ $data->workshop_type }}</span>
-                        </div> --}}
                         <img src="{{ asset('storage/' . $data->workshop_img) }}" class="card-img-top" alt="...">
                         <div class="card-body">
                             <a href="workshop/{{ $data->slug }}" class="card-title-name">
-                                <h6 class="card-title">{{ $data->workshop_name }}</h6>
+                                <span class="card-title fs-5 text-dark">{{ $data->workshop_name }}</span>
                             </a>
                             <div class="d-flex justify-content-between">
                                 <small>{{ \Carbon\Carbon::parse($data->start_date)->isoFormat('dddd, D MMMM YYYY') }}</small>
-                                <small class="text-tag rounded">{{ $data->workshop_type }}</small>
+                                <strong class="text-tag rounded bg-warning">{{ $data->workshop_type }}</strong>
                             </div>
                             <small class="card-text text-muted my-3">{!! $data->desc !!}</small>
                         </div>
@@ -31,8 +28,6 @@
             @endforeach
         </div>
     </div>
-
-
     @include('partials.footer')
 @endsection
 <script src="https://kit.fontawesome.com/870589c011.js" crossorigin="anonymous"></script>
@@ -51,9 +46,11 @@
 
     .text-tag {
         font-size: 13px;
+        color: #fff;
         /* margin-left: 25px; */
         padding-inline: 5px;
-        border: 2px solid #aaa;
+        /* background-color: rgb(229, 233, 237); */
+        /* border: 1px solid #aaa; */
     }
 
     .card-title {

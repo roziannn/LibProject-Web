@@ -4,12 +4,12 @@
             class="bi bi-gear-fill"></i></button>
 
     <div class="card profile-settings d-none d-lg-flex">
-        <div class="header-title mb-3">
+        <div class="header-title">
             <strong class="fs-5">Pengaturan Akun</strong>
         </div>
-        <a href="/account/profile" class="profile-settings-item">Data Akun</a>
-        <a href="#" class="profile-settings-item">Data Instansi</a>
-        <a href="/account/change-password" class="profile-settings-item">Ubah Kata Sandi</a>
+        <a href="/account/profile" class="profile-settings-item my-3">Data Akun</a>
+        <a href="#" class="profile-settings-item mb-3">Data Instansi</a>
+        <a href="/account/change-password" class="profile-settings-item mb-3">Ubah Kata Sandi</a>
     </div>
 
     <div class="offcanvas-lg offcanvas-start" tabindex="-1" id="sidebar-profile-settings"
@@ -21,34 +21,41 @@
         </div>
         <div class="d-lg-none sidebar-offcanvas sidebar-offcanvas-profile-settings">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-               
-                    <a class="profile-settings-item" aria-current="page" href="/account/profile">Data Akun</a>
-                
-                    <a class="profile-settings-item" aria-current="page" href="#">Data Instansi</a>
-               
-                    <a class="profile-settings-item" href="/account/change-password">Ubah Kata Sandi</a>
-              
-                {{-- <li class="nav-item">
-                    <a class="nav-link" href="#">Profile</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Switch account</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"
-                        aria-expanded="false">Settings</a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    </ul>
-                </li> --}}
+
+                <a class="profile-settings-item m-2" aria-current="page" href="/account/profile">Data Akun</a>
+
+                <a class="profile-settings-item m-2" aria-current="page" href="#">Data Instansi</a>
+
+                <a class="profile-settings-item m-2" href="/account/change-password">Ubah Kata Sandi</a>
+
             </ul>
         </div>
     </div>
 </div>
 
+<script>
+    // menu link active
+    document.addEventListener("DOMContentLoaded", function() {
+        var url = window.location.pathname;
+
+        var links = document.querySelectorAll('.profile-settings-item');
+
+        links.forEach(function(link) {
+            var href = link.getAttribute('href');
+            if (url === href) {
+                link.classList.add('active');
+            }
+        });
+    });
+</script>
+
 <style>
+    .profile-settings-item.active {
+        background-color: rgb(229, 233, 237);
+        border-radius: 5px;
+        color: #1b1b1b;
+        padding: 8px;
+    }
     .sidebar-profile-settings-btn {
         position: fixed;
         top: 80px;
@@ -57,17 +64,21 @@
         padding: 1rem;
     }
 
-    .profile-settings{
+    .profile-settings {
         padding: 20px;
     }
 
-    .profile-settings-item{
+    .profile-settings-item {
         text-decoration: none;
-        padding-bottom: 16px;
-        padding-left: 0px;
+        padding-left: 8px;
         color: #111111;
     }
     
+    /* .bi {
+        padding-right: 10px;
+    } */
+
+ 
     @media (max-width: 997px) {
         .sidebar-profile-settings-btn {
             display: block;

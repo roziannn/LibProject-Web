@@ -44,7 +44,7 @@
                     @if ($post->image)
                         <div style="max-height: auto; overflow:hidden">
                             <img src="{{ asset('storage/' . $post->image) }}" alt="{{ $post->category->name }}"
-                                class="img-fluid">
+                                class="img-fluid rounded w-100">
                         </div>
                     @else
                         <img src="https://source.unsplash.com/1200x400? {{ $post->category->name }}"
@@ -60,7 +60,8 @@
         </div>
 
         <div class="col-lg-4">
-            <div class="col-lg-12 p-3 border rounded">
+            
+            <div class="col-lg-12 p-3 border rounded shadow">
                 <div class="d-flex border-bottom mb-3">
                     <h5>Komentar</h5>
                 </div>
@@ -109,7 +110,7 @@
                         <textarea class="form-control" name="subject" id="subject" rows="3"></textarea>
                     </div>
                     <div class="item-button mt-3 text-right">
-                        <button type="submit" class="btn btn-primary btn-sm shadow">Kirim</button>
+                        <button type="submit" class="btn btn-primary btn-m shadow">Kirim</button>
                     </div>
                 </form>
             </div>

@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="css/home.style.css">
 
     <div class="text-head text-center mb-5">
-        <h2 class="text-center" style="font-weight: 500;">{{ $title }}</h2>
+        <strong class="text-center fs-2">{{ $title }}!</strong>
         <p>Hasil project dan karya yang telah diselesaikan</p>
     </div>
 
@@ -35,15 +35,12 @@
         @if ($posts->count())
             <div class="row">
                 @foreach ($posts as $post)
-                    <div class="col-12 col-md-3 mb-3">
+                    <div class="col-12 col-md-3 mb-4">
                         <div class="card white-bg shadow">
-                            {{-- <div class="position-absolute px-2 py-1 fs-6 bg-dark"><a
-                                    href="/posts?category={{ $post->category->slug }}"
-                                    class="text-white text-decoration-none">{{ $post->category->name }}</a></div> --}}
                             <a href="/posts/{{ $post->slug }}">
                                 @if ($post->image)
-                                    <img src="{{ asset('storage/' . $post->image) }}" style="height: 200px; width:auto;"
-                                        alt="{{ $post->category->name }}" class="img-fluid">
+                                    <img src="{{ asset('storage/' . $post->image) }}" style="height:230px; width:auto;"
+                                        alt="{{ $post->category->name }}" class="img-fluid rounded">
                                 @else
                                     <img src="https://source.unsplash.com/220x140? {{ $post->category->name }}"
                                         class="card-img-top" alt="{{ $post->category->name }}">
@@ -51,7 +48,7 @@
                             </a>
 
                             <div class="card-body">
-                                <h6 class="card-title">{{ $post->title }}</h6>
+                                <span class="card-title fs-5">{{ $post->title }}</span>
                                 <div class="d-flex created-by-user">
                                     <div class="created-by-user avatar">
                                         <img src="{{ asset('img/avatar/' . $post->user->avatar) ?: 'https://ui-avatars.com/api/?size=128&background=random&name=' . $post->user->username }}"

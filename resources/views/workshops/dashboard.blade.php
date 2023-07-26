@@ -5,13 +5,13 @@
         @include('dashboard.layouts.admin.partials.sidebar')
         <div class="col-md-9">
             <div class="card content p-4">
-                <strong class="fs-5 border-bottom mb-2"> Pengaturan Jadwal Event dan Workshop</strong>
+                <strong class="fs-5 border-bottom mb-2">Pengaturan Jadwal Event dan Workshop</strong>
                 <div class="col-lg-12">
                     <table class="table small">
                         <thead>
                             <tr>
                                 <th>Nama Kegiatan</th>
-                                <th>Aksi</th>
+                            <th class="text-right">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -19,7 +19,7 @@
                             @foreach ($datas as $data)
                                 <tr>
                                     <td>{{ $data->workshop_name }}</td>
-                                    <td>
+                                    <td class="text-right">
                                         <a href="#" class="btn-warning btn-sm ml-1" data-bs-toggle="modal"
                                             data-bs-target="#modal{{ $data->id }}">
                                             <i class="fas fa-pen-to-square text-white"></i>

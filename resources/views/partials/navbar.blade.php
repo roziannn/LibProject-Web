@@ -2,31 +2,31 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
 
 
-<nav class="navbar navbar-expand-md navbar-dark bg-dark shadow">
+<nav class="navbar navbar-expand-md navbar-dark bg-light shadow">
     <div class="container">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        <button class="navbar-toggler bg-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="navbar-brand mx-auto">
             <a href="/" class="text-decoration-none me-5">
                 {{-- <img src="{{ asset('/img/logo.png') }}" class="img"> --}}
-                <span class="text-logos"><i class="bi bi-alt"></i>LIB<strong>PRO</strong></span>
+                <span class="fs-3 text-logos text-dark"><i class="bi bi-alt"></i>LIB<strong>PRO</strong></span>
             </a>
         </div>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="/">Home</a>
+                    <a class="nav-link text-dark" href="/">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/posts">Project</a>
+                    <a class="nav-link text-dark" href="/posts">Project</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/workshop">Workshop</a>
+                    <a class="nav-link text-dark" href="/workshop">Workshop</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/posts">Forum</a>
+                    <a class="nav-link text-dark" href="/posts">Forum</a>
                 </li>
             </ul>
         </div>
@@ -37,7 +37,7 @@
                 <div class="nav-item-right">
                     <a class="nav-link dropdown" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
                         aria-expanded="false">
-                        <span class="username-name text-light"> Halo, {{ auth()->user()->username }}</span>
+                        <span class="username-name text-dark"> Halo, {{ auth()->user()->username }}</span>
                         <?php
                         $avatar_url = auth()->user()->avatar ? asset('img/avatar/' . auth()->user()->avatar) : 'https://ui-avatars.com/api/?size=128&background=random&name=' . auth()->user()->username;
                         ?>
@@ -50,25 +50,22 @@
                         </li>
                         <li><a class="dropdown-item mt-2 border-bottom" href="/dashboard/posts">Dashboard</a>
                         </li>
-                        {{-- <li><a class="dropdown-item mt-2" href="/dashboard/workshop/">Workshop</a>
-                        </li> --}}
-                        <li><a class="dropdown-item border-bottom" href="/dashboard/admin">
-                                Dashboard
-                                Admin</a></li>
+                        <li><a class="dropdown-item border-bottom" href="/dashboard/admin/user">
+                                Pengaturan Admin</a></li>
                         {{-- <li>
                             <hr class="dropdown-divider">
                         </li> --}}
                         <li>
                             <form class="mb-0 mt-2" action="/logout" method="post">
                                 @csrf
-                                <button type="submit" class="dropdown-item">Logout</button>
+                                <button type="submit" class="dropdown-item text-danger">Logout</button>
                             </form>
                         </li>
                     </ul>
                 </div>
                 <div class="nav-item-right">
                     <a class="nav-link" href="/notification">
-                        <i class="btn-lg bi bi-bell text-light"></i>
+                        <i class="btn-lg bi bi-bell text-dark"></i>
                         <span class="badge rounded-pill badge-notification bg-danger" id="notify-count"></span>
                         <script>
                             fetch('/notification/count')

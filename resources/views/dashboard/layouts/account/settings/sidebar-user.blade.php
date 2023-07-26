@@ -4,7 +4,7 @@
             class="bi bi-gear-fill"></i></button>
 
     <div class="card profile-settings d-none d-lg-flex">
-        <div class="header-title mb-3 d-flex flex-column align-items-start">
+        <div class="header-title d-flex flex-column align-items-start">
             <?php
             $avatar_url = auth()->user()->avatar ? asset('img/avatar/' . auth()->user()->avatar) : 'https://ui-avatars.com/api/?size=128&background=random&name=' . auth()->user()->username;
             ?>
@@ -21,9 +21,9 @@
         </div>
 
 
-        <a href="/dashboard/posts" class="profile-settings-item mb-3 mt-2"><i class="bi bi-kanban"></i> Proyek Saya</a>
-        <a href="/dashboard/my-workshop" class="profile-settings-item mb-3"><i class="bi bi-calendar2-event"></i> Event</a>
-        <a href="#" class="profile-settings-item"><i class="bi bi-gear"></i> Pengaturan</a>
+        <a href="/dashboard/posts" class="profile-settings-item my-3"><i class="bi bi-settings-icon bi-kanban"></i>Proyek Saya</a>
+        <a href="/dashboard/my-workshop" class="profile-settings-item mb-3"><i class="bi bi-settings-icon bi-calendar2-event"></i> Event</a>
+        <a href="/account/profile" class="profile-settings-item"><i class="bi bi-settings-icon bi-gear"></i> Pengaturan</a>
 
 
     </div>
@@ -38,32 +38,27 @@
         <div class="d-lg-none sidebar-offcanvas sidebar-offcanvas-profile-settings">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
-                <a class="profile-settings-item" aria-current="page" href="/account/profile">Data Akun</a>
+                <a class="profile-settings-item m-2" aria-current="page" href="/account/profile">Data Akun</a>
 
-                <a class="profile-settings-item" aria-current="page" href="#">Data Instansi</a>
+                <a class="profile-settings-item m-2" aria-current="page" href="#">Data Instansi</a>
 
-                <a class="profile-settings-item" href="/account/change-password">Ubah Kata Sandi</a>
+                <a class="profile-settings-item m-2" href="/account/change-password">Ubah Kata Sandi</a>
             </ul>
         </div>
     </div>
 </div>
 
 <script>
+      // menu link active
     document.addEventListener("DOMContentLoaded", function() {
-      // Get the current URL path
       var url = window.location.pathname;
     
-      // Get all the links with the class "profile-settings-item"
+      
       var links = document.querySelectorAll('.profile-settings-item');
     
-      // Loop through the links
       links.forEach(function(link) {
-        // Get the link's href attribute
         var href = link.getAttribute('href');
-    
-        // Check if the current URL path matches the link's href
         if (url === href) {
-          // If it's a match, add the "active" class to the link
           link.classList.add('active');
         }
       });
@@ -73,10 +68,10 @@
 
 <style>
     .profile-settings-item.active {
-        background-color: #1b1b1b;
+        background-color: rgb(229, 233, 237);
         border-radius: 5px;
-        color: #fff;
-        padding: 6px;
+        color: #1b1b1b;
+        padding: 8px;
     }
 
     .sidebar-profile-settings-btn {
@@ -95,6 +90,10 @@
         text-decoration: none;
         padding-left: 8px;
         color: #111111;
+    }
+    
+    .bi-settings-icon{
+        padding-right: 10px;
     }
 
     @media (max-width: 997px) {

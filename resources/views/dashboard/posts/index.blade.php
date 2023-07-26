@@ -5,17 +5,17 @@
     <div class="row">
         @include('dashboard.layouts.account.settings.sidebar-user')
         <div class="col-md-9">
-            <div class="card content p-5">
+            <div class="card card-content">
                 @if (session()->has('success'))
                     <div class="alert alert-success col-lg-8" role="alert" style="width:100%">
                         {{ session('success') }}
                     </div>
                 @endif
-                <strong class="fs-5 mb-1">Hi, {{ auth()->user()->name }} !</strong>
+                <strong class="fs-3 mb-1">Hi, {{ auth()->user()->name }} !</strong>
                 <div class="d-flex justify-content-between">
                     <h5>Saat ini kamu telah berpartisipasi dalam {{ auth()->user()->posts->count() }} Project</h5>
                     <div class="text-right">
-                        <a href="/dashboard/posts/create" class="btn btn-primary btn-sm shadow">Buat Proyek Baru</a>
+                        <a href="/dashboard/posts/create" class="btn btn-primary btn-m shadow">Buat Proyek Baru</a>
                     </div>
                 </div>
                 <div class="col-lg-12 mt-5">
@@ -23,14 +23,11 @@
                         @foreach ($posts as $post)
                             <div class="col">
                                 <div class="card white-bg shadow">
-                                    {{-- <div class="position-absolute px-2 py-1 fs-6 bg-dark"><a
-                                            href="/posts?category={{ $post->category->slug }}"
-                                            class="text-white text-decoration-none">{{ $post->category->name }}</a></div> --}}
                                     <a href="/posts/{{ $post->slug }}">
                                         @if ($post->image)
                                             <img src="{{ asset('storage/' . $post->image) }}"
                                                 style="height: 200px; width:auto;" alt="{{ $post->category->name }}"
-                                                class="img-fluid">
+                                                class="img-fluid w-100">
                                         @else
                                             <img src="https://source.unsplash.com/220x140? {{ $post->category->name }}"
                                                 class="card-img-top" alt="{{ $post->category->name }}">
@@ -93,5 +90,15 @@
             -webkit-line-clamp: 2;
             -webkit-box-orient: vertical;
             overflow: hidden;
+        }
+
+        .card-content {
+            padding: 3rem;
+        }
+
+        @media (max-width: 767px) {
+            .card-content {
+                padding: 1.5rem;
+            }
         }
     </style>
