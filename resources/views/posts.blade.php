@@ -39,7 +39,7 @@
                         <div class="card white-bg shadow">
                             <a href="/posts/{{ $post->slug }}">
                                 @if ($post->image)
-                                    <img src="{{ asset('storage/' . $post->image) }}" style="height:230px; width:auto;"
+                                    <img src="{{ asset('storage/' . $post->image) }}" style="height:230px; width:100%;"
                                         alt="{{ $post->category->name }}" class="img-fluid rounded">
                                 @else
                                     <img src="https://source.unsplash.com/220x140? {{ $post->category->name }}"
@@ -90,10 +90,10 @@
     }
 
     .card-title {
-        display: -webkit-box;
-        -webkit-line-clamp: 1;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
     }
 
     .card-text {

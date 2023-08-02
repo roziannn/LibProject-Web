@@ -25,9 +25,9 @@
                 <li class="nav-item">
                     <a class="nav-link text-dark" href="/workshop">Workshop</a>
                 </li>
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a class="nav-link text-dark" href="/posts">Forum</a>
-                </li>
+                </li> --}}
             </ul>
         </div>
 
