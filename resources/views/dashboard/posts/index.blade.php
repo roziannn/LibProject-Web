@@ -11,14 +11,12 @@
                         {{ session('success') }}
                     </div>
                 @endif
-                <strong class="fs-3 mb-1">Hi, {{ auth()->user()->name }} !</strong>
-                <div class="d-flex justify-content-between">
-                    <h5>Saat ini kamu telah berpartisipasi dalam {{ auth()->user()->posts->count() }} Project</h5>
-                    <div class="text-right">
-                        <a href="/dashboard/posts/create" class="btn btn-primary btn-m shadow">Buat Proyek Baru</a>
-                    </div>
+                <strong class="fs-3">Hi, {{ auth()->user()->name }} !</strong>
+                <p class="fs-4 mb-4">Saat ini kamu telah berpartisipasi dalam {{ auth()->user()->posts->count() }} Project</p>
+                <div class="text-right">
+                    <a href="/dashboard/posts/create" class="btn btn-primary btn-m shadow">Buat Proyek Baru</a>
                 </div>
-                <div class="col-lg-12 mt-5">
+                <div class="col-lg-12 mt-4">
                     <div class="row row-cols-1 row-cols-md-3 g-4">
                         @foreach ($posts as $post)
                             <div class="col">
@@ -96,9 +94,11 @@
             padding: 3rem;
         }
 
-        @media (max-width: 767px) {
+        @media (max-width: 991px) {
             .card-content {
                 padding: 1.5rem;
             }
+
+
         }
     </style>

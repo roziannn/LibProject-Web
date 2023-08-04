@@ -7,7 +7,7 @@
                 <div class="col-lg-9">
                     
                     <div class="content-workshop-detail border p-4 rounded">
-                        <div class="border-bottom my-3">
+                        <div class="my-3">
                             <p class="fs-4">Deskripsi</p>
                         </div>
                         <h4>{{ $workshop->workshop_name }}</h4>

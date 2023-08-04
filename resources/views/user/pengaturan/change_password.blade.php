@@ -9,7 +9,7 @@
                 @if (session()->has('success'))
                     <div class="alert alert-success alert-dismissible fade show" role="alert">
                         {{ session('success') }}
-                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
                 @endif
                 <strong class="fs-5 border-bottom">Ubah Kata Sandi</strong>
@@ -19,19 +19,15 @@
                     <div class="form-group form row">
                         <div class="col-lg-12 mt-3">
                             <label for="current_password">Kata Sandi Lama<span class="text-danger">*</span></label>
-                            <div class="input-group">
-                                <input type="password" name="current_password"
-                                    class="form-control @error('password') is-invalid @enderror" id="current_password"
-                                    required placeholder="Enter Password">
-                                <span class="input-group-text current_password">
-                                    <i class="fas fa-eye"></i>
+
+                            <input type="password" name="current_password"
+                                class="form-control @error('password') is-invalid @enderror" id="current_password" required
+                                placeholder="Enter Password">
+                            @error('current_password')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
                                 </span>
-                                @error('current_password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
+                            @enderror
                         </div>
                     </div>
                     <div class="form-group form row">
@@ -39,7 +35,7 @@
                             <label for="new-password">Kata Sandi Baru<span class="text-danger">*</span></label>
                             <div class="input-group">
                                 <input type="password" name="password"
-                                    class="form-control @error('password') is-invalid @enderror" id="password" required
+                                    class="form-control @error('password') is-invalid @enderror" id="new-password" required
                                     placeholder="Enter New Password">
                                 <span class="input-group-text new-password">
                                     <i class="fas fa-eye"></i>
@@ -87,16 +83,16 @@
             }
         }
 
-        document.querySelector('.new-password').addEventListener('click', function(event) {
+        document.querySelector('.new-password i').addEventListener('click', function(event) {
             event.preventDefault();
-            var passwordInput = document.getElementById('new-password');
-            togglePasswordVisibility(passwordInput, this.querySelector('i'));
+            var passwordInput = document.querySelector('#new-password');
+            togglePasswordVisibility(passwordInput, this);
         });
 
-        document.querySelector('.password-confirm').addEventListener('click', function(event) {
+        document.querySelector('.password-confirm i').addEventListener('click', function(event) {
             event.preventDefault();
-            var passwordInput = document.getElementById('password-confirm');
-            togglePasswordVisibility(passwordInput, this.querySelector('i'));
+            var passwordInput = document.querySelector('#password-confirm');
+            togglePasswordVisibility(passwordInput, this);
         });
     });
 </script>

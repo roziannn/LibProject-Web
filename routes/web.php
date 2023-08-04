@@ -6,7 +6,6 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\DashboardPostController;
-use App\Http\Controllers\DashboardAdminController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PasswordController;
 use App\Http\Controllers\PostCommentController;
@@ -134,12 +133,13 @@ Route::get('/account/profile', [UserController::class, 'index']);
 Route::patch('/account', [UserController::class,'update'])
 ->name('account.update');
 
-#admin dashboard
-Route::get('/dashboard/admin', [UserController::class, 'dashboard_user']);
-Route::get('/dashboard/admin/category', [CategoryController::class, 'index']);
-Route::get('/dashboard/admin/user', [UserController::class, 'dashboard_user']);
-// user edit by admin
-Route::post('/dashboard/admin/user/edit{id}', [UserController::class,'dashboard_user_update']);
+Route::middleware(['auth', 'roles:ADMIN'])->group(function () {
+    Route::get('/dashboard/admin', [UserController::class, 'dashboard_user']);
+    Route::get('/dashboard/admin/category', [CategoryController::class, 'index']);
+    Route::get('/dashboard/admin/user', [UserController::class, 'dashboard_user']);
+    Route::post('/dashboard/admin/user/edit{id}', [UserController::class,'dashboard_user_update']);
+});
+
 
 #category
 Route::post('/dashboard/admin/category/store', [CategoryController::class,'store']);

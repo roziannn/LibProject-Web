@@ -50,15 +50,15 @@
                         </li>
                         <li><a class="dropdown-item my-2" href="/dashboard/posts">Dashboard</a>
                         </li>
-                        <div class="dropdown-divider"></div>
-                        <li><a class="dropdown-item my-2" href="/dashboard/admin/user">
-                                Pengaturan Admin</a></li>
-                        <li>
-                            <div class="dropdown-divider"></div>
-                            <form class="mb-0 mt-2" action="/logout" method="post">
-                                @csrf
-                                <button type="submit" class="dropdown-item text-danger">Logout</button>
-                            </form>
+                        @if (auth()->user()->roles === 'ADMIN')
+                            <li><a class="dropdown-item" href="/dashboard/admin/user">
+                                    Admin</a></li>
+                            <li>
+                        @endif
+                        <form class="mb-0 border-top" action="/logout" method="post">
+                            @csrf
+                            <button type="submit" class="dropdown-item btn-logout">Logout</button>
+                        </form>
                         </li>
                     </ul>
                 </div>
@@ -187,7 +187,7 @@
         position: relative;
         font-size: 5px;
     }
-    
+
     .badge {
         background: rgba(0, 0, 0, 0.5);
         width: auto;
@@ -199,9 +199,10 @@
         right: -2px;
         padding: 1px;
     }
+
     .text-logos {
         color: #ffffff;
-      
+
     }
 
     @media (max-width: 768px) {
